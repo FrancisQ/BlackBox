@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+	<script>
+		function init(){
+			var stage = new createjs.Stage("myCanvas");
+			
+			var playCircle = new createjs.Shape();
+			var leaderBoardCircle = new createjs.Shape();
+			var soundCircle = new createjs.Shape();
+			var soundIsOn = true;
+			
+			playCircle.graphics.beginFill("red").drawCircle(0, 0, 50);
+			playCircle.x = 100;
+			playCircle.y = 100;
+			stage.addChild(playCircle);
+			leaderBoardCircle.graphics.beginFill("blue").drawCircle(0, 0, 50);
+			leaderBoardCircle.x = 225;
+			leaderBoardCircle.y = 100;
+			stage.addChild(leaderBoardCircle);
+			soundCircle.graphics.beginFill("green").drawCircle(0, 0, 50);
+			soundCircle.x = 350;
+			soundCircle.y = 100;
+			stage.addChild(soundCircle);
+			
+			stage.update();
+			
+			leaderBoardCircle.addEventListener("click", gotoLeaderBoard);			
+			function gotoLeaderBoard(event) {					
+				var leaderBoard = new createjs.Shape();
+				var title = new createjs.Text("Leaderboards", "30px Verdana", "white");
+				var scoreBox =  new createjs.Shape();
+				var returnButton = new createjs.Shape();
+				leaderBoard.graphics.beginFill("blue").drawRect(0,0,500,500);
+				leaderBoard.x = 0;
+				leaderBoard.y = 0;				
+				
+				title.x = 150;
+				
+				scoreBox.graphics.beginFill("black").drawRoundRect(0,0,300,420, 25);
+				scoreBox.x = 100;
+				scoreBox.y = 120;
+				
+				returnButton.graphics.beginFill("red").drawRoundRect(475, 25, 25, 25, 5);
+				returnButton.addEventListener("click", init);
+				stage.addChild(leaderBoard);
+				stage.addChild(title);
+				stage.addChild(scoreBox);
+				stage.addChild(returnButton);
+				stage.update();
+			}			
+			
+			playCircle.addEventListener("click", handleClick);
+			function handleClick(event) {
+				var game = new createjs.Shape();
+				createjs.Ticker.addEventListener("tick", handleTick);
+				createjs.Ticker.setInterval(3000);
+				function handleTick(event) {					
+					game.graphics.beginFill(getRandomColor()).drawRect(0,0,500,500);
+					stage.addChild(game);
+					stage.update();
+				}
+			}
+			
+			soundCircle.addEventListener("click", soundToggle);
+			function soundToggle(event) {
+				if (soundIsOn === true){
+					alert("Sound is now set to off!");
+					soundIsOn = false;
+				}
+				else {
+					alert("Sound is now set to on!");
+					soundIsOn = true;
+				}
+			}
+			
+			function getRandomColor() {
+				var letters = '0123456789ABCDEF'.split('');
+				var color = '#';
+				for (var i = 0; i < 6; i++ ) {
+					color += letters[Math.floor(Math.random() * 16)];
+				}
+				return color;
+			}
+			
+		}
+		</script>
+</head>
+<body onload="init();">
+	<canvas id="myCanvas" width="500" height="500">
+		alternative content
+	</canvas>
+</body>
+</html>
