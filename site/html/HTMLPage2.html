@@ -25,13 +25,6 @@ var colourChosen = colourColour[pick];
 //Choose WORD
 var wordChosen = colourWords[pick2];
 
-//adds word to canvas in a random colour
-/*var canvas = document.getElementById("myCanvas");
-var draw = canvas.getContext("2d");
-draw.font = "30px Arial";
-draw.fillStyle = colourChosen;
-draw.fillText(wordChosen,105,250);
-*/
 var text = new createjs.Text(wordChosen, "40px Times New Roman", colourChosen);
 text.x = 105;
 text.y = 250;
@@ -62,14 +55,14 @@ if(colourChosen == answer){
  
  //makes sure the first random colour is not duplicated.
 if((random== pick) || (random== pick2) || (random == random2) || (random == random3)){
-	while((random== pick) || (random== pick2) || (random == random2)){
+	while((random== pick) || (random== pick2) || (random == random2)|| (random == random3)){
 		random = Math.floor(Math.random()*9);
 		randomColour1 = colourColour[random];
 	}
 };
 //makes sure the second random colour is not duplicated.
-if((random2 == pick) || (random2 == pick2) || (random == random2) || (random == random3)){
-	while((random2 == pick) || (random2 == pick2) || (random == random2)){
+if((random2 == pick) || (random2 == pick2) || (random == random2) || (random2 == random3)){
+	while((random2 == pick) || (random2 == pick2) || (random == random2)|| (random2 == random3)){
 		random2 = Math.floor(Math.random()*9);
 		randomColour2 = colourColour[random2];
 	}
