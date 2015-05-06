@@ -82,7 +82,7 @@
 				endButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
 				endButton.addEventListener("click", init);
 				createjs.Ticker.addEventListener("tick", handleTick);
-				createjs.Ticker.setInterval(3000);
+				createjs.Ticker.setInterval(1000);
 				createjs.Ticker.init();
 				function handleTick(event) {
 					if (createjs.Ticker.getTime() >= 5000 && !createjs.Ticker.getPaused()) {
@@ -92,6 +92,7 @@
 						stage.addChild(timeIsUp);
 						stage.addChild(endButton);
 						createjs.Ticker.setPaused(true);
+                        createjs.Ticker.reset();
 						stage.update();						
 					}
 					if (!createjs.Ticker.getPaused()) {
@@ -99,7 +100,7 @@
 						stage.addChild(game);
 						stage.update();
 					}
-					if (createjs.Ticker.getTime() >= 10000) {
+					if (createjs.Ticker.getTime() >= 5000) {
 						stage.addChild(endButton);
 						createjs.Ticker.reset();
 						stage.update();

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>jQuery Test Page</title>
+        <script src="scripts/jquery-2.1.0.js" type="text/javascript"></script>
+        <script>
+        //<reference path="scripts/jquery-2.1.0-vsdoc.js" />
+        $(function change() {
+           $("#bar").text($("#foo").text());
+           $("#foo").text("This is some custom text");
+        });
+		function test()
+		{
+			alert("You fool, this is not a link!");
+		}
+		function other() {
+			prompt("Say HAI back?");
+		}
+        </script>
+    </head>
+    <body>
+        <h1 id="foo">This is the first line</h1>
+        <h2 id="bar">This is the second line</h2>
+		<h3 id="bareth" onclick="test()"><a href="">This is not a link</a></h3>
+		<h1>Aldrin says <a href="" onclick="other()">HAI!</a> </h1>
+        <button onclick="setInterval(function(){alert('Timer works')},3000);">Click here for an alert every 3 seconds.</button>
+
+    </body>
+    </br>
+    Testing the PUSH and LE PULL AUJOUR DHUI </br>
+    Go back to Mrs. Keenan ALdrino
+</html>
