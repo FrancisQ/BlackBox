@@ -85,6 +85,7 @@
 				var gameDone = false;
 				var gameOver = false;
 				endButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
+<<<<<<< HEAD:site/html/index.html
 				endButton.addEventListener("click", gameWin);		
 				stage.addChild(endButton);
 				//createjs.Ticker.addEventListener("tick", handleTick);
@@ -98,6 +99,12 @@
 					//}
 				}
 				alert("test");
+=======
+				endButton.addEventListener("click", init);
+				createjs.Ticker.addEventListener("tick", handleTick);
+				createjs.Ticker.setInterval(1000);
+				createjs.Ticker.init();
+>>>>>>> 409d9f4d962ef2e2b643c0ca0a3d82666e5530ad:site/html/Mainframe.html
 				function handleTick(event) {
 					if (createjs.Ticker.getTime() >= 5000 && !createjs.Ticker.getPaused()) {
 						var timeIsUp = new createjs.Text("Time is up!", "30px Verdana", "white");
@@ -106,6 +113,19 @@
 						stage.addChild(timeIsUp);
 						
 						createjs.Ticker.setPaused(true);
+<<<<<<< HEAD:site/html/index.html
+=======
+                        createjs.Ticker.reset();
+						stage.update();						
+					}
+					if (!createjs.Ticker.getPaused()) {
+						game.graphics.beginFill(getRandomColor()).drawRect(0,0,300,500);
+						stage.addChild(game);
+						stage.update();
+					}
+					if (createjs.Ticker.getTime() >= 5000) {
+						stage.addChild(endButton);
+>>>>>>> 409d9f4d962ef2e2b643c0ca0a3d82666e5530ad:site/html/Mainframe.html
 						createjs.Ticker.reset();
 					}
 					
