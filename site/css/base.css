@@ -107,3 +107,12 @@ html,body {
 .imgCent {
 	text-align:center;
 }
+
+li a {
+	color: #BFBFBF;
+	text-decoration:none;
+}
+li a:hover {
+	color: #0E0E0E;
+	text-decoration:none;
+}
