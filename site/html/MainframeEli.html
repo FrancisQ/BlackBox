@@ -123,6 +123,7 @@
              var gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "white");
              gameOver.x = 50;
              gameOver.y = 50;
+             stage.removeAllChildren();
              stage.addChild(gameOver);
              stage.addChild(endButton);
              stage.update();
@@ -173,10 +174,18 @@
              var colourChosen = colourColour[pick];
              //Choose WORD
              var wordChosen = colourWords[pick2];
+             alert("ok");
+             var time = 15 - (difficulty * 2);
+             var success = false;
 
              createjs.Ticker.addEventListener("tick", handleTick);
-			 createjs.Ticker.setInterval(1000);
-			 createjs.Ticker.init();
+             createjs.Ticker.setInterval(1000);
+             createjs.Ticker.init();
+
+             function handleTick(event) {
+                 time = time - 1;
+                 alert("ok4");
+             }
 
              var text = new createjs.Text(wordChosen, "40px Times New Roman", colourChosen);
              text.x = 105;
@@ -186,6 +195,7 @@
              stage.addChild(text);
              stage.update();
 
+             alert("ok2");
 
              //THIS PART IS FOR THE BUTTONS 
 
@@ -204,8 +214,8 @@
                      random3 = Math.floor(Math.random() * 9);
                      randomColour3 = colourColour[random3];
                      colourChosen = randomColour3;
-                 };
-             };
+                 }
+             }
 
              //makes sure the first random colour is not duplicated.
              if ((random == pick) || (random == pick2) || (random == random2) || (random == random3)) {
@@ -213,14 +223,14 @@
                      random = Math.floor(Math.random() * 9);
                      randomColour1 = colourColour[random];
                  }
-             };
+             }
              //makes sure the second random colour is not duplicated.
              if ((random2 == pick) || (random2 == pick2) || (random == random2) || (random2 == random3)) {
                  while ((random2 == pick) || (random2 == pick2) || (random == random2) || (random2 == random3)) {
                      random2 = Math.floor(Math.random() * 9);
                      randomColour2 = colourColour[random2];
                  }
-             };
+             }
 
 
              //Switch position of right answer
@@ -250,18 +260,18 @@
                      topLeft();
 
                      break;
-             };
+             }
 
              //Right Answer
              function correct(event) {
                  alert("Shit, you got it right!");
-                 return true;
-             };
+                 success = true;
+             }
              //Wrong Answer
              function wrong(event) {
                  alert("WRONG");
-                 return false;
-             };
+                 success = false;
+             }
 
 
              //OPTION 1
@@ -300,7 +310,7 @@
                  stage.update();
 
 
-             };
+             }
 
              //OPTION 2
              function topLeft() {
@@ -335,7 +345,7 @@
                  stage.addChild(bottomRight);
                  bottomRight.addEventListener("click", wrong);
                  stage.update();
-             };
+             }
 
              //OPTION 3
              function topRight() {
@@ -371,7 +381,7 @@
                  bottomRight.addEventListener("click", wrong);
                  stage.update();
 
-             };
+             }
 
              //OPTION 4
              function bottomRight() {
@@ -407,8 +417,12 @@
                  bottomRight.addEventListener("click", correct);
                  stage.update();
              }
+             alert("ok3");
+             
+             createjs.Ticker.setPaused(true);
+             createjs.Ticker.reset();
+             return success;
          }
-
          stage.update();
      }
 </script>
