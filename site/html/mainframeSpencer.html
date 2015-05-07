@@ -16,6 +16,7 @@
          var soundIsOn = true;
          var backgroundTile = new createjs.Shape();
 		 var timer = 0;
+		 var answersGameOne = 0;
 
 		 createjs.Ticker.addEventListener("tick", handleTick);
 		 createjs.Ticker.setInterval(1000);
@@ -75,47 +76,52 @@
              stage.addChild(returnButton);
              stage.update();
          }
-
+		var lives = 3;
          playRect.addEventListener("click", handleClick);
          function handleClick(event) {
+			
+			stage.removeAllChildren();
              var game = new createjs.Shape();
-             var lives = 3;
+             
              var difficulty = 0;
              var games = [gameOne, gameTwo, gameThree, gameBoss];
              var randNum = 0;
              var correct = 0;
              var score = 0;
+			 answersGameOne = 0;
              var endButton = new createjs.Shape();
              endButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
              endButton.addEventListener("click", init);
-             while (lives > 0) {
+             if (lives > 0) {
                  if (correct >= 3) {
                      if (games[3](difficulty)) {
                          score += 200 * difficulty;
                          correct = 0;
                          difficulty++;
                      } else {
-                         lives--;
                          correct = 0;
                      }
                  } else {
                      randNum = Math.floor(Math.random() * 2);
-                     if (games[randNum](difficulty)) {
+                     if (games[0](difficulty)) {
                          score += 100 * difficulty;
                          correct++;
                      } else {
-                         lives--;
                          correct = 0;
                      }
                  }
 
              }
-             var gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "white");
-             gameOver.x = 50;
-             gameOver.y = 50;
-             stage.addChild(gameOver);
-             stage.addChild(endButton);
-             stage.update();
+			 else{
+			 alert("lose");
+			 init();
+			 }
+             //var gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "white");
+             //gameOver.x = 50;
+             //gameOver.y = 50;
+             //stage.addChild(gameOver);
+             //stage.addChild(endButton);
+             //stage.update();
          }
 
          soundRect.addEventListener("click", soundToggle);
@@ -147,9 +153,7 @@
 			//THIS PART IS FOR THE WORD WITH COLOUR
 			//var stage = new createjs.Stage("myCanvas");
 			//random generator
-			var gameIsRunning = true;
-			while(timer < 10){
-			alert(timer);
+			stage.removeAllChildren();
 			var backgroundWhite = new createjs.Shape();
 			backgroundWhite.graphics.beginFill("white").drawRect(0, 0, 300, 500);
 			stage.addChild(backgroundWhite);
@@ -169,7 +173,7 @@
 			text.y = 250;
 			text.textBaseline = "alphabetic";
 			stage.addChild(text);
-			stage.update();
+			//stage.update();
 
 
 			//THIS PART IS FOR THE BUTTONS 
@@ -178,7 +182,7 @@
 			var random2 = Math.floor(Math.random()*9);
 			var random3 = Math.floor(Math.random()*9);
 			var answer = colourColour[pick2];
-			var answerBool;
+			
 			var randomColour1 = colourColour[random];
 			var randomColour2 = colourColour[random2];
 			var randomColour3 = colourColour[random3];
@@ -240,12 +244,13 @@
 
 			//Right Answer
 			function correct(event){
-				answerBool = true;
-				gameIsRunning = false;
+				answersGameOne++;
+				gameOne(difficulty);
 				}
 			function wrong(event){
-				answerBool = false;
-				gameIsRunning = false;
+				alert("wrong");
+				lives--;
+				handleClick();				
 			}
 
 
@@ -257,7 +262,7 @@
 					bottomLeft.rotation = 45;
 					stage.addChild(bottomLeft);
 					bottomLeft.addEventListener("click",correct);
-					stage.update();
+					//stage.update();
 					
 					//topLeft
 					var topLeft = new createjs.Shape();
@@ -265,7 +270,7 @@
 					topLeft.rotation = 45;
 					stage.addChild(topLeft);
 					topLeft.addEventListener("click", wrong);
-					stage.update();
+					//stage.update();
 
 					//topRight
 					var topRight = new createjs.Shape();
@@ -282,7 +287,7 @@
 					bottomRight.rotation = 45;
 					stage.addChild(bottomRight);
 					bottomRight.addEventListener("click", wrong);
-					stage.update();
+					//stage.update();
 					
 					
 			};
@@ -295,7 +300,7 @@
 					topLeft.rotation = 45;
 					stage.addChild(topLeft);
 					topLeft.addEventListener("click",correct);
-					stage.update();
+					//stage.update();
 
 					//topRight
 					var topRight = new createjs.Shape();
@@ -303,7 +308,7 @@
 					topRight.rotation = 45;
 					stage.addChild(topRight);
 					topRight.addEventListener("click", wrong);
-					stage.update();
+					//stage.update();
 
 					//bottomLeft
 					var bottomLeft = new createjs.Shape();
@@ -311,7 +316,7 @@
 					bottomLeft.rotation = 45;
 					stage.addChild(bottomLeft);
 					bottomLeft.addEventListener("click", wrong);
-					stage.update();
+					//stage.update();
 
 					//bottomRight
 					var bottomRight = new createjs.Shape();
@@ -319,7 +324,7 @@
 					bottomRight.rotation = 45;
 					stage.addChild(bottomRight);
 					bottomRight.addEventListener("click", wrong);
-					stage.update();
+					//stage.update();
 			};
 
 			//OPTION 3
@@ -330,7 +335,7 @@
 					topLeft.rotation = 45;
 					stage.addChild(topLeft);
 					topLeft.addEventListener("click", wrong);
-					stage.update();
+					//stage.update();
 
 					//topRight
 					var topRight = new createjs.Shape();
@@ -338,7 +343,7 @@
 					topRight.rotation = 45;
 					stage.addChild(topRight);
 					topRight.addEventListener("click",correct);
-					stage.update();
+					//stage.update();
 
 					//bottomLeft
 					var bottomLeft = new createjs.Shape();
@@ -346,7 +351,7 @@
 					bottomLeft.rotation = 45;
 					stage.addChild(bottomLeft);
 					bottomLeft.addEventListener("click",wrong);
-					stage.update();
+					//stage.update();
 
 					//bottomRight
 					var bottomRight = new createjs.Shape();
@@ -354,7 +359,7 @@
 					bottomRight.rotation = 45;
 					stage.addChild(bottomRight);
 					bottomRight.addEventListener("click", wrong);
-					stage.update();
+					//stage.update();
 
 			};
 
@@ -366,7 +371,7 @@
 					topLeft.rotation = 45;
 					stage.addChild(topLeft);
 					topLeft.addEventListener("click", wrong);
-					stage.update();
+					//stage.update();
 
 					//topRight
 					var topRight = new createjs.Shape();
@@ -374,7 +379,7 @@
 					topRight.rotation = 45;
 					stage.addChild(topRight);
 					topRight.addEventListener("click", wrong);
-					stage.update();
+					//stage.update();
 
 					//bottomLeft
 					var bottomLeft = new createjs.Shape();
@@ -382,7 +387,7 @@
 					bottomLeft.rotation = 45;
 					stage.addChild(bottomLeft);
 					bottomLeft.addEventListener("click", wrong);
-					stage.update();
+					//stage.update();
 
 					//bottomRight
 					var bottomRight = new createjs.Shape();
@@ -390,16 +395,13 @@
 					bottomRight.rotation = 45;
 					stage.addChild(bottomRight);
 					bottomRight.addEventListener("click",correct);
-					stage.update();
+					//stage.update();
 			};
-			if(answerBool) {
-				//return true;
+			if(answersGameOne > 2) {
+				alert("game win");
+				init();
 			}
-			else {
-				//return false;
-			}
-			}
-             //return true;
+			stage.update();
          }
 
          function gameTwo(difficulty) {
