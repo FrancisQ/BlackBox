@@ -9,7 +9,6 @@
 			position: absolute;
 			position: fixed;
 			top:0;
-			bottom:0;
 			right:-3%;
 			height: 200px;
 			margin-top:auto;
@@ -19,7 +18,8 @@
 		#wholeList{
 			list-style: none;
 			padding-left: 5px;
-			text-align: center;
+			padding-top: 18%;
+			
 			color: white;
 			}
 		.listItem{
@@ -27,11 +27,48 @@
 			background-color: #595959;
 			border-radius: 25px;
 			padding: 5px;
-			padding-right: 100px;
-			margin-top: 5px;
+			padding-left: 20px;
+			padding-right: 75px;
+			margin-top: 8px;
 			box-shadow: -5px 5px 5px grey;
 			
+			
 			}
+			a:link {
+				color: white;
+				text-decoration:none;
+			}
+
+			/* visited link */
+			a:visited {
+				color: white;
+			}
+
+			/* mouse over link */
+			.listItem:hover {
+				color: white;
+				background:black;
+				
+			}
+
+			/* selected link */
+			a:active {
+				color: white;
+			}
+			#long{
+				margin-left: 75px;
+				}
+			#medium{
+				margin-left: 50px;
+				}
+			#small{
+				margin-left: 75px;
+				}
+			#xsmall{
+				margin-left: 125px;
+				
+				}
+
 		
 		</style>
     </head>
@@ -39,10 +76,10 @@
 <div id="img"></div>
 <div id="nav">
 <ul id="wholeList">
-	<li class="listItem">Home</li>
-	<li class="listItem">Play</li>
-	<li class="listItem">How to</li>
-	<li class="listItem">About us</li>
+	<a href="google.com"><li id="long" class="listItem">Home</li></a>
+	<a href="google.com"><li id="medium" class="listItem">Play</li></a>
+	<a href="google.com"><li id="small" class="listItem">How to</li></a>
+	<a href="google.com"><li id="xsmall" class="listItem">About us</li></a>
 </ul>
 </div>
 
