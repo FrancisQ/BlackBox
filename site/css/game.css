@@ -1,0 +1,11 @@
+#inner {
+	margin: 0 auto;
+}
+
+#game {
+	margin: 0 auto;
+	width: 300;
+	height: 500;
+	border-radius:15px;
+	background-color: gray;
+}
