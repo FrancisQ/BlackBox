@@ -2,6 +2,7 @@
 <html>
 <head>
 	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+	<script type="text/javascript" src = "simpleGame.js"></script>
 	<script>
      function init() {
          var stage = new createjs.Stage("myCanvas");
@@ -15,11 +16,11 @@
          var soundRect = new createjs.Shape();
          var soundIsOn = true;
          var backgroundTile = new createjs.Shape();
-		 var timer = 0;
+		 var timer = new Timer();
 		 var answersGameOne = 0;
+		 var timeHolder = 0;
 
-		 createjs.Ticker.addEventListener("tick", handleTick);
-		 createjs.Ticker.setInterval(1000);
+		//setInterval(function () {handleTick()}, 1000);
          mainTitle.x = 20;
          mainTitle.y = 10;
          playText.x = 170;
@@ -103,9 +104,10 @@
                      }
                  } else {
                      randNum = Math.floor(Math.random() * 2);
-                     if (games[0](difficulty)) {
-                         score += 100 * difficulty;
-                         correct++;
+					 timeHolder = timer.getElapsedTime();
+                     if (games[0](difficulty)) {						
+                        score += 100 * difficulty;
+                        correct++;
                      } else {
                          correct = 0;
                      }
@@ -116,6 +118,7 @@
 			 alert("lose");
 			 init();
 			 }
+			 answersGameOne = 0;
              //var gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "white");
              //gameOver.x = 50;
              //gameOver.y = 50;
@@ -145,9 +148,9 @@
              return color;
          }
 		
-		function handleTick(event) {
-			timer++;
-		}
+		//function handleTick() {
+		//	timer++;
+		//}
 		
         function gameOne(difficulty) {
 			//THIS PART IS FOR THE WORD WITH COLOUR
@@ -187,7 +190,10 @@
 			var randomColour2 = colourColour[random2];
 			var randomColour3 = colourColour[random3];
 
-
+			if(answersGameOne > 2) {
+				alert("game win");
+				init();
+			}
 
 			if(colourChosen == answer){
 				while(colourChosen == answer){
@@ -244,13 +250,19 @@
 
 			//Right Answer
 			function correct(event){
-				answersGameOne++;
-				gameOne(difficulty);
+				if(timeHolder + 5 < timer.getElapsedTime()){
+					alert("Time is up!");
+					init();
+				}
+				else{
+					answersGameOne++;
+					gameOne(difficulty);
+				}
 				}
 			function wrong(event){
-				alert("wrong");
-				lives--;
-				handleClick();				
+				//lives--;
+				//handleClick();	
+				init();
 			}
 
 
@@ -397,10 +409,7 @@
 					bottomRight.addEventListener("click",correct);
 					//stage.update();
 			};
-			if(answersGameOne > 2) {
-				alert("game win");
-				init();
-			}
+			
 			stage.update();
          }
 
