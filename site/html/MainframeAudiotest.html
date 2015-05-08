@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+	<script>
+     function init() {
+
+         var stage = new createjs.Stage("myCanvas");
+
+         var mainTitle = new createjs.Text("Black Box", "60px Arial", "black");
+         var playText = new createjs.Text("Play", "20px Verdana", "black");
+         var leaderBoardText = new createjs.Text("Leaderboards", "20px Verdana", "black");
+         var soundText = new createjs.Text("Sound", "20px Verdana", "black");
+         var playRect = new createjs.Shape();
+         var leaderBoardRect = new createjs.Shape();
+         var soundRect = new createjs.Shape();
+         var soundIsOn = true;
+         var backgroundTile = new createjs.Shape();
+
+		 
+
+         mainTitle.x = 20;
+         mainTitle.y = 10;
+         playText.x = 170;
+         playText.y = 350;
+         leaderBoardText.x = 75;
+         leaderBoardText.y = 150;
+         soundText.x = 50;
+         soundText.y = 350;
+
+         backgroundTile.graphics.beginFill("grey").drawRect(0, 0, 300, 500);
+
+         playRect.graphics.beginFill("yellow").drawRect(0, 0, 150, 250);
+         playRect.y = 250;
+         playRect.x = 150;
+
+         leaderBoardRect.graphics.beginFill("cyan").drawRect(0, 0, 300, 150);
+         leaderBoardRect.y = 100;
+
+         soundRect.graphics.beginFill("#00ff00").drawRect(0, 0, 150, 250);
+         soundRect.y = 250;
+
+         stage.addChild(backgroundTile);
+         stage.addChild(playRect);
+         stage.addChild(leaderBoardRect);
+         stage.addChild(soundRect);
+         stage.addChild(mainTitle);
+         stage.addChild(playText);
+         stage.addChild(leaderBoardText);
+         stage.addChild(soundText);
+
+		//Music activated
+		
+		
+         leaderBoardRect.addEventListener("click", gotoLeaderBoard);
+         function gotoLeaderBoard(event) {
+			 var leadaudio = new Audio('../music/transition.mp3');
+			 if(soundIsOn == true){leadaudio.play();}
+			 else{}
+             var leaderBoard = new createjs.Shape();
+             var title = new createjs.Text("Leaderboards", "30px Verdana", "white");
+             var scoreBox = new createjs.Shape();
+             var returnButton = new createjs.Shape();
+             leaderBoard.graphics.beginFill("blue").drawRect(0, 0, 300, 500);
+             leaderBoard.x = 0;
+             leaderBoard.y = 0;
+
+             title.x = 50;
+
+             scoreBox.graphics.beginFill("black").drawRoundRect(0, 0, 250, 420, 25);
+             scoreBox.x = 25;
+             scoreBox.y = 100;
+
+             returnButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
+             returnButton.addEventListener("click", init);
+             stage.addChild(leaderBoard);
+             stage.addChild(title);
+             stage.addChild(scoreBox);
+             stage.addChild(returnButton);
+             stage.update();
+         }
+         playRect.addEventListener("click", handleClick);
+         function handleClick(event){
+		 var introaudio = new Audio('../music/intro.mp3'); 
+		 if(soundIsOn == true){
+		 
+		 introaudio.play();}
+		 else{}
+	
+             //variables
+             var game = new createjs.Shape();
+             var lives = 4;
+             var difficulty = 0;
+             var games = [gameOne, gameTwo, gameThree, gameBoss];
+             var randNum = 0;
+             var correct = 0;
+             var score = 0;
+             var endButton = new createjs.Shape();
+
+             //end button colour and mouse listener
+             endButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
+             endButton.addEventListener("click", init);
+
+             //game loop
+             while (lives > 0) {
+
+                 //determines if next stage is a boss else chooses a regular game at random
+                 if (correct >= 3) {
+                     alert("Boss game");
+                     if (games[3](difficulty)) {
+                         score += 200 * difficulty;
+                         correct = 0;
+                         difficulty++;
+                     } else {
+                         alert("Life lost");
+                         lives--;
+                         correct = 0;
+                     }
+                 } else {
+                     alert("Regular game");
+                     randNum = Math.floor(Math.random() * 2);
+                     if (games[randNum](difficulty)) {
+                         score += 100 * difficulty;
+                         correct++;
+                     } else {
+                         alert("Life lost");
+                         lives--;
+                         correct = 0;
+                     }
+                 }
+
+             }
+             var gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "white");
+             gameOver.x = 50;
+             gameOver.y = 50;
+             stage.removeAllChildren();
+             stage.addChild(gameOver);
+             stage.addChild(endButton);
+             stage.update();
+         }
+
+         soundRect.addEventListener("click", soundToggle);
+			 var audio = new Audio('../music/theme.mp3');
+				if (typeof audio.loop == 'boolean')
+				{
+				audio.loop = true;
+				}
+				else
+				{
+				audio.addEventListener('ended', function() {
+				this.currentTime = 0;
+				this.play();
+				}, false);
+				}
+			
+
+			 function soundToggle(event) {
+				 if (soundIsOn == true) {
+					 alert("Sound is now set to off!");
+					 soundIsOn = false;
+					 audio.pause();
+					 audio.currentTime = 0;
+				 }
+				 else {
+					 alert("Sound is now set to on!");
+					 soundIsOn = true;
+					 audio.play();
+				}
+			 }
+			 
+
+         function getRandomColor() {
+             var letters = '0123456789ABCDEF'.split('');
+             var color = '#';
+             for (var i = 0; i < 6; i++) {
+                 color += letters[Math.floor(Math.random() * 16)];
+             }
+             return color;
+         }
+
+         function gameOne(difficulty) {
+             return true;
+         }
+
+         function gameTwo(difficulty) {
+             return true;
+         }
+
+         function gameThree(difficulty) {
+             return true;
+         }
+
+         function gameBoss(difficulty) {
+             //random generator
+             var pick = Math.floor(Math.random() * 9);
+             var pick2 = Math.floor(Math.random() * 9);
+             //words array
+             var colourWords = ["blue", "red", "yellow", "green", "purple", "pink", "orange", "cyan", "black"];
+             //colour array
+             var colourColour = ["#0000FF", "#FF0000", "#FFFF00", "#00FF00", "#6B238E", "#FF83FA", "#FF8C00", "#00FFFF", "#000000"];
+             //Choose a colour
+             var colourChosen = colourColour[pick];
+             //Choose WORD
+             var wordChosen = colourWords[pick2];
+             var time = 15 - (difficulty * 2);
+             var success = false;
+
+             createjs.Ticker.addEventListener("tick", handleTick);
+             createjs.Ticker.setInterval(1000);
+             createjs.Ticker.init();
+
+             function handleTick(event) {
+                 time = time - 1;
+                
+             }
+
+             var text = new createjs.Text(wordChosen, "40px Times New Roman", colourChosen);
+             text.x = 105;
+             text.y = 250;
+             text.textBaseline = "alphabetic";
+             stage.removeAllChildren();
+             stage.addChild(text);
+             stage.update();
+
+            
+             //THIS PART IS FOR THE BUTTONS 
+
+             var random = Math.floor(Math.random() * 9);
+             var random2 = Math.floor(Math.random() * 9);
+             var random3 = Math.floor(Math.random() * 9);
+             var answer = colourColour[pick2];
+             var randomColour1 = colourColour[random];
+             var randomColour2 = colourColour[random2];
+             var randomColour3 = colourColour[random3];
+
+
+
+             if (colourChosen == answer) {
+                 while (colourChosen == answer) {
+                     random3 = Math.floor(Math.random() * 9);
+                     randomColour3 = colourColour[random3];
+                     colourChosen = randomColour3;
+                 }
+             }
+
+             //makes sure the first random colour is not duplicated.
+             if ((random == pick) || (random == pick2) || (random == random2) || (random == random3)) {
+                 while ((random == pick) || (random == pick2) || (random == random2) || (random == random3)) {
+                     random = Math.floor(Math.random() * 9);
+                     randomColour1 = colourColour[random];
+                 }
+             }
+             //makes sure the second random colour is not duplicated.
+             if ((random2 == pick) || (random2 == pick2) || (random == random2) || (random2 == random3)) {
+                 while ((random2 == pick) || (random2 == pick2) || (random == random2) || (random2 == random3)) {
+                     random2 = Math.floor(Math.random() * 9);
+                     randomColour2 = colourColour[random2];
+                 }
+             }
+
+
+             //Switch position of right answer
+             var answerPlacement = Math.floor(Math.random() * 4);
+             switch (answerPlacement) {
+                 case 0:
+                     topLeft();
+
+                     break;
+
+                 case 1:
+                     topRight();
+
+                     break;
+
+                 case 2:
+                     bottomLeft();
+
+                     break;
+
+                 case 3:
+                     bottomRight();
+
+                     break;
+
+                 default:
+                     topLeft();
+
+                     break;
+             }
+
+             //Right Answer
+             function correct(event) {
+                 alert("You got it right!");
+                 success = true;
+					var correctaudio = new Audio('../music/achieve.mp3');
+					if(soundIsOn == true){correctaudio.play();}
+					else{}
+             }
+             //Wrong Answer
+             function wrong(event) {
+                 alert("WRONG");
+                 success = false;
+					var newaudio = new Audio('../music/beep.mp3'); 
+					if(soundIsOn == true){newaudio.play();}
+					else{}
+             }
+
+
+             //OPTION 1
+             function bottomLeft() {
+                 //bottomLeft
+                 var bottomLeft = new createjs.Shape();
+                 bottomLeft.graphics.beginFill(answer).drawRect(200, 210, 300, 500);
+                 bottomLeft.rotation = 45;
+                 stage.addChild(bottomLeft);
+                 bottomLeft.addEventListener("click", correct);
+                 stage.update();
+
+                 //topLeft
+                 var topLeft = new createjs.Shape();
+                 topLeft.graphics.beginFill(randomColour2).drawRect(-150, -150, 300, 500);
+                 topLeft.rotation = 45;
+                 stage.addChild(topLeft);
+                 topLeft.addEventListener("click", wrong);
+                 stage.update();
+
+                 //topRight
+                 var topRight = new createjs.Shape();
+                 topRight.graphics.beginFill(colourChosen).drawRect(50, -365, 500, 300);
+                 topRight.rotation = 45;
+                 stage.addChild(topRight);
+                 topRight.addEventListener("click", wrong);
+                 stage.update();
+
+
+                 //bottomRight
+                 var bottomRight = new createjs.Shape();
+                 bottomRight.graphics.beginFill(randomColour1).drawRect(420, -25, 300, 500);
+                 bottomRight.rotation = 45;
+                 stage.addChild(bottomRight);
+                 bottomRight.addEventListener("click", wrong);
+                 stage.update();
+
+
+             }
+
+             //OPTION 2
+             function topLeft() {
+                 //topLeft
+                 var topLeft = new createjs.Shape();
+                 topLeft.graphics.beginFill(answer).drawRect(-150, -150, 300, 500);
+                 topLeft.rotation = 45;
+                 stage.addChild(topLeft);
+                 topLeft.addEventListener("click", correct);
+                 stage.update();
+
+                 //topRight
+                 var topRight = new createjs.Shape();
+                 topRight.graphics.beginFill(colourChosen).drawRect(50, -365, 500, 300);
+                 topRight.rotation = 45;
+                 stage.addChild(topRight);
+                 topRight.addEventListener("click", wrong);
+                 stage.update();
+
+                 //bottomLeft
+                 var bottomLeft = new createjs.Shape();
+                 bottomLeft.graphics.beginFill(randomColour1).drawRect(200, 210, 300, 500);
+                 bottomLeft.rotation = 45;
+                 stage.addChild(bottomLeft);
+                 bottomLeft.addEventListener("click", wrong);
+                 stage.update();
+
+                 //bottomRight
+                 var bottomRight = new createjs.Shape();
+                 bottomRight.graphics.beginFill(randomColour2).drawRect(420, -25, 300, 500);
+                 bottomRight.rotation = 45;
+                 stage.addChild(bottomRight);
+                 bottomRight.addEventListener("click", wrong);
+                 stage.update();
+             }
+
+             //OPTION 3
+             function topRight() {
+                 //topLeft
+                 var topLeft = new createjs.Shape();
+                 topLeft.graphics.beginFill(colourChosen).drawRect(-150, -150, 300, 500);
+                 topLeft.rotation = 45;
+                 stage.addChild(topLeft);
+                 topLeft.addEventListener("click", wrong);
+                 stage.update();
+
+                 //topRight
+                 var topRight = new createjs.Shape();
+                 topRight.graphics.beginFill(answer).drawRect(50, -365, 500, 300);
+                 topRight.rotation = 45;
+                 stage.addChild(topRight);
+                 topRight.addEventListener("click", correct);
+                 stage.update();
+
+                 //bottomLeft
+                 var bottomLeft = new createjs.Shape();
+                 bottomLeft.graphics.beginFill(randomColour2).drawRect(200, 210, 300, 500);
+                 bottomLeft.rotation = 45;
+                 stage.addChild(bottomLeft);
+                 bottomLeft.addEventListener("click", wrong);
+                 stage.update();
+
+                 //bottomRight
+                 var bottomRight = new createjs.Shape();
+                 bottomRight.graphics.beginFill(randomColour1).drawRect(420, -25, 300, 500);
+                 bottomRight.rotation = 45;
+                 stage.addChild(bottomRight);
+                 bottomRight.addEventListener("click", wrong);
+                 stage.update();
+
+             }
+
+             //OPTION 4
+             function bottomRight() {
+                 //topLeft
+                 var topLeft = new createjs.Shape();
+                 topLeft.graphics.beginFill(randomColour1).drawRect(-150, -150, 300, 500);
+                 topLeft.rotation = 45;
+                 stage.addChild(topLeft);
+                 topLeft.addEventListener("click", wrong);
+                 stage.update();
+
+                 //topRight
+                 var topRight = new createjs.Shape();
+                 topRight.graphics.beginFill(colourChosen).drawRect(50, -365, 500, 300);
+                 topRight.rotation = 45;
+                 stage.addChild(topRight);
+                 topRight.addEventListener("click", wrong);
+                 stage.update();
+
+                 //bottomLeft
+                 var bottomLeft = new createjs.Shape();
+                 bottomLeft.graphics.beginFill(randomColour2).drawRect(200, 210, 300, 500);
+                 bottomLeft.rotation = 45;
+                 stage.addChild(bottomLeft);
+                 bottomLeft.addEventListener("click", wrong);
+                 stage.update();
+
+                 //bottomRight
+                 var bottomRight = new createjs.Shape();
+                 bottomRight.graphics.beginFill(answer).drawRect(420, -25, 300, 500);
+                 bottomRight.rotation = 45;
+                 stage.addChild(bottomRight);
+                 bottomRight.addEventListener("click", correct);
+                 stage.update();
+             }
+             
+             createjs.Ticker.setPaused(true);
+             createjs.Ticker.reset();
+             return success;
+         }
+         stage.update();
+     }
+</script>
+</head>
+<body onload="init();">
+	<canvas id="myCanvas" width="300" height="500">
+		alternative content
+	</canvas>
+
+</body>
+</html>

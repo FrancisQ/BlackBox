@@ -12,9 +12,7 @@
 		<!--Global style sheet-->
 		<link href="../css/base.css" type="text/css" rel="stylesheet">
 		
-		<!--<?php
-			include('Globalstyle.php');
-		?> -->
+
 		<!--Specific site style sheet-->
 		<link href="../css/game.css" type="text/css" rel="stylesheet">
 	</head>
@@ -23,9 +21,7 @@
 		<div id="wrapper">
 		
 			<!--Nav -->
-			<!-- <?php
-				include('nav.php');
-			?> -->
+			
 			<div id="main-Nav">
 				<div id="nav-cont">
 					<ul>
@@ -40,7 +36,7 @@
 			<div id="main-body" class="body-style">
 				<div id="MainLogo">
 					<img src="../img/BBlogo.png" alt="Blackbox Logo" id="blackboxLogo">
-					<img src="../img/blackBoxTextBlack.png" alt="Blackbox Name" id="blackboxText">
+					<img src="../img/blackboxTextBlack.png" alt="Blackbox Name" id="blackboxText">
 				</div>
 				<div id="content">
 					<div id="inner">
@@ -48,9 +44,7 @@
 						</div>
 					</div>
 					<!--Footer -->
-					<!-- <?php
-						include('footer.php');
-					?> -->
+			
 					<div id="main-footer">
 						<div id="nav-footer" class="imgCent">
 							<!-- <embed src="../music/theme.mp3" autostart="false" loop="true"> -->
