@@ -202,7 +202,6 @@
              var colourChosen = colourColour[pick];
              //Choose WORD
              var wordChosen = colourWords[pick2];
-             alert("ok");
              var time = 15 - (difficulty * 2);
              var success = false;
 
@@ -212,7 +211,7 @@
 
              function handleTick(event) {
                  time = time - 1;
-                 alert("ok4");
+                
              }
 
              var text = new createjs.Text(wordChosen, "40px Times New Roman", colourChosen);
@@ -223,8 +222,7 @@
              stage.addChild(text);
              stage.update();
 
-             alert("ok2");
-
+            
              //THIS PART IS FOR THE BUTTONS 
 
              var random = Math.floor(Math.random() * 9);
@@ -292,7 +290,7 @@
 
              //Right Answer
              function correct(event) {
-                 alert("Shit, you got it right!");
+                 alert("You got it right!");
                  success = true;
 					var correctaudio = new Audio('../music/achieve.mp3');
 					if(soundIsOn == true){correctaudio.play();}
@@ -451,7 +449,6 @@
                  bottomRight.addEventListener("click", correct);
                  stage.update();
              }
-             alert("ok3");
              
              createjs.Ticker.setPaused(true);
              createjs.Ticker.reset();
