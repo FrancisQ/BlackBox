@@ -120,7 +120,7 @@
                  }
 
              }
-             var gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "white");
+             var gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "black");
              gameOver.x = 50;
              gameOver.y = 50;
              stage.removeAllChildren();
@@ -174,7 +174,6 @@
              var colourChosen = colourColour[pick];
              //Choose WORD
              var wordChosen = colourWords[pick2];
-             alert("ok");
              var time = 15 - (difficulty * 2);
              var success = false;
 
@@ -195,7 +194,6 @@
              stage.addChild(text);
              stage.update();
 
-             alert("ok2");
 
              //THIS PART IS FOR THE BUTTONS 
 
@@ -417,8 +415,12 @@
                  bottomRight.addEventListener("click", correct);
                  stage.update();
              }
-             alert("ok3");
+
              
+
+             while (time > 0) {
+                 alert(time);
+             }
              createjs.Ticker.setPaused(true);
              createjs.Ticker.reset();
              return success;
