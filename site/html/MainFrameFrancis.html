@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+	<script src="ColoursGame.js"></script>
+	<script src="nextGame.js"></script>
+	<style>
+
+	</style>
+</head>
+<body onload="init();">
+	<canvas id="myCanvas" width="320" height="568" style="border:2px solid #d3d3d3;"></canvas>
+	
+	<script>
+	var stage = new createjs.Stage("myCanvas");
+
+
+	function init(){
+		mainMenu();
+		}
+
+	function mainMenu(){
+	
+	//var lives = 3;
+		//HEADER
+		
+		var backHeader = new createjs.Shape();
+		backHeader.graphics.beginFill("black").drawRect(0, 0, 500, 40);
+		stage.addChild(backHeader);
+		//text
+		var header = new createjs.Text("BlackBox", "20px Arial", "white");
+		header.x= 110;
+		stage.addChild(header);
+		
+		//PLAY BUTTON
+		var playButton = new createjs.Shape();
+		playButton.graphics.beginFill("yellow");
+		playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
+		stage.addChild(playButton);
+		
+		//text
+		var playText = new createjs.Text("Play", "20px Verdana", "black");	
+		playText.x = 170;
+		playText.y = 350;
+		stage.addChild(playText);
+		
+		//play functionality
+		playButton.addEventListener("click",nextGame);
+		
+		
+		//SOUND
+		var soundIsOn = true;
+		var soundButton = new createjs.Shape();
+		soundButton.graphics.beginFill("green");
+		soundButton.graphics.moveTo(150, 250).lineTo(0, 175).lineTo(0, 500).lineTo(150, 500).lineTo(150,250);
+		stage.addChild(soundButton);
+		//text
+		var soundText = new createjs.Text("Sound", "20px Verdana", "black");
+		soundText.x = 50;
+		soundText.y = 350;
+		stage.addChild(soundText);
+		//sound functionality
+		var button1 =  soundButton.addEventListener("click",soundToggle);
+		
+		//Sound toggle if clicked on main menu
+		function soundToggle(event) {
+				if (soundIsOn === true){
+					alert("Sound is now set to off!");
+					soundIsOn = false;
+				}
+				else {
+					alert("Sound is now set to on!");
+					soundIsOn = true;
+				}
+			
+			}
+		
+		//Leaderboards
+		var leaderButton = new createjs.Shape();
+		leaderButton.graphics.beginFill("cyan");
+		leaderButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 40).lineTo(0, 40).lineTo(0,175).lineTo(150, 250);
+		stage.addChild(leaderButton);
+		//text
+		var leaderBoardText = new createjs.Text("Leaderboards", "20px Verdana", "black");
+		leaderBoardText.x = 75;
+		leaderBoardText.y = 100;
+		stage.addChild(leaderBoardText);
+		//Leaderboards functionality
+		leaderButton.addEventListener("click", gotoLeaderBoard);
+		
+		stage.update();
+		}
+		
+		//Leaderboards page if clicked on main menu
+		function gotoLeaderBoard(event) {	
+			var leaderBoard = new createjs.Shape();
+			var title = new createjs.Text("Leaderboards", "30px Verdana", "white");
+			var scoreBox =  new createjs.Shape();
+			var returnButton = new createjs.Shape();
+			leaderBoard.graphics.beginFill("blue").drawRect(0,0,300,500);
+			leaderBoard.x = 0;
+			leaderBoard.y = 0;				
+			
+			title.x = 50;
+			
+			scoreBox.graphics.beginFill("black").drawRoundRect(0,0,250,420, 25);
+			scoreBox.x = 25;
+			scoreBox.y = 100;
+			
+			returnButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
+			returnButton.addEventListener("click", init);
+			stage.addChild(leaderBoard);
+			stage.addChild(title);
+			stage.addChild(scoreBox);
+			stage.addChild(returnButton);
+			stage.update();
+		}
+		
+function topBar(event){
+				if (gameCount == 0){
+					//var lives = 3;
+					};
+				//general bar
+				var gameHeader = new createjs.Shape();
+				gameHeader.graphics.beginFill("black").drawRect(0, 0, 500, 40);
+				stage.addChild(gameHeader);
+				
+				//timer
+				 var count = 30;
+				
+				
+					
+				 createjs.Ticker.addEventListener("tick", handleTick);
+				 createjs.Ticker.setInterval(1000);
+				function handleTick(event) {
+						 // Actions carried out each tick (aka frame)
+						 //Things that remain the same go here!!!
+						if (!createjs.Ticker.getPaused()) {
+								var timerText = new createjs.Text(count, "20px Verdana", "orange");
+								timerText.y = 5;
+								timerText.x = 5;
+								stage.addChild(timerText);
+								stage.addChild(gameHeader);
+								stage.addChild(life1);
+								 stage.addChild(life2);
+								 stage.addChild(life3);
+								 stage.addChild(scoreText);
+								stage.update();
+								}
+						if (createjs.Ticker.getTime() >= 3000) {
+									//REMOVES LIVES IF TIMER RUNS OUT
+									if (lives == 3){
+										var dead = new createjs.Shape();
+										dead.graphics.beginFill("black").drawRect(247, 9, 15, 20);
+										stage.addChild(dead);
+										lives--;
+										game1();
+									}
+									else if (lives == 2){
+										var dead = new createjs.Shape();
+										dead.graphics.beginFill("black").drawRect(262, 9, 15, 20);
+										stage.addChild(dead);
+										lives--;
+										game1();
+									}
+									else if (lives == 1){
+										var dead = new createjs.Shape();
+										dead.graphics.beginFill("black").drawRect(277, 9, 18, 20);
+										stage.addChild(dead);
+										lives--;
+										game1();
+									}
+									else if (lives == 0){
+									lives = 3;
+									game1();
+										
+									}
+									createjs.Ticker.reset();
+									stage.update
+									}
+						//Things that change go in here!!
+						if (!event.paused) {
+						 // Actions carried out when the Ticker is not paused.
+								count = count-1;
+								stage.addChild(timerText);
+								stage.update();
+							}
+						
+					
+						}			
+				//Score
+				var scoreText = new createjs.Text("Score: 00000", "20px Verdana", "orange");
+				scoreText.x = 75;
+				scoreText.y = 5;
+				stage.addChild(scoreText);
+				
+				//Lives
+				var life1 = new createjs.Shape();
+				var life2 = new createjs.Shape();
+				var life3 = new createjs.Shape();
+				 life1.graphics.beginFill("orange").drawPolyStar(285, 18, 10, 5, 0.6, -90);
+				 life2.graphics.beginFill("orange").drawPolyStar(270, 18, 10, 5, 0.6, -90);
+				 life3.graphics.beginFill("orange").drawPolyStar(255, 18, 10, 5, 0.6, -90);
+				 stage.addChild(life1);
+				 stage.addChild(life2);
+				 stage.addChild(life3);
+				
+				
+				stage.update();
+				
+
+		}
+		
+
+
+
+		
+		
+		
+
+		
+
+			
+	</script>
+</body>
+</html>
