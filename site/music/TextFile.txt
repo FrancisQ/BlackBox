@@ -1,0 +1,13 @@
+//The beep sound
+var circle = new createjs.Shape();
+        circle.graphics.beginFill("Green").drawCircle(0, 0, 50);
+        circle.x = 50;
+        circle.y = 300;
+        circle.addEventListener("click", function(event) { var newaudio = new Audio('beep.mp3'); newaudio.play(); })
+//The main theme audio		
+var audio = new Audio('theme.mp3');
+		audio.addEventListener('ended', function() {
+		this.currentTime = 0;
+		this.play();
+		}, false);
+		audio.play();
