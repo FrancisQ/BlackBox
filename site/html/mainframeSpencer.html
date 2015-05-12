@@ -95,14 +95,15 @@
              endButton.addEventListener("click", init);
              if (lives > 0) {
                  if (correct >= 3) {
-                     if (games[3](difficulty)) {
-                         score += 200 * difficulty;
-                         correct = 0;
-                         difficulty++;
-                     } else {
-                         correct = 0;
-                     }
-                 } else {
+                //     if (games[3](difficulty)) {
+                //         score += 200 * difficulty;
+                //         correct = 0;
+                //         difficulty++;
+                //     } else {
+                //         correct = 0;
+                //     }
+                //} else {
+				}
                      randNum = Math.floor(Math.random() * 2);
 					 timeHolder = timer.getElapsedTime();
                      if (games[0](difficulty)) {						
@@ -111,7 +112,7 @@
                      } else {
                          correct = 0;
                      }
-                 }
+                //}
 
              }
 			 else{
@@ -250,7 +251,7 @@
 
 			//Right Answer
 			function correct(event){
-				if(timeHolder + 5 < timer.getElapsedTime()){
+				if((timeHolder + 5) < timer.getElapsedTime()){
 					alert("Time is up!");
 					init();
 				}
