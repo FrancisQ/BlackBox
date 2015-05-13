@@ -4,24 +4,29 @@
 	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
 	<script src="ColoursGame.js"></script>
 	<script src="nextGame.js"></script>
-	<style>
+	<script src = "simpleGame.js"></script>
 
-	</style>
 </head>
 <body onload="init();">
-	<canvas id="myCanvas" width="320" height="568" style="border:2px solid #d3d3d3;"></canvas>
+	<canvas id="myCanvas" width="300" height="500" style="border:2px solid #d3d3d3;"></canvas>
 	
 	<script>
 	var stage = new createjs.Stage("myCanvas");
 
 
 	function init(){
+		 var lives = 3;
+		 var difficulty = 1;
+		 var correct = 0;
+		 var score = 0;
+		 var count = 30;
+		 var timer = new Timer();
 		mainMenu();
 		}
 
 	function mainMenu(){
-	
-	//var lives = 3;
+			
+
 		//HEADER
 		
 		var backHeader = new createjs.Shape();
@@ -45,7 +50,7 @@
 		stage.addChild(playText);
 		
 		//play functionality
-		playButton.addEventListener("click",nextGame);
+		playButton.addEventListener("click", nextGame);
 		
 		
 		//SOUND
@@ -116,111 +121,119 @@
 			stage.update();
 		}
 		
-function topBar(event){
-				if (gameCount == 0){
-					//var lives = 3;
-					};
-				//general bar
-				var gameHeader = new createjs.Shape();
-				gameHeader.graphics.beginFill("black").drawRect(0, 0, 500, 40);
-				stage.addChild(gameHeader);
+
 				
-				//timer
-				 var count = 30;
-				
-				
-					
-				 createjs.Ticker.addEventListener("tick", handleTick);
-				 createjs.Ticker.setInterval(1000);
-				function handleTick(event) {
-						 // Actions carried out each tick (aka frame)
-						 //Things that remain the same go here!!!
-						if (!createjs.Ticker.getPaused()) {
-								var timerText = new createjs.Text(count, "20px Verdana", "orange");
-								timerText.y = 5;
-								timerText.x = 5;
-								stage.addChild(timerText);
-								stage.addChild(gameHeader);
-								stage.addChild(life1);
-								 stage.addChild(life2);
-								 stage.addChild(life3);
-								 stage.addChild(scoreText);
-								stage.update();
-								}
-						if (createjs.Ticker.getTime() >= 3000) {
-									//REMOVES LIVES IF TIMER RUNS OUT
-									if (lives == 3){
-										var dead = new createjs.Shape();
-										dead.graphics.beginFill("black").drawRect(247, 9, 15, 20);
-										stage.addChild(dead);
-										lives--;
-										game1();
-									}
-									else if (lives == 2){
-										var dead = new createjs.Shape();
-										dead.graphics.beginFill("black").drawRect(262, 9, 15, 20);
-										stage.addChild(dead);
-										lives--;
-										game1();
-									}
-									else if (lives == 1){
-										var dead = new createjs.Shape();
-										dead.graphics.beginFill("black").drawRect(277, 9, 18, 20);
-										stage.addChild(dead);
-										lives--;
-										game1();
-									}
-									else if (lives == 0){
-									lives = 3;
-									game1();
-										
-									}
-									createjs.Ticker.reset();
-									stage.update
-									}
-						//Things that change go in here!!
-						if (!event.paused) {
-						 // Actions carried out when the Ticker is not paused.
-								count = count-1;
-								stage.addChild(timerText);
-								stage.update();
-							}
+			function topBar(event){
 						
-					
-						}			
-				//Score
-				var scoreText = new createjs.Text("Score: 00000", "20px Verdana", "orange");
-				scoreText.x = 75;
-				scoreText.y = 5;
-				stage.addChild(scoreText);
-				
-				//Lives
-				var life1 = new createjs.Shape();
-				var life2 = new createjs.Shape();
-				var life3 = new createjs.Shape();
-				 life1.graphics.beginFill("orange").drawPolyStar(285, 18, 10, 5, 0.6, -90);
-				 life2.graphics.beginFill("orange").drawPolyStar(270, 18, 10, 5, 0.6, -90);
-				 life3.graphics.beginFill("orange").drawPolyStar(255, 18, 10, 5, 0.6, -90);
-				 stage.addChild(life1);
-				 stage.addChild(life2);
-				 stage.addChild(life3);
-				
-				
-				stage.update();
-				
-
-		}
-		
-
-
-
-		
-		
-		
-
-		
-
+						
+						
+						
+						//timer
+						 count = 30;
+						 var ticker = createjs.Ticker.addEventListener("tick", handleTick);
+						 createjs.Ticker.setInterval(1000);
+						function handleTick(event) {
+						   // Actions carried out each tick (aka frame)
+						   //Things that remain the same go here!!!
+						  if (!createjs.Ticker.getPaused()) {
+						  //general bar
+							var gameHeader = new createjs.Shape();
+							gameHeader.graphics.beginFill("black").drawRect(0, 0, 500, 40);
+							stage.addChild(gameHeader);
+						//Timer text
+							var timerText = new createjs.Text(count, "20px Verdana", "orange");
+							timerText.y = 5;
+							timerText.x = 5;
+							stage.addChild(timerText);
+							stage.addChild(gameHeader);
+							life1();
+							life2();
+							life3();
+							score();
+							
+							stage.update();
+							}
+						  
+						  //Things that change go in here!!
+						  if (!event.paused) {
+						
+						   // Actions carried out when the Ticker is not paused.
+						 if (count == 25){
+								createjs.Ticker.removeEventListener("tick", handleTick);
+								loseLife();
+							nextGame();
+							}
+							count = count-1;
+							stage.addChild(timerText);
+								
+							
+							stage.update();
+						
+							
+						   
+						   }
+						  
+			//Lose Life
+			function loseLife(){
+				lives--;
+			}
+									
+			//Score
+			function score(){
 			
+			var scoreText = new createjs.Text("Score: 00000", "20px Verdana", "orange");
+			scoreText.x = 75;
+			scoreText.y = 5;
+			stage.addChild(scoreText);
+			stage.update();
+			}
+			
+			//Lives
+			function life1(){
+				if ( lives >= 3){
+					var life1 = new createjs.Shape();
+					life1.graphics.beginFill("orange").drawPolyStar(285, 18, 10, 5, 0.6, -90);
+					stage.addChild(life1);
+					stage.update();
+					}
+			}
+			function life2(){
+				if(lives >= 2){
+					var life2 = new createjs.Shape();
+					life2.graphics.beginFill("orange").drawPolyStar(270, 18, 10, 5, 0.6, -90);
+					stage.addChild(life2);
+					stage.update();
+					}
+			}
+			function life3(){
+				if(lives >= 1){
+					var life3 = new createjs.Shape();
+					life3.graphics.beginFill("orange").drawPolyStar(255, 18, 10, 5, 0.6, -90);
+					stage.addChild(life3);
+					stage.update();
+					}
+			}
+			
+			
+			 
+			 
+			 
+			
+			 
+			 
+			
+			
+			stage.update();
+			
+
+		}// ticker end
+	}//topBar end 
+		
+		
+
+		
+		
+		
 	</script>
 </body>
 </html>
