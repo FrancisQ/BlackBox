@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Aldrin's Attempt </title>
+	<title> Aldrin's Attempt End Game</title>
 	<script src="../javascript/preloadjs-0.6.0.combined.js"></script>
 	<script src="../javascript/easeljs-0.8.0.combined.js"></script>
 	<script src="../javascript/endgame.js"></script>
