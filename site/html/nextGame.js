@@ -1,7 +1,5 @@
 		//Pick a random game
-		var lives = 3;
-		var difficulty=1;
-		var complete = 0;
+		
  function nextGame(event) {
              //variables
              var game = new createjs.Shape();
@@ -13,8 +11,10 @@
 
             if (lives > 0) {
 				if(complete == 3){
-					gameBoss();
+					complete = 0;
 					difficulty++;
+					gameBoss();
+					
 				}
 					
 				else{
