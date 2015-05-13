@@ -14,6 +14,12 @@ var canvasY = 568;
 
 var cCenter = canvasW * .5;
 
+var userX = 135;
+var rankX = 50;
+var scoreX = 220;
+
+var yInc = 30;
+
 /* TEST independent canvas */
 function start() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
@@ -54,6 +60,36 @@ function leader() {
 	lTxt.x = cCenter - 9;
 	lTxt.y = 240;
 	
+	// Leader User ranking
+	var r1 = new createjs.Text("1", "12px Arial", "white");
+	var user1 = new createjs.Text("USER", "12px Arial", "white");
+	var score1 = new createjs.Text("999999", "12px Arial", "white");
+	
+	r1.x = rankX;
+	user1.x = userX;
+	user1.textAlign = "center";
+	score1.x = scoreX;
+	
+	r1.y = 280;
+	user1.y = r1.y;
+	
+	score1.y = r1.y;
+	
+	var r2 = new createjs.Text("2", "12px Arial", "white");
+	var user2 = new createjs.Text("2nd USER", "12px Arial", "white");
+	var score2 = new createjs.Text("999998", "12px Arial", "white");
+	
+	r2.x = rankX;
+	user2.x = userX;
+	user2.textAlign = "center";
+	score2.x = scoreX;
+	
+	r2.y = 280 + yInc;
+	user2.y = r2.y;
+	
+	score2.y = r2.y;
+	
+	
 	/* Adding components to the stage */
 	stage.addChild(leaderbg);
 	stage.addChild(contentBox);
@@ -61,6 +97,8 @@ function leader() {
 	stage.addChild(leaderTitle);
 	stage.addChild(bbutton);
 	
+	stage.addChild(r1, user1, score1);
+	stage.addChild(r2, user2, score2);
 	
 	/* Functionality */
 	bbutton.addEventListener("click", leaderBack);
