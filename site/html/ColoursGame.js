@@ -251,9 +251,14 @@ function bottomRight(){
 		stage.addChild(bottomRight);
 		bottomRight.addEventListener("click",correct);
 		
+		
+		
+				
+			}
+		
 		stage.update();
+		
 		
 };
 
 
-}
