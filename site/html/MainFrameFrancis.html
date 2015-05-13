@@ -25,7 +25,8 @@
 		//HEADER
 		
 		var backHeader = new createjs.Shape();
-		backHeader.graphics.beginFill("black").drawRect(0, 0, 500, 40);
+        back.graphics.beginBitmapFill(../img/menu/menuLogo.png).drawRect(0, 0, 500, 40);
+		backHeader.graphics.beginFill("black").drawRect();
 		stage.addChild(backHeader);
 		//text
 		var header = new createjs.Text("BlackBox", "20px Arial", "white");
