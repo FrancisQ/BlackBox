@@ -122,7 +122,7 @@
                 //     }
                 //} else {
 				//}
-                    //randNum = Math.floor(Math.random() * 2);
+                    randNum = Math.floor(Math.random() * 2);
 					//timeHolder = timer.getElapsedTime();
                     //if (games[0](difficulty)) {						
                     //   score += 100 * difficulty;
@@ -131,10 +131,10 @@
                     //    correct = 0;
                     //}
                //}
-			games[0](difficulty);
+			games[randNum](difficulty);
             }
 			else{
-				alert("lose");
+				alert("game over");
 				//init();
 			}
         }
@@ -262,9 +262,13 @@
 				}
 			function wrong(event){
 				alert("wrong choice");				
-				//lives--;
-				//handleClick();	
-				//init();
+				lives--;
+				if(lives < 1) {
+					alert("game over!!!!");
+					clearInterval(testIng);
+				}
+				playGame();
+				
 			}
 
 			//OPTION 1
@@ -417,25 +421,58 @@
 				if(timerTemp + 5 < timer.getElapsedTime()) {
 					alert("time ran out");
 					clearInterval(testIng);
+					lives--;
 				}
 				else{
 					stage.update();
 				}
 			}
-         }
+        }
 
-         function gameTwo(difficulty) {
-             return true;
-         }
+        function gameTwo(difficulty) {
+			var gameTwoBG = new createjs.Shape();
+			var redButton = new createjs.Shape();
+			gameTwoBG.graphics.beginFill("orange").drawRect(0, 0, 300, 500);
+			redButton.graphics.beginFill("red").drawRect(50, 100, 30, 50);
+			redButton.addEventListener("click", correct);
+			
+			stage.addChild(gameTwoBG);
+			stage.addChild(redButton);
+			
+			stage.update();
+			
+			
+			testIng = setInterval(function () {test()}, 1000);
+			timerTemp = timer.getElapsedTime();
+			function test() {
+				if(timerTemp + 5 < timer.getElapsedTime()) {
+					alert("time ran out");
+					clearInterval(testIng);
+					lives--;
+				}
+				else{
+					stage.update();
+				}
+			}
+			
+			//Right Answer
+			function correct(event){
+				clearInterval(testIng);
+				alert("correct choice");
+				playGame();
+								
+			}
+			
+        }
 
-         function gameThree(difficulty) {
-             return true;
-         }
+        function gameThree(difficulty) {
+            return true;
+        }
 
-         function gameBoss(difficulty) {
-             return true;
-         }
-     }
+        function gameBoss(difficulty) {
+            return true;
+        }
+    }
 		</script>
 </head>
 <body onload="init();">

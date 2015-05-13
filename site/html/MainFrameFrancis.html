@@ -161,6 +161,8 @@ var lives = 4;
 						   // Actions carried out when the Ticker is not paused.
 						 if (count == 27){
 								createjs.Ticker.removeEventListener("tick", handleTick);
+								loseLife();
+								nextGame();
 								//loseLife();
 							nextGame();
 							}
