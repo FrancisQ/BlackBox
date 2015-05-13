@@ -52,6 +52,7 @@ var lives = 4;
 		
 		//play functionality
 		playButton.addEventListener("click", nextGame);
+		playButton.addEventListener("click", nextGame);
 		
 		
 		//SOUND
@@ -108,12 +109,13 @@ var lives = 4;
 			leaderBoard.y = 0;				
 			
 			title.x = 50;
+			title.y = 55;
 			
 			scoreBox.graphics.beginFill("black").drawRoundRect(0,0,250,420, 25);
 			scoreBox.x = 25;
 			scoreBox.y = 100;
 			
-			returnButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
+			returnButton.graphics.beginFill("red").drawRoundRect(275, 5, 25, 25, 5);
 			returnButton.addEventListener("click", init);
 			stage.addChild(leaderBoard);
 			stage.addChild(title);
@@ -145,8 +147,10 @@ var lives = 4;
 							var timerText = new createjs.Text(count, "20px Verdana", "orange");
 							timerText.y = 5;
 							timerText.x = 5;
+							
 							stage.addChild(timerText);
 							stage.addChild(gameHeader);
+							returnButton();
 							life1();
 							life2();
 							life3();
@@ -178,7 +182,14 @@ var lives = 4;
 			stage.update();
 		
 		}// ticker end
-	
+		function returnButton(){
+			var returnButton = new createjs.Shape();
+			returnButton.graphics.beginFill("orange").drawRoundRect(275, 5, 25, 25, 5);
+			returnButton.addEventListener("click", init);
+			
+			stage.addChild(returnButton);
+			stage.update();
+		}
 		function removeTicker(){
 			createjs.Ticker.removeEventListener("tick", handleTick);
 			}
@@ -206,7 +217,7 @@ var lives = 4;
 			function life1(){
 				if ( lives >= 3){
 					var life1 = new createjs.Shape();
-					life1.graphics.beginFill("orange").drawPolyStar(285, 18, 10, 5, 0.6, -90);
+					life1.graphics.beginFill("orange").drawPolyStar(250, 18, 10, 5, 0.6, -90);
 					stage.addChild(life1);
 					stage.update();
 					}
@@ -214,7 +225,7 @@ var lives = 4;
 			function life2(){
 				if(lives >= 2){
 					var life2 = new createjs.Shape();
-					life2.graphics.beginFill("orange").drawPolyStar(270, 18, 10, 5, 0.6, -90);
+					life2.graphics.beginFill("orange").drawPolyStar(235, 18, 10, 5, 0.6, -90);
 					stage.addChild(life2);
 					stage.update();
 					}
@@ -222,7 +233,7 @@ var lives = 4;
 			function life3(){
 				if(lives >= 1){
 					var life3 = new createjs.Shape();
-					life3.graphics.beginFill("orange").drawPolyStar(255, 18, 10, 5, 0.6, -90);
+					life3.graphics.beginFill("orange").drawPolyStar(220, 18, 10, 5, 0.6, -90);
 					stage.addChild(life3);
 					stage.update();
 					}
