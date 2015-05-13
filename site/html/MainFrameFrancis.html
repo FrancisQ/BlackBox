@@ -15,12 +15,12 @@
 
 
 	function init(){
-		 var lives = 3;
+		 var lives = 4;
 		 var difficulty = 1;
-		 var correct = 0;
+		 var complete = 0;
 		 var score = 0;
 		 var count = 30;
-		 var timer = new Timer();
+		
 		mainMenu();
 		}
 
@@ -132,6 +132,8 @@
 						 count = 30;
 						 var ticker = createjs.Ticker.addEventListener("tick", handleTick);
 						 createjs.Ticker.setInterval(1000);
+						 
+			}//topBar end 
 						function handleTick(event) {
 						   // Actions carried out each tick (aka frame)
 						   //Things that remain the same go here!!!
@@ -160,8 +162,13 @@
 						   // Actions carried out when the Ticker is not paused.
 						 if (count == 25){
 								createjs.Ticker.removeEventListener("tick", handleTick);
+<<<<<<< HEAD
 								loseLife();
 								nextGame();
+=======
+								//loseLife();
+							nextGame();
+>>>>>>> c7034b72aff502cde08ac72da7601c21ae41f10a
 							}
 							count = count-1;
 							stage.addChild(timerText);
@@ -172,6 +179,7 @@
 							
 						   
 						   }
+			
 						  
 			//Lose Life
 			function loseLife(){
@@ -227,9 +235,11 @@
 			
 
 		}// ticker end
-	}//topBar end 
+	
 		
-		
+		function removeTicker(){
+			createjs.Ticker.removeEventListener("tick", handleTick);
+			}
 
 		
 		
