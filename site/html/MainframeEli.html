@@ -2,6 +2,7 @@
 <html>
 <head>
 	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+    <script src="scripts/jquery-2.1.0.js" type="text/javascript"></script>
 	<script>
      function init() {
          var stage = new createjs.Stage("myCanvas");
@@ -61,6 +62,12 @@
              leaderBoard.y = 0;
 
              title.x = 50;
+
+             $.ajax({ url: "https://api.mongolab.com/api/1/databases/my-db/collections/my-coll?s={"score":-1}&l=10&apiKey=NSMtfgEiRFg6AMmRoF-buHNYoRynthh",
+                 data: JSON.stringify({ name: score }),
+                 type: "GET",
+                 contentType: "application/json"
+             });
 
              scoreBox.graphics.beginFill("black").drawRoundRect(0, 0, 250, 420, 25);
              scoreBox.x = 25;
@@ -416,7 +423,7 @@
                  stage.update();
              }
 
-             
+
 
              while (time > 0) {
                  alert(time);
@@ -424,6 +431,16 @@
              createjs.Ticker.setPaused(true);
              createjs.Ticker.reset();
              return success;
+         }
+
+         function endGame(name, score) {
+             $.ajax({ url: "https://api.mongolab.com/api/1/databases/my-db/collections/my-coll?apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
+                 data: JSON.stringify({ name: score }),
+                 type: "POST",
+                 contentType: "application/json"
+             });
+
+             init();
          }
          stage.update();
      }
