@@ -89,7 +89,9 @@ function pause() {
 	
 	
 	/* Functionality */
-	menu.addEventListener("click",test, false);
+	menu.addEventListener("click",menuP);
+	retry.addEventListener("click", retryP);
+	resume.addEventListener("click", resumeP);
 	
 	stage.update();
 
@@ -112,6 +114,17 @@ function removePause() {
 	stage.update();
 }
 
-function test(event) {
-	alert("MENU BUTTON BEEN CLICK BOI");
+function menuP(event) {
+	removePause();
+	alert("going menu..");
+}
+
+function resumeP(event) {
+	removePause();
+	alert("resuming game..");
+}
+
+function retryP(event) {
+	removePause();
+	alert("retrying game..");
 }
