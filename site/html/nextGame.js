@@ -1,10 +1,5 @@
 		//Pick a random game
-			
-		var lives = 3;
-		 var difficulty = 1;
-		 var complete = 0;
-		 var score = 0;
-		 var count = 30;
+		
  function nextGame(event) {
              //variables
              var game = new createjs.Shape();
