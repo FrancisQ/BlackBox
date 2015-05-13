@@ -20,6 +20,10 @@ var scoreX = 220;
 
 var yInc = 30;
 
+var r1, r2;
+var user1, user2;
+var score1, score2;
+
 /* TEST independent canvas */
 function start() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
@@ -61,9 +65,9 @@ function leader() {
 	lTxt.y = 240;
 	
 	// Leader User ranking
-	var r1 = new createjs.Text("1", "12px Arial", "white");
-	var user1 = new createjs.Text("USER", "12px Arial", "white");
-	var score1 = new createjs.Text("999999", "12px Arial", "white");
+	 r1 = new createjs.Text("1", "12px Arial", "white");
+	 user1 = new createjs.Text("USER", "12px Arial", "white");
+	 score1 = new createjs.Text("999999", "12px Arial", "white");
 	
 	r1.x = rankX;
 	user1.x = userX;
@@ -75,9 +79,9 @@ function leader() {
 	
 	score1.y = r1.y;
 	
-	var r2 = new createjs.Text("2", "12px Arial", "white");
-	var user2 = new createjs.Text("2nd USER", "12px Arial", "white");
-	var score2 = new createjs.Text("999998", "12px Arial", "white");
+	 r2 = new createjs.Text("2", "12px Arial", "white");
+	 user2 = new createjs.Text("2nd USER", "12px Arial", "white");
+	 score2 = new createjs.Text("999998", "12px Arial", "white");
 	
 	r2.x = rankX;
 	user2.x = userX;
@@ -117,6 +121,9 @@ function removePause() {
 	stage.removeChild(lTxt);
 	stage.removeChild(leaderTitle);
 	stage.removeChild(bbutton);
+	
+	stage.removeChild(r1, user1, score1);
+	stage.removeChild(r2, user2, score2);
 	
 	stage.update();
 }

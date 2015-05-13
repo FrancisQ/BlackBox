@@ -122,6 +122,7 @@ function removeEnd() {
 function menuE(event) {
 	removeEnd();
 	stage.update();
+	alert("going menu..");
 
 }
 
@@ -129,5 +130,6 @@ function retryE(event) {
 	removeEnd();
 	/* restart(); */
 	stage.update();
+	alert("retrying game..");
 	
 }

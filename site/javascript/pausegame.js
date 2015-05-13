@@ -116,15 +116,15 @@ function removePause() {
 
 function menuP(event) {
 	removePause();
-	alert("you Pressed menu");
+	alert("going menu..");
 }
 
 function resumeP(event) {
 	removePause();
-	alert("you Pressed resume");
+	alert("resuming game..");
 }
 
 function retryP(event) {
 	removePause();
-	alert("you Pressed retry");
+	alert("retrying game..");
 }
