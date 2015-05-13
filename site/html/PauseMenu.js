@@ -2,8 +2,8 @@
       function pauseScreen() {
 
 	  //Stage variable and Mouse Events
-       /* var stage = new createjs.Stage("PauseMenu");
-		stage.mouseEventsEnabled = true;*/
+        var container = new createjs.Container();
+		
 		
 		
 		//The Title Bar
@@ -38,20 +38,22 @@
 		//The clickable Resume Button
 		var resumeBut = new createjs.Shape();
         resumeBut.graphics.beginFill("LightGreen").drawRect(0, 393, 320, 165);
-        resumeBut.addEventListener("click", function(event) { alert("Clicked the Resume Button")})		
+        resumeBut.addEventListener("click", nextGame)		
 		var resumeText = new createjs.Text("Resume", "40px Arial", "White");
 		resumeText.x = 85;
 		resumeText.y = 510;
 		
 		//The Stage adds the circle
-		stage.addChild(resumeBut);
-		stage.addChild(resumeText);
-		stage.addChild(retryBut);
-		stage.addChild(retryText);
-		stage.addChild(menuBut);
-		stage.addChild(menuText);
-		stage.addChild(titrect);
-		stage.addChild(mainTitle);
-        stage.addChild(scoreBoard);
-		stage.update();
+		container.addChild(resumeBut);
+		container.addChild(resumeText);
+		container.addChild(retryBut);
+		container.addChild(retryText);
+		container.addChild();
+		container.addChild(menuText);
+		container.addChild(titrect);
+		container.addChild(mainTitle);
+        container.addChild(scoreBoard);
+		container.isVisible();
+		stage.addChild(container);
 		}
+		
