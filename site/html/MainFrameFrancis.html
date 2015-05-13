@@ -5,6 +5,7 @@
 	<script src="ColoursGame.js"></script>
 	<script src="nextGame.js"></script>
 	<script src = "simpleGame.js"></script>
+	<script src="PauseMenu.js"></script>
 
 </head>
 <body onload="init();">
@@ -14,14 +15,13 @@
 	var stage = new createjs.Stage("myCanvas");
 
 
-var lives = 4;
+		 var lives = 4;
 		 var difficulty = 1;
 		 var complete = 0;
 		 var currentScore = 0;
 		 var count = 30;
 	function init(){
-		 
-		
+			
 		mainMenu();
 		}
 
@@ -158,18 +158,17 @@ var lives = 4;
 							
 							stage.update();
 							}
-						  
+							
 						  //Things that change go in here!!
 						  if (!event.paused) {
 						
 						   // Actions carried out when the Ticker is not paused.
 						 if (count == 27){
 								createjs.Ticker.removeEventListener("tick", handleTick);
-								loseLife();
-								nextGame();
 								//loseLife();
 							nextGame();
 							}
+						
 							count = count-1;
 							stage.addChild(timerText);
 								
@@ -187,11 +186,16 @@ var lives = 4;
 		function returnButton(){
 			var returnButton = new createjs.Shape();
 			returnButton.graphics.beginFill("orange").drawRoundRect(275, 5, 25, 25, 5);
-			returnButton.addEventListener("click", init);
-			
+			returnButton.addEventListener("click", pause);
 			stage.addChild(returnButton);
 			stage.update();
 		}
+		function pause(event){
+				var pause = true;
+				var pausedCount = count;
+				removeTicker();
+				pauseScreen();
+			}
 		function removeTicker(){
 			createjs.Ticker.removeEventListener("tick", handleTick);
 			}

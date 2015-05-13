@@ -6,7 +6,7 @@
 			var games = [gameOne, gameTwo, gameThree, gameBoss];
              var randNum = Math.floor(Math.random()*3 )
              var endButton = new createjs.Shape();
-//createjs.Ticker.reset();
+
 
 
             if (lives > 0) {
