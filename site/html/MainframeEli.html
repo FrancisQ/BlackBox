@@ -158,14 +158,43 @@
          }
 
          function gameOne(difficulty) {
-             return true;
+			var backdrop = new createjs.Shape();
+		backdrop.graphics.beginFill("blue").drawRect(0,0,300,500);
+		stage.addChild(backdrop);
+             
+			 		var playButton = new createjs.Shape();
+		playButton.graphics.beginFill("green");
+		playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
+		stage.addChild(playButton);
+		playButton.addEventListener("click",nextGame);
+		stage.update();
          }
 
          function gameTwo(difficulty) {
+			var backdrop = new createjs.Shape();
+		backdrop.graphics.beginFill("blue").drawRect(0,0,300,500);
+		stage.addChild(backdrop);
+		
+				var playButton = new createjs.Shape();
+		playButton.graphics.beginFill("yellow");
+		playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
+		stage.addChild(playButton);
+		playButton.addEventListener("click",nextGame);
+		stage.update();
              return true;
          }
 
          function gameThree(difficulty) {
+			var backdrop = new createjs.Shape();
+		backdrop.graphics.beginFill("yellow").drawRect(0,0,300,500);
+		stage.addChild(backdrop);
+		
+				var playButton = new createjs.Shape();
+		playButton.graphics.beginFill("yellow");
+		playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
+		stage.addChild(playButton);
+		playButton.addEventListener("click",nextGame);
+		stage.update();
              return true;
          }
 

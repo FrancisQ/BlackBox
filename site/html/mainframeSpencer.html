@@ -4,153 +4,163 @@
 	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
 	<script type="text/javascript" src = "simpleGame.js"></script>
 	<script>
-     function init() {
-         var stage = new createjs.Stage("myCanvas");
-
-         var mainTitle = new createjs.Text("Black Box", "60px Arial", "black");
-         var playText = new createjs.Text("Play", "20px Verdana", "black");
-         var leaderBoardText = new createjs.Text("Leaderboards", "20px Verdana", "black");
-         var soundText = new createjs.Text("Sound", "20px Verdana", "black");
-         var playRect = new createjs.Shape();
-         var leaderBoardRect = new createjs.Shape();
-         var soundRect = new createjs.Shape();
-         var soundIsOn = true;
-         var backgroundTile = new createjs.Shape();
-		 var timer = new Timer();
-		 var answersGameOne = 0;
-		 var timeHolder = 0;
-
-		//setInterval(function () {handleTick()}, 1000);
-         mainTitle.x = 20;
-         mainTitle.y = 10;
-         playText.x = 170;
-         playText.y = 350;
-         leaderBoardText.x = 75;
-         leaderBoardText.y = 150;
-         soundText.x = 50;
-         soundText.y = 350;
-
-         backgroundTile.graphics.beginFill("grey").drawRect(0, 0, 300, 500);
-
-         playRect.graphics.beginFill("yellow").drawRect(0, 0, 150, 250);
-         playRect.y = 250;
-         playRect.x = 150;
-
-         leaderBoardRect.graphics.beginFill("cyan").drawRect(0, 0, 300, 150);
-         leaderBoardRect.y = 100;
-
-         soundRect.graphics.beginFill("#00ff00").drawRect(0, 0, 150, 250);
-         soundRect.y = 250;
-
-         stage.addChild(backgroundTile);
-         stage.addChild(playRect);
-         stage.addChild(leaderBoardRect);
-         stage.addChild(soundRect);
-         stage.addChild(mainTitle);
-         stage.addChild(playText);
-         stage.addChild(leaderBoardText);
-         stage.addChild(soundText);
-
-
-
-         leaderBoardRect.addEventListener("click", gotoLeaderBoard);
-         function gotoLeaderBoard(event) {
-             var leaderBoard = new createjs.Shape();
-             var title = new createjs.Text("Leaderboards", "30px Verdana", "white");
-             var scoreBox = new createjs.Shape();
-             var returnButton = new createjs.Shape();
-             leaderBoard.graphics.beginFill("blue").drawRect(0, 0, 300, 500);
-             leaderBoard.x = 0;
-             leaderBoard.y = 0;
-
-             title.x = 50;
-
-             scoreBox.graphics.beginFill("black").drawRoundRect(0, 0, 250, 420, 25);
-             scoreBox.x = 25;
-             scoreBox.y = 100;
-
-             returnButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
-             returnButton.addEventListener("click", init);
-             stage.addChild(leaderBoard);
-             stage.addChild(title);
-             stage.addChild(scoreBox);
-             stage.addChild(returnButton);
-             stage.update();
-         }
+    function init() {
+		//Variables that need to be global
+        var stage = new createjs.Stage("myCanvas");
+		var soundIsOn = true;
 		var lives = 3;
-         playRect.addEventListener("click", handleClick);
-         function handleClick(event) {
-			
-			stage.removeAllChildren();
-             var game = new createjs.Shape();
-             
-             var difficulty = 0;
-             var games = [gameOne, gameTwo, gameThree, gameBoss];
-             var randNum = 0;
-             var correct = 0;
-             var score = 0;
-			 answersGameOne = 0;
-             var endButton = new createjs.Shape();
-             endButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
-             endButton.addEventListener("click", init);
-             if (lives > 0) {
-                 if (correct >= 3) {
-                     if (games[3](difficulty)) {
-                         score += 200 * difficulty;
-                         correct = 0;
-                         difficulty++;
-                     } else {
-                         correct = 0;
-                     }
-                 } else {
-                     randNum = Math.floor(Math.random() * 2);
-					 timeHolder = timer.getElapsedTime();
-                     if (games[0](difficulty)) {						
-                        score += 100 * difficulty;
-                        correct++;
-                     } else {
-                         correct = 0;
-                     }
-                 }
-
-             }
-			 else{
-			 alert("lose");
-			 init();
-			 }
-			 answersGameOne = 0;
-             //var gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "white");
-             //gameOver.x = 50;
-             //gameOver.y = 50;
-             //stage.addChild(gameOver);
-             //stage.addChild(endButton);
-             //stage.update();
-         }
-
-         soundRect.addEventListener("click", soundToggle);
-         function soundToggle(event) {
-             if (soundIsOn === true) {
-                 alert("Sound is now set to off!");
-                 soundIsOn = false;
-             }
-             else {
-                 alert("Sound is now set to on!");
-                 soundIsOn = true;
-             }
-         }
-
-         function getRandomColor() {
-             var letters = '0123456789ABCDEF'.split('');
-             var color = '#';
-             for (var i = 0; i < 6; i++) {
-                 color += letters[Math.floor(Math.random() * 16)];
-             }
-             return color;
-         }
+		var timer = new Timer();
+		var timeHolder = 0;
+		var difficulty = 0;
+		var correct = 0;
+		var score = 0;
 		
-		//function handleTick() {
-		//	timer++;
-		//}
+		//Calling the main menu - Starting off the application
+		mainMenu();
+		
+		//Function to load up the main menu
+		function mainMenu() {			
+			//All the variables for the main menu
+			var mainTitle = new createjs.Text("Black Box", "60px Arial", "black");
+			var playText = new createjs.Text("Play", "20px Verdana", "black");
+			var leaderBoardText = new createjs.Text("Leaderboards", "20px Verdana", "black");
+			var soundText = new createjs.Text("Sound", "20px Verdana", "black");
+			var playRect = new createjs.Shape();
+			var leaderBoardRect = new createjs.Shape();
+			var soundRect = new createjs.Shape();         
+			var backgroundTile = new createjs.Shape();
+			
+			//Drawing all the buttons 
+			backgroundTile.graphics.beginFill("grey").drawRect(0, 0, 300, 500);
+			playRect.graphics.beginFill("yellow").drawRect(0, 0, 150, 250);
+			leaderBoardRect.graphics.beginFill("cyan").drawRect(0, 0, 300, 150);
+			soundRect.graphics.beginFill("#00ff00").drawRect(0, 0, 150, 250);
+			 
+
+			//Positioning all of the text on the main menu
+			mainTitle.x = 20;
+			mainTitle.y = 10;
+			playText.x = 170;
+			playText.y = 350;
+			leaderBoardText.x = 75;
+			leaderBoardText.y = 150;
+			soundText.x = 50;
+			soundText.y = 350;
+			 
+			//Positioning the buttons on the main menu
+			playRect.y = 250;
+			playRect.x = 150;
+			leaderBoardRect.y = 100;
+			soundRect.y = 250;
+
+			//Adding all the objects to the main menu
+			stage.addChild(backgroundTile);
+			stage.addChild(playRect);
+			stage.addChild(leaderBoardRect);
+			stage.addChild(soundRect);
+			stage.addChild(mainTitle);
+			stage.addChild(playText);
+			stage.addChild(leaderBoardText);
+			stage.addChild(soundText);
+
+
+			//Adding the event listeners to the buttons
+			playRect.addEventListener("click", playGame);
+			leaderBoardRect.addEventListener("click", gotoLeaderBoard);
+			soundRect.addEventListener("click", soundToggle);
+			
+			stage.update();
+		}
+		
+		//The function to load up and display the leader board page
+         function gotoLeaderBoard(event) {
+			//Variables for the leader board page
+            var leaderBoard = new createjs.Shape();
+            var title = new createjs.Text("Leaderboards", "30px Verdana", "white");
+            var scoreBox = new createjs.Shape();
+            var returnButton = new createjs.Shape();
+			
+			//Creating the graphics and buttons for the page
+            leaderBoard.graphics.beginFill("blue").drawRect(0, 0, 300, 500);
+			scoreBox.graphics.beginFill("black").drawRoundRect(0, 0, 250, 420, 25);
+			returnButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
+            returnButton.addEventListener("click", init);
+			
+			//Positioning everything
+            leaderBoard.x = 0;
+            leaderBoard.y = 0;
+			scoreBox.x = 25;
+            scoreBox.y = 100;
+            title.x = 50;
+             
+			//Adding the objects to the stage
+            stage.addChild(leaderBoard);
+            stage.addChild(title);
+            stage.addChild(scoreBox);
+            stage.addChild(returnButton);
+            stage.update();
+        }
+		//The function used to play the main game
+        function playGame(event) {			
+			//Clears the stage of all other elements
+			stage.removeAllChildren();
+			//Variables used throughout the function
+            var game = new createjs.Shape();           
+            var games = [gameOne, gameTwo, gameThree, gameBoss];
+            var randNum = 0;            
+            var endButton = new createjs.Shape();
+            endButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
+            endButton.addEventListener("click", init);
+            if (lives > 0) {
+                //if (correct >= 3) {
+                //     if (games[3](difficulty)) {
+                //         score += 200 * difficulty;
+                //         correct = 0;
+                //         difficulty++;
+                //     } else {
+                //         correct = 0;
+                //     }
+                //} else {
+				//}
+                    //randNum = Math.floor(Math.random() * 2);
+					//timeHolder = timer.getElapsedTime();
+                    //if (games[0](difficulty)) {						
+                    //   score += 100 * difficulty;
+                    //  correct++;
+                    //} else {
+                    //    correct = 0;
+                    //}
+               //}
+			games[0](difficulty);
+            }
+			else{
+				alert("lose");
+				//init();
+			}
+        }
+        
+		//Toggles the game sounds
+        function soundToggle(event) {
+            if (soundIsOn === true) {
+                alert("Sound is now set to off!");
+                soundIsOn = false;
+            }
+            else {
+                alert("Sound is now set to on!");
+                soundIsOn = true;
+            }
+        }
+		 
+		//Function to generate a random colour
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+	
 		
         function gameOne(difficulty) {
 			//THIS PART IS FOR THE WORD WITH COLOUR
@@ -189,12 +199,7 @@
 			var randomColour1 = colourColour[random];
 			var randomColour2 = colourColour[random2];
 			var randomColour3 = colourColour[random3];
-
-			if(answersGameOne > 2) {
-				alert("game win");
-				init();
-			}
-
+			
 			if(colourChosen == answer){
 				while(colourChosen == answer){
 				random3 = Math.floor(Math.random()*9);
@@ -250,21 +255,17 @@
 
 			//Right Answer
 			function correct(event){
-				if(timeHolder + 5 < timer.getElapsedTime()){
-					alert("Time is up!");
-					init();
-				}
-				else{
-					answersGameOne++;
-					gameOne(difficulty);
-				}
+				clearInterval(testIng);
+				alert("correct choice");
+				playGame();
+								
 				}
 			function wrong(event){
+				alert("wrong choice");				
 				//lives--;
 				//handleClick();	
-				init();
+				//init();
 			}
-
 
 			//OPTION 1
 			function bottomLeft(){
@@ -409,8 +410,18 @@
 					bottomRight.addEventListener("click",correct);
 					//stage.update();
 			};
-			
 			stage.update();
+			testIng = setInterval(function () {test()}, 1000);
+			timerTemp = timer.getElapsedTime();
+			function test() {
+				if(timerTemp + 5 < timer.getElapsedTime()) {
+					alert("time ran out");
+					clearInterval(testIng);
+				}
+				else{
+					stage.update();
+				}
+			}
          }
 
          function gameTwo(difficulty) {
@@ -424,9 +435,6 @@
          function gameBoss(difficulty) {
              return true;
          }
-
-         stage.update();
-
      }
 		</script>
 </head>

@@ -1,71 +1,91 @@
 		//Pick a random game
-		var gamesPlayed = 0;
-		function nextGame(){
 			
-				if(gamesPlayed<3){
-						var pickaGame = Math.floor(Math.random() * 3);
-						
-						switch(pickaGame){
-								case 0:
-								fakeGame1();
-								gamesPlayed = gamesPlayed+1;
-								break;
-								case 1:
-								fakeGame2();
-								gamesPlayed = gamesPlayed+1;
-								break;
-								case 2:
-								fakeGame1();
-								gamesPlayed = gamesPlayed+1;
-								break;
-								default:
-								fakeGame2();
-								gamesPlayed = gamesPlayed+1;
-								
-								}
-					}
-				if (gamesPlayed==3){
-							mainMenu();
-							gamesPlayed = 0;
-						}
-						stage.update();
-						
-						
-				}	
-		
-		//placeholder games
-		function fakeGame1(){
-		var backdrop = new createjs.Shape();
+		var lives = 3;
+		 var difficulty = 1;
+		 var complete = 0;
+		 var score = 0;
+		 var count = 30;
+ function nextGame(event) {
+             //variables
+             var game = new createjs.Shape();
+			var games = [gameOne, gameTwo, gameThree, gameBoss];
+             var randNum = Math.floor(Math.random()*3 )
+             var endButton = new createjs.Shape();
+//createjs.Ticker.reset();
+
+
+            if (lives > 0) {
+				if(complete == 3){
+					complete = 0;
+					difficulty++;
+					gameBoss();
+					
+				}
+					
+				else{
+				games[randNum](difficulty);
+				}
+            }
+			
+			else{
+				gameOver();
+
+             function gameOver(){
+             gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "black");
+             gameOver.x = 50;
+             gameOver.y = 50;
+             stage.removeAllChildren();
+             var home = new createjs.Shape();
+			 home.graphics.beginFill("red").drawRect(150,250, 100, 50);
+			 home.addEventListener("click", init);
+			 stage.addChild(home);
+			 stage.addChild(gameOver);
+             stage.update();
+			 lives = 3;
+			 difficulty=1;
+			 complete = 0;
+         }
+
+         function gameOne(difficulty) {
+			 topBar();
+			var backdrop = new createjs.Shape();
 		backdrop.graphics.beginFill("blue").drawRect(0,0,300,500);
 		stage.addChild(backdrop);
-		
-		
-		
-		var playButton = new createjs.Shape();
-		playButton.graphics.beginFill("yellow");
-		playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
-		stage.addChild(playButton);
-		playButton.addEventListener("click",nextGame);
+             
+		complete++;
 		stage.update();
-		}
-		
-				function fakeGame2(){
-		var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("red").drawRect(0,0,300,500);
-	stage.addChild(backdrop);
-	
-	
-			var playButton = new createjs.Shape();
-		playButton.graphics.beginFill("yellow");
-		playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
-		stage.addChild(playButton);
-		playButton.addEventListener("click",nextGame);
-		
-		stage.update();
-		}
-		
-		
-		
+         }
+
+         function gameTwo(difficulty) {
+			 topBar();
+			var backdrop = new createjs.Shape();
+		backdrop.graphics.beginFill("red ").drawRect(0,0,300,500);
+		stage.addChild(backdrop);
 		
 
+		complete++;
+		stage.update();
+            
+         }
+
+         function gameThree(difficulty) {
+			 topBar();
+			var backdrop = new createjs.Shape();
+		backdrop.graphics.beginFill("green").drawRect(0,0,300,500);
+		stage.addChild(backdrop);
 		
+
+		complete++;
+		stage.update();
+            
+         }
+		 
+		 function gameBoss(difficulty){
+			 		game1();
+					
+            
+			 
+		 }
+
+			}
+ }
