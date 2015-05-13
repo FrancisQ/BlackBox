@@ -23,8 +23,19 @@ var canvasY = 568;
 
 var cCenter = canvasW * .5;
 
+/* TEST independent canvas */
 function start() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
+	
+	endGame();
+	
+	
+	
+}
+
+function endGame() {
+
+	
 	headerb.scaleX = imgScale;
 	headerb.scaleY = imgScale;
 	
@@ -82,16 +93,31 @@ function start() {
 	stage.addChild(currentScoreTxtUser);
 	stage.addChild(currentScoreTxt);
 	
-		/* Functionality */
 	
-	menu.addEventListener("click",test, false);
+	/* Functionality */
+	menu.addEventListener("click",test);
 	
+	stage.update();
 
-	
+}
+
+
+/* removes the endgame page from canvas - Turns OFF*/
+function removeEnd() {
+	stage.removeChild(BG);
+	stage.removeChild(headerb);
+	stage.removeChild(retry);
+	stage.removeChild(menu);
+	stage.removeChild(highScoreBar);
+	stage.removeChild(highScoreInBar);
+	stage.removeChild(highScoreTxt);
+	stage.removeChild(highScoreTxtUser);
+	stage.removeChild(currentScoreTxtUser);
+	stage.removeChild(currentScoreTxt);
 	
 	stage.update();
 }
 
-	function test(event) {
-		alert("MENU BUTTON BEEN CLICK BOI");
-	}
+function test(event) {
+	alert("MENU BUTTON BEEN CLICK BOI");
+}

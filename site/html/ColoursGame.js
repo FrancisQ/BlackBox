@@ -100,6 +100,7 @@ switch(answerPlacement){
 //Right Answer
 function correct(event){
 	alert("Shit, you got it right!");
+	currentScore = getScore();
 	removeTicker();
 	nextGame();
 

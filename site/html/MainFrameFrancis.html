@@ -14,12 +14,13 @@
 	var stage = new createjs.Stage("myCanvas");
 
 
-	function init(){
-		 var lives = 4;
+var lives = 4;
 		 var difficulty = 1;
 		 var complete = 0;
-		 var score = 0;
+		 var currentScore = 0;
 		 var count = 30;
+	function init(){
+		 
 		
 		mainMenu();
 		}
@@ -125,15 +126,13 @@
 				
 			function topBar(event){
 						
-						
-						
-						
 						//timer
 						 count = 30;
 						 var ticker = createjs.Ticker.addEventListener("tick", handleTick);
 						 createjs.Ticker.setInterval(1000);
 						 
-			}//topBar end 
+						 }//topBar end 
+						 
 						function handleTick(event) {
 						   // Actions carried out each tick (aka frame)
 						   //Things that remain the same go here!!!
@@ -160,7 +159,7 @@
 						  if (!event.paused) {
 						
 						   // Actions carried out when the Ticker is not paused.
-						 if (count == 25){
+						 if (count == 27){
 								createjs.Ticker.removeEventListener("tick", handleTick);
 								loseLife();
 								nextGame();
@@ -177,6 +176,14 @@
 						   
 						   }
 			
+			
+			stage.update();
+		
+		}// ticker end
+	
+		function removeTicker(){
+			createjs.Ticker.removeEventListener("tick", handleTick);
+			}
 						  
 			//Lose Life
 			function loseLife(){
@@ -184,10 +191,14 @@
 			}
 									
 			//Score
+			function getScore(){
+			 currentScore =+ (count * difficulty);
+			 return currentScore;
+			}
 			function score(){
 			
-			var scoreText = new createjs.Text("Score: 00000", "20px Verdana", "orange");
-			scoreText.x = 75;
+			var scoreText = new createjs.Text(currentScore, "20px Verdana", "orange");
+			scoreText.x = 100;
 			scoreText.y = 5;
 			stage.addChild(scoreText);
 			stage.update();
@@ -218,18 +229,7 @@
 					stage.update();
 					}
 			}
-			
-			
-			
-			stage.update();
-			
-
-		}// ticker end
-	
 		
-		function removeTicker(){
-			createjs.Ticker.removeEventListener("tick", handleTick);
-			}
 
 		
 		
