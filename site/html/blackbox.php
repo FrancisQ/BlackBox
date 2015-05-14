@@ -3,8 +3,8 @@
 	<head lang="en">
 		<meta charset="utf-8">
 		<title> Black Box | Game </title>
-		<link href="" type="image/x-icon" rel="icon">
-		<link href="" type="image/x-icon" rel="shortcut icon">
+		<link href="../img/BBlogo.png" type="image/x-icon" rel="icon">
+		<link href="../img/BBlogo.png" type="image/x-icon" rel="shortcut icon">
 		
 		<!--Boostrap style sheet-->
 		<link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
@@ -15,9 +15,18 @@
 
 		<!--Specific site style sheet-->
 		<link href="../css/game.css" type="text/css" rel="stylesheet">
+		
+		<script src="../javascript/preloadjs-0.6.0.combined.js"></script>
+		<script src="../javascript/easeljs-0.8.0.combined.js"></script>
+		
+		<script src="../javascript/main.js"></script>
+		<script src="../javascript/pausegame.js"></script>
+		<script src="../javascript/endgame.js"></script>
+		<script src="../javascript/leadergame.js"></script>
+		<link href="../css/canvas.css" rel="stylesheet" >
 	</head>
 
-	<body>
+	<body onload="start();">
 		<div id="wrapper">
 		
 			<!--Nav -->
@@ -40,8 +49,8 @@
 				</div>
 				<div id="content">
 					<div id="inner">
-						<div id="game">
-						</div>
+						
+						<canvas id="canvas" width="320" height="568" > </canvas>
 					</div>
 					<!--Footer -->
 			

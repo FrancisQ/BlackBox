@@ -7,7 +7,8 @@ var imgScale = .5;
 var canvasW = 320;
 var canvasY = 568;
 var cCenter = canvasW * .5;
-var alphaV = .1;
+var cCenterY = canvasY * .5;
+var alphaV = .01;
 
 var soundB, playB, leaderB;
 
@@ -15,13 +16,10 @@ var soundB, playB, leaderB;
 function start() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
 	
-	menu();
-	
-	
-	
+	menu2();	
 }
 
-function menu(){
+function menu2(){
 	
 	// main pannel
 	panel.scaleX = panel.scaleY = imgScale;
@@ -31,20 +29,20 @@ function menu(){
 	
 	playB = new createjs.Shape();
 	playB.graphics.beginFill("yellow");
-	playB.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
+	playB.graphics.moveTo(cCenter, cCenterY).lineTo(canvasW, 190).lineTo(canvasW, canvasY).lineTo(cCenter, canvasY).lineTo(cCenter, cCenterY);
 	playB.alpha = alphaV;
 	
 	// sound button
 	soundB = new createjs.Shape();
 	soundB.graphics.beginFill("green");
-	soundB.graphics.moveTo(150, 250).lineTo(0, 175).lineTo(0, 500).lineTo(150, 500).lineTo(150,250);
+	soundB.graphics.moveTo(cCenter, cCenterY).lineTo(0, 190).lineTo(0, canvasY).lineTo(cCenter, canvasY).lineTo(cCenter, cCenterY);
 	soundB.alpha = alphaV;
 	
 	
 	//leader button
 	leaderB = new createjs.Shape();
 	leaderB.graphics.beginFill("cyan");
-	leaderB.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 40).lineTo(0, 40).lineTo(0,175).lineTo(150, 250);
+	leaderB.graphics.moveTo(cCenter, cCenterY).lineTo(canvasW, 190).lineTo(canvasW, 35).lineTo(0, 35).lineTo(0,190);
 	leaderB.alpha = alphaV;
 	
 	
@@ -86,14 +84,14 @@ function playT(event){
 
 // when clicking sound
 function soundT(event) {
-	removeMain();
 	alert("toggle sound..");
 }
 
 // when clicking leader 
 function leaderT(event) {
 	removeMain();
-	alert("leaderboards..");
+	leader();
+	/* alert("leaderboards.."); */
 }
 
 
