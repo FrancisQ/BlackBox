@@ -4,35 +4,40 @@
 	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
 	<script src="ColoursGame.js"></script>
 	<script src="nextGame.js"></script>
-	<script src = "simpleGame.js"></script>
-
+	<script src="simpleGame.js"></script>
+	<script src="PauseMenu.js"></script>
+	<script src="leaderBoardPage.js"></script>
+	<script src="topBar.js"></script>
+	
 </head>
-<body onload="init();">
+<body onload="mainMenu();">
 	<canvas id="myCanvas" width="300" height="500" style="border:2px solid #d3d3d3;"></canvas>
 	
 	<script>
 	var stage = new createjs.Stage("myCanvas");
-
-
+//Global Values
+	var lives = 4;
+	var difficulty = 1;
+	var complete = 0;
+	var currentScore = 0;
+	var count = 30;
+	
 	function init(){
-		 var lives = 4;
-		 var difficulty = 1;
-		 var complete = 0;
-		 var score = 0;
-		 var count = 30;
-		
-		mainMenu();
-		}
+	stage.removeAllEventListeners();
+	stage.removeAllChildren();
+	mainMenu();
+	}
 
 	function mainMenu(){
+	
+	
 			
 
 		//HEADER
-		
 		var backHeader = new createjs.Shape();
 		backHeader.graphics.beginFill("black").drawRect(0, 0, 500, 40);
 		stage.addChild(backHeader);
-		//text
+		//Header text
 		var header = new createjs.Text("BlackBox", "20px Arial", "white");
 		header.x= 110;
 		stage.addChild(header);
@@ -42,15 +47,14 @@
 		playButton.graphics.beginFill("yellow");
 		playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
 		stage.addChild(playButton);
-		
-		//text
+		//Play text
 		var playText = new createjs.Text("Play", "20px Verdana", "black");	
 		playText.x = 170;
 		playText.y = 350;
 		stage.addChild(playText);
-		
 		//play functionality
 		playButton.addEventListener("click", nextGame);
+		
 		
 		
 		//SOUND
@@ -59,14 +63,13 @@
 		soundButton.graphics.beginFill("green");
 		soundButton.graphics.moveTo(150, 250).lineTo(0, 175).lineTo(0, 500).lineTo(150, 500).lineTo(150,250);
 		stage.addChild(soundButton);
-		//text
+		//Sound Text
 		var soundText = new createjs.Text("Sound", "20px Verdana", "black");
 		soundText.x = 50;
 		soundText.y = 350;
 		stage.addChild(soundText);
-		//sound functionality
+		//Sound Functionality
 		var button1 =  soundButton.addEventListener("click",soundToggle);
-		
 		//Sound toggle if clicked on main menu
 		function soundToggle(event) {
 				if (soundIsOn === true){
@@ -77,10 +80,9 @@
 					alert("Sound is now set to on!");
 					soundIsOn = true;
 				}
-			
 			}
 		
-		//Leaderboards
+		//LEADERBOARDS
 		var leaderButton = new createjs.Shape();
 		leaderButton.graphics.beginFill("cyan");
 		leaderButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 40).lineTo(0, 40).lineTo(0,175).lineTo(150, 250);
@@ -92,100 +94,44 @@
 		stage.addChild(leaderBoardText);
 		//Leaderboards functionality
 		leaderButton.addEventListener("click", gotoLeaderBoard);
-		
 		stage.update();
 		}
 		
-		//Leaderboards page if clicked on main menu
-		function gotoLeaderBoard(event) {	
-			var leaderBoard = new createjs.Shape();
-			var title = new createjs.Text("Leaderboards", "30px Verdana", "white");
-			var scoreBox =  new createjs.Shape();
-			var returnButton = new createjs.Shape();
-			leaderBoard.graphics.beginFill("blue").drawRect(0,0,300,500);
-			leaderBoard.x = 0;
-			leaderBoard.y = 0;				
 			
-			title.x = 50;
-			
-			scoreBox.graphics.beginFill("black").drawRoundRect(0,0,250,420, 25);
-			scoreBox.x = 25;
-			scoreBox.y = 100;
-			
-			returnButton.graphics.beginFill("red").drawRoundRect(275, 45, 25, 25, 5);
-			returnButton.addEventListener("click", init);
-			stage.addChild(leaderBoard);
-			stage.addChild(title);
-			stage.addChild(scoreBox);
-			stage.addChild(returnButton);
+		function pauseButton(){
+			var pauseButton = new createjs.Shape();
+			pauseButton.graphics.beginFill("orange").drawRoundRect(275, 5, 25, 25, 5);
+			pauseButton.addEventListener("click", pause);
+			stage.addChild(pauseButton);
 			stage.update();
 		}
 		
-
-				
-			function topBar(event){
-						
-						
-						
-						
-						//timer
-						 count = 30;
-						 var ticker = createjs.Ticker.addEventListener("tick", handleTick);
-						 createjs.Ticker.setInterval(1000);
-						 
-			}//topBar end 
-						function handleTick(event) {
-						   // Actions carried out each tick (aka frame)
-						   //Things that remain the same go here!!!
-						  if (!createjs.Ticker.getPaused()) {
-						  //general bar
-							var gameHeader = new createjs.Shape();
-							gameHeader.graphics.beginFill("black").drawRect(0, 0, 500, 40);
-							stage.addChild(gameHeader);
-						//Timer text
-							var timerText = new createjs.Text(count, "20px Verdana", "orange");
-							timerText.y = 5;
-							timerText.x = 5;
-							stage.addChild(timerText);
-							stage.addChild(gameHeader);
-							life1();
-							life2();
-							life3();
-							score();
-							
-							stage.update();
-							}
-						  
-						  //Things that change go in here!!
-						  if (!event.paused) {
-						
-						   // Actions carried out when the Ticker is not paused.
-						 if (count == 25){
-								createjs.Ticker.removeEventListener("tick", handleTick);
-								//loseLife();
-							nextGame();
-							}
-							count = count-1;
-							stage.addChild(timerText);
-								
-							
-							stage.update();
-						
-							
-						   
-						   }
+		function pause(event){
+			var pause = true;
+			var pausedCount = count;
+			removeTicker();
+			pauseScreen();
+			}
 			
+		function removeTicker(){
+			createjs.Ticker.removeEventListener("tick", handleTick);
+			}
 						  
-			//Lose Life
-			function loseLife(){
-				lives--;
+			
+		function loseLife(){
+			lives--;
 			}
 									
 			//Score
-			function score(){
+		function getScore(){
+			currentScore =+ (count * difficulty);
+			return currentScore;
+			}
 			
-			var scoreText = new createjs.Text("Score: 00000", "20px Verdana", "orange");
-			scoreText.x = 75;
+		function score(){
+			
+			var scoreText = new createjs.Text(currentScore, "20px Verdana", "orange");
+			scoreText.x = 100;
 			scoreText.y = 5;
 			stage.addChild(scoreText);
 			stage.update();
@@ -195,7 +141,7 @@
 			function life1(){
 				if ( lives >= 3){
 					var life1 = new createjs.Shape();
-					life1.graphics.beginFill("orange").drawPolyStar(285, 18, 10, 5, 0.6, -90);
+					life1.graphics.beginFill("orange").drawPolyStar(250, 18, 10, 5, 0.6, -90);
 					stage.addChild(life1);
 					stage.update();
 					}
@@ -203,7 +149,7 @@
 			function life2(){
 				if(lives >= 2){
 					var life2 = new createjs.Shape();
-					life2.graphics.beginFill("orange").drawPolyStar(270, 18, 10, 5, 0.6, -90);
+					life2.graphics.beginFill("orange").drawPolyStar(235, 18, 10, 5, 0.6, -90);
 					stage.addChild(life2);
 					stage.update();
 					}
@@ -211,23 +157,12 @@
 			function life3(){
 				if(lives >= 1){
 					var life3 = new createjs.Shape();
-					life3.graphics.beginFill("orange").drawPolyStar(255, 18, 10, 5, 0.6, -90);
+					life3.graphics.beginFill("orange").drawPolyStar(220, 18, 10, 5, 0.6, -90);
 					stage.addChild(life3);
 					stage.update();
 					}
 			}
-			
-			
-			
-			stage.update();
-			
-
-		}// ticker end
-	
 		
-		function removeTicker(){
-			createjs.Ticker.removeEventListener("tick", handleTick);
-			}
 
 		
 		
