@@ -5,7 +5,11 @@
 	<script src="../javascript/preloadjs-0.6.0.combined.js"></script>
 	<script src="../javascript/easeljs-0.8.0.combined.js"></script>
 	
+	<script src="simpleGame.js"></script>
+	<script src="topBar.js"></script>
+	
 	<script src="../javascript/main.js"></script>
+	<script src="../javascript/francis.js"></script>
 	<script src="../javascript/pausegame.js"></script>
 	<script src="../javascript/endgame.js"></script>
 	<script src="../javascript/leadergame.js"></script>
