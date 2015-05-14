@@ -23,7 +23,7 @@ function handleTick(event) {
 				timerText.x = 5;
 				stage.addChild(timerText);
 				stage.addChild(gameHeader);
-				returnButton();
+				pauseButton();
 				life1();
 				life2();
 				life3();
@@ -36,7 +36,7 @@ function handleTick(event) {
 	   
 			 if (count == 0){
 					createjs.Ticker.removeEventListener("tick", handleTick);
-					//loseLife();
+					loseLife();
 					nextGame();
 				}
 			

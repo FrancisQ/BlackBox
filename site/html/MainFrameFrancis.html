@@ -21,8 +21,16 @@
 	var complete = 0;
 	var currentScore = 0;
 	var count = 30;
+	
+	function init(){
+	stage.removeAllEventListeners();
+	stage.removeAllChildren();
+	mainMenu();
+	}
 
 	function mainMenu(){
+	
+	
 			
 
 		//HEADER
@@ -90,7 +98,7 @@
 		}
 		
 			
-		function returnButton(){
+		function pauseButton(){
 			var pauseButton = new createjs.Shape();
 			pauseButton.graphics.beginFill("orange").drawRoundRect(275, 5, 25, 25, 5);
 			pauseButton.addEventListener("click", pause);
