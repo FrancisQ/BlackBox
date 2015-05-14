@@ -38,7 +38,10 @@
 		//The clickable Resume Button
 		var resumeBut = new createjs.Shape();
         resumeBut.graphics.beginFill("LightGreen").drawRect(0, 393, 320, 165);
-        resumeBut.addEventListener("click", nextGame)		
+        resumeBut.addEventListener("click",function(){stage.removeChild(container);
+		stage.update();
+		createjs.Ticker.addEventListener("tick", handleTick);
+		})		
 		var resumeText = new createjs.Text("Resume", "40px Arial", "White");
 		resumeText.x = 85;
 		resumeText.y = 510;
@@ -53,7 +56,8 @@
 		container.addChild(titrect);
 		container.addChild(mainTitle);
         container.addChild(scoreBoard);
-		container.isVisible();
+		container.isVisible(true);
 		stage.addChild(container);
+		stage.update();
 		}
 		
