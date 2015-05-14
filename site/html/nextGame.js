@@ -3,7 +3,7 @@
  function nextGame(event) {
              //variables
              var game = new createjs.Shape();
-			var games = [gameOne, gameTwo, gameThree, gameBoss];
+			 var games = [gameOne, gameTwo, gameThree, gameBoss];
              var randNum = Math.floor(Math.random()*3 )
              var endButton = new createjs.Shape();
 //createjs.Ticker.reset();
@@ -13,11 +13,15 @@
 				if(complete == 3){
 					complete = 0;
 					difficulty++;
+					nextChallenge = 3; 
+					instructions();
 					gameBoss();
 					
 				}
 					
 				else{
+				nextChallenge = randNum;
+				instructions();
 				games[randNum](difficulty);
 				}
             }

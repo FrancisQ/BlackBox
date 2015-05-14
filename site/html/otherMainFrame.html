@@ -5,6 +5,7 @@
 	<script src="ColoursGame.js"></script>
 	<script src="nextGame.js"></script>
 	<script src="simpleGame.js"></script>
+	<script src="gamePrompt.js"></script>
 
 </head>
 <body onload="init();">
@@ -14,11 +15,12 @@
 	var stage = new createjs.Stage("myCanvas");
 
 
-var lives = 4;
-		 var difficulty = 1;
-		 var complete = 0;
-		 var currentScore = 0;
-		 var count = 30;
+		var lives = 4;
+		var difficulty = 1;
+		var complete = 0;
+		var currentScore = 0;
+		var count = 30;
+		var nextChallenge = 0;
 	function init(){
 		 
 		
