@@ -25,14 +25,14 @@ var user1, user2;
 var score1, score2;
 
 /* TEST independent canvas */
-function start() {
+/* function start() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
 	
 	leader();
 	
 	
 	
-}
+} */
 
 function leader() {
 	
@@ -115,7 +115,7 @@ function leader() {
 
 
 /* removes the leader page from canvas - Turns OFF*/
-function removePause() {
+function removeLeader() {
 	stage.removeChild(leaderbg);
 	stage.removeChild(contentBox);
 	stage.removeChild(lTxt);
@@ -129,6 +129,7 @@ function removePause() {
 }
 
 function leaderBack(event) {
-	removePause();
-	alert("going back..");
+	removeLeader();
+	menu2();
+	/* alert("going back.."); */
 }

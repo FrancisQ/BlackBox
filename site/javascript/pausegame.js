@@ -20,14 +20,14 @@ var canvasY = 568;
 var cCenter = canvasW * .5;
 
 /* TEST independent canvas */
-function start() {
+/* function start() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
 	
 	pause();
 	
 	
 	
-}
+} */
 
 function pause() {
 

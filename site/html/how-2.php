@@ -3,8 +3,8 @@
 	<head lang="en">
 		<meta charset="utf-8">
 		<title> Black Box | How to </title>
-		<link href="" type="image/x-icon" rel="icon">
-		<link href="" type="image/x-icon" rel="shortcut icon">
+		<link href="../img/BBlogo.png" type="image/x-icon" rel="icon">
+		<link href="../img/BBlogo.png" type="image/x-icon" rel="shortcut icon">
 		
 		<!--Boostrap style sheet-->
 		<link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
