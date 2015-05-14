@@ -2,6 +2,7 @@
 <html>
 <head>
 	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+    <script src="scripts/jquery-2.1.0.js" type="text/javascript"></script>
 	<script>
      function init() {
          var stage = new createjs.Stage("myCanvas");
@@ -62,6 +63,8 @@
 
              title.x = 50;
 
+
+
              scoreBox.graphics.beginFill("black").drawRoundRect(0, 0, 250, 420, 25);
              scoreBox.x = 25;
              scoreBox.y = 100;
@@ -73,6 +76,17 @@
              stage.addChild(scoreBox);
              stage.addChild(returnButton);
              stage.update();
+
+             $.ajax({ url: "https://api.mongolab.com/api/1/databases/my-db/collections/my-coll?s={score:-1}&l=10&apiKey=NSMtfgEiRFg6AMmRoF-buHNYoRynthh",
+             type: "GET",
+             dataType: "json",
+             success: function (data) {
+                 alert(data);
+             },
+             error: function () {
+                 alert("boom");
+                }
+            });
          }
 
          playRect.addEventListener("click", handleClick);
@@ -120,13 +134,14 @@
                  }
 
              }
-             var gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "white");
+             var gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "black");
              gameOver.x = 50;
              gameOver.y = 50;
              stage.removeAllChildren();
              stage.addChild(gameOver);
              stage.addChild(endButton);
              stage.update();
+             endGame("AAA", score);
          }
 
          soundRect.addEventListener("click", soundToggle);
@@ -151,43 +166,44 @@
          }
 
          function gameOne(difficulty) {
-			var backdrop = new createjs.Shape();
-		backdrop.graphics.beginFill("blue").drawRect(0,0,300,500);
-		stage.addChild(backdrop);
-             
-			 		var playButton = new createjs.Shape();
-		playButton.graphics.beginFill("green");
-		playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
-		stage.addChild(playButton);
-		playButton.addEventListener("click",nextGame);
-		stage.update();
+             /*var backdrop = new createjs.Shape();
+             backdrop.graphics.beginFill("blue").drawRect(0, 0, 300, 500);
+             stage.addChild(backdrop);
+
+             var playButton = new createjs.Shape();
+             playButton.graphics.beginFill("green");
+             playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150, 250);
+             stage.addChild(playButton);
+             playButton.addEventListener("click", nextGame);
+             stage.update();*/
+             return true;
          }
 
          function gameTwo(difficulty) {
-			var backdrop = new createjs.Shape();
-		backdrop.graphics.beginFill("blue").drawRect(0,0,300,500);
-		stage.addChild(backdrop);
-		
-				var playButton = new createjs.Shape();
-		playButton.graphics.beginFill("yellow");
-		playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
-		stage.addChild(playButton);
-		playButton.addEventListener("click",nextGame);
-		stage.update();
+             /* var backdrop = new createjs.Shape();
+             backdrop.graphics.beginFill("blue").drawRect(0, 0, 300, 500);
+             stage.addChild(backdrop);
+
+             var playButton = new createjs.Shape();
+             playButton.graphics.beginFill("yellow");
+             playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150, 250);
+             stage.addChild(playButton);
+             playButton.addEventListener("click", nextGame);
+             stage.update();*/
              return true;
          }
 
          function gameThree(difficulty) {
-			var backdrop = new createjs.Shape();
-		backdrop.graphics.beginFill("yellow").drawRect(0,0,300,500);
-		stage.addChild(backdrop);
-		
-				var playButton = new createjs.Shape();
-		playButton.graphics.beginFill("yellow");
-		playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
-		stage.addChild(playButton);
-		playButton.addEventListener("click",nextGame);
-		stage.update();
+             /*var backdrop = new createjs.Shape();
+             backdrop.graphics.beginFill("yellow").drawRect(0, 0, 300, 500);
+             stage.addChild(backdrop);
+
+             var playButton = new createjs.Shape();
+             playButton.graphics.beginFill("yellow");
+             playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150, 250);
+             stage.addChild(playButton);
+             playButton.addEventListener("click", nextGame);
+             stage.update();*/
              return true;
          }
 
@@ -203,18 +219,17 @@
              var colourChosen = colourColour[pick];
              //Choose WORD
              var wordChosen = colourWords[pick2];
-             alert("ok");
              var time = 15 - (difficulty * 2);
              var success = false;
 
-             createjs.Ticker.addEventListener("tick", handleTick);
+             /*createjs.Ticker.addEventListener("tick", handleTick);
              createjs.Ticker.setInterval(1000);
              createjs.Ticker.init();
 
              function handleTick(event) {
-                 time = time - 1;
-                 alert("ok4");
-             }
+             time = time - 1;
+             alert("ok4");
+             }*/
 
              var text = new createjs.Text(wordChosen, "40px Times New Roman", colourChosen);
              text.x = 105;
@@ -224,7 +239,6 @@
              stage.addChild(text);
              stage.update();
 
-             alert("ok2");
 
              //THIS PART IS FOR THE BUTTONS 
 
@@ -446,13 +460,37 @@
                  bottomRight.addEventListener("click", correct);
                  stage.update();
              }
-             alert("ok3");
-             
+
+
+
+             /*while (time > 0) {
+             alert(time);
+             }
              createjs.Ticker.setPaused(true);
-             createjs.Ticker.reset();
+             createjs.Ticker.reset();*/
              return success;
          }
+
+         function endGame(name, score) {
+             $.ajax({ url: "https://api.mongolab.com/api/1/databases/my-db/collections/my-coll?apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
+                 data: JSON.stringify({ name: name,
+                 score: score }),
+                 type: "POST",
+                 contentType: "application/json",
+                 success: function (data) {
+                     alert("posted");
+                 },
+                 error: function () {
+                     alert("boom");
+                 }
+
+             });
+
+             init();
+         }
          stage.update();
+
+         
      }
 </script>
 </head>

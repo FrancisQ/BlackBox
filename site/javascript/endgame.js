@@ -24,7 +24,7 @@ var canvasY = 568;
 var cCenter = canvasW * .5;
 
 /* TEST independent canvas */
-function start() {
+/* function start() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
 	
 	endGame();
@@ -32,7 +32,7 @@ function start() {
 	
 	
 }
-
+ */
 function endGame() {
 
 	
@@ -95,7 +95,8 @@ function endGame() {
 	
 	
 	/* Functionality */
-	menu.addEventListener("click",test);
+	menu.addEventListener("click", menuE);
+	retry.addEventListener("click", retryE);
 	
 	stage.update();
 
@@ -118,6 +119,17 @@ function removeEnd() {
 	stage.update();
 }
 
-function test(event) {
-	alert("MENU BUTTON BEEN CLICK BOI");
+function menuE(event) {
+	removeEnd();
+	stage.update();
+	alert("going menu..");
+
+}
+
+function retryE(event) {
+	removeEnd();
+	/* restart(); */
+	stage.update();
+	alert("retrying game..");
+	
 }
