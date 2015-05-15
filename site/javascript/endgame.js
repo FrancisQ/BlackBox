@@ -31,7 +31,7 @@ var cCenter = canvasW * .5;
 	
 	
 	
-}
+} 
  */
 function endGame2() {
 	count = "";

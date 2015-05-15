@@ -5,7 +5,7 @@ function game1(event){
 	backdrop.graphics.beginFill("black").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	topBar();
-	
+	 
 
 //THIS PART IS FOR THE WORD WITH COLOUR
 

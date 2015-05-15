@@ -4,7 +4,7 @@ var pauseB = new createjs.Bitmap("../img/pause.png");
 function topBar(event){
 	pauseB.scaleY = pauseB.scaleX = imgScale;
 	
-	
+	 
 	pauseB.regX = 104;
 	
 	pauseB.x = canvasW;
