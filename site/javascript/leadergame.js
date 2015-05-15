@@ -126,7 +126,7 @@ function leader(){
             dataType: "json",
             contentType: "application/json",
             success: function (data) {
-                alert(JSON.stringify(data));
+                //alert(JSON.stringify(data));
                 $.each(data, function (index, element) {
                     players[index] = element.id;
                     score[index] = element.score;

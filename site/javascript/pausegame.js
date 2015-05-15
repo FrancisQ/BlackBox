@@ -120,6 +120,7 @@ function removePause() {
 }
 
 function menuP(event) {
+    stage.removeAllChildren();
 	removePause();
 	menu2();
 	/* alert("going menu.."); */
@@ -133,6 +134,7 @@ function resumeP(event) {
 }
 
 function retryP(event) {
+    removeAllChildren();
 	removePause();
 	nextGame();
 	/* alert("retrying game.."); */

@@ -30,6 +30,7 @@
 				}
             }
 			else{
+			    stage.removeAllEventListeners();
 				endGame2();				
 			}
 	 //variables

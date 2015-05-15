@@ -102,7 +102,7 @@ switch(answerPlacement){
 
 //Right Answer
 function correct(event){
-	alert("Shit, you got it right!");
+	//alert("Shit, you got it right!");
 	currentScore = getScore();
 	removeTicker();
 	nextGame();
@@ -110,7 +110,7 @@ function correct(event){
 }
 //Wrong Answer
 function wrong(event){
-	alert("WRONG");
+	//alert("WRONG");
 	removeTicker();
 	lives--;
 	nextGame();
