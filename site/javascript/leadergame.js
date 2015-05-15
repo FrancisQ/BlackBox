@@ -85,10 +85,31 @@ function leader() {
 	    }
 	});
 
+	while([index]<=10){
+	 r[index] = new createjs.Text([index], "12px Arial", "white");
+	 user[index] = new createjs.Text(players[index], "12px Arial", "white");
+	 score[index] = new createjs.Text(score[index], "12px Arial", "white");
+	
+	r[index].x = rankX;
+	user[index].x = userX;
+	user[index].textAlign = "center";
+	score[index].x = scoreX;
+	if(index == 0){
+		r[index].y = 280;
+	}
+	else{
+	r[index].y = 280 + yInc;;
+	}
+	
+	user[index].y = r[index].y;
+	
+	score[index].y = r[index].y;
+	index++;
+	}
 	// Leader User ranking
-	 r1 = new createjs.Text("1", "12px Arial", "white");
-	 user1 = new createjs.Text("USER", "12px Arial", "white");
-	 score1 = new createjs.Text("999999", "12px Arial", "white");
+	/* r1 = new createjs.Text("1", "12px Arial", "white");
+	 user1 = new createjs.Text(players[0], "12px Arial", "white");
+	 score1 = new createjs.Text(score[0], "12px Arial", "white");
 	
 	r1.x = rankX;
 	user1.x = userX;
@@ -100,9 +121,10 @@ function leader() {
 	
 	score1.y = r1.y;
 	
+	//2
 	 r2 = new createjs.Text("2", "12px Arial", "white");
-	 user2 = new createjs.Text("2nd USER", "12px Arial", "white");
-	 score2 = new createjs.Text("999998", "12px Arial", "white");
+	 user2 = new createjs.Text(players[2], "12px Arial", "white");
+	 score2 = new createjs.Text(score[2], "12px Arial", "white");
 	
 	r2.x = rankX;
 	user2.x = userX;
@@ -113,7 +135,20 @@ function leader() {
 	user2.y = r2.y;
 	
 	score2.y = r2.y;
+	//3
+	r2 = new createjs.Text("3", "12px Arial", "white");
+	 user2 = new createjs.Text(players[3], "12px Arial", "white");
+	 score2 = new createjs.Text(score[3], "12px Arial", "white");
 	
+	r3.x = rankX;
+	user3.x = userX;
+	user3.textAlign = "center";
+	score3.x = scoreX;
+	
+	r3.y = 280 + yInc;
+	user3.y = r2.y;
+	
+	score3.y = r2.y;*/
 	
 	/* Adding components to the stage */
 	stage.addChild(leaderbg);
@@ -122,8 +157,11 @@ function leader() {
 	stage.addChild(leaderTitle);
 	stage.addChild(bbutton);
 	
-	stage.addChild(r1, user1, score1);
-	stage.addChild(r2, user2, score2);
+	while([index] >=0){
+	stage.addChild(r[index], user[index], score[index]);
+	index++;
+	}
+	
 	
 	/* Functionality */
 	bbutton.addEventListener("click", leaderBack);

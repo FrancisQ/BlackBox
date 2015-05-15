@@ -34,15 +34,17 @@ function handleTick(event) {
 		//Things that change go in here!!
 	  if (!event.paused) {
 	   
-			 if (count == 0){
-					createjs.Ticker.removeEventListener("tick", handleTick);
-					loseLife();
-					nextGame();
-				}
+			
 			
 			count = count-1;
 			stage.addChild(timerText);	
 			stage.update();
+			if (count == 27){
+					stage.removeChild(timerText);
+					createjs.Ticker.removeEventListener("tick", handleTick);
+					loseLife();
+					nextGame();
+				}
 	   
 	   }
 
