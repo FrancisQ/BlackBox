@@ -7,9 +7,10 @@
     <script src="../javascript/jquery-2.1.0.js"></script>
 	
 	<script src="../javascript/simpleGame.js"></script>
+	<script src="../javascript/topBar.js"></script>
 	<script src="../javascript/francis.js"></script>
 	<script src="../javascript/main.js"></script>
-	<script src="../javascript/topBar.js"></script>
+	
 	<script src="../javascript/ColoursGame.js"></script>
 	<script src="../javascript/nextGame.js"></script>
 	<script src="../javascript/gamePrompt.js"></script>

@@ -24,7 +24,7 @@ function instructions(event){
 	
 	var background = new createjs.Shape();
 	background.graphics.beginFill("#b2b2b2").drawRect(0,0,canvasW, canvasY);
-	background.alpha = .2;
+	background.alpha = .7;
 	tempContainer.addChild(background);
 	/* var okayButton = new createjs.Shape();
 	okayButton.graphics.beginFill("orange").drawRect(100,400,50,50); */

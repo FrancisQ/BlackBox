@@ -40,7 +40,7 @@ var  */
 } */
 
 function leader() {
-<<<<<<< HEAD
+
 	
 	// BG
 	leaderbg.scaleX = leaderbg.scaleY = imgScale;
@@ -175,8 +175,7 @@ function leader() {
 	stage.update();
 
 }
-=======
->>>>>>> 197b73cc7b7db50ea877bba501b5c5d353dd4c99
+
 
     // BG
     leaderbg.scaleX = leaderbg.scaleY = imgScale;
