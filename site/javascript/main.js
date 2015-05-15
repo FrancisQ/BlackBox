@@ -8,7 +8,7 @@ var difficulty = 1;
 var complete = 0;
 var currentScore = 0;
 var count = 30;
-
+var soundIsOn = true;
 
 var imgScale = .5;
 var canvasW = 320;
@@ -18,11 +18,33 @@ var cCenterY = canvasY * .5;
 var alphaV = .01;
 var firstTime = true;
 var soundB, playB, leaderB;
+var audio = new Howl({
+	urls: ['../music/theme.mp3'],
+	loop: true}).play();
+var leadAudio = new Howl({
+	urls: ['../music/transition.mp3'],
+	})
+//Sound that plays on correct selection
+	var correctAudio = new Howl({
+	urls: ['../music/achieve.mp3'],
+	})
+//Sound that plays when wrong selection is made
+	var wrongAudio = new Howl({
+	urls: ['../music/beep.mp3'],
+	})
+//Alternative button press sound	
+	var buttonPressAudio = new Howl({
+	urls: ['../music/gamepress.mp3'],
+	})
+//When you select the play game option sound will play	
+	var introAudio = new Howl({
+	urls: ['../music/intro.mp3'],
+	})
 
 /* TEST independent canvas */
 function init() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
-	
+	sound();
 	menu2();	
 }
 
@@ -92,7 +114,18 @@ function playT(event){
 
 // when clicking sound
 function soundT(event) {
-	alert("toggle sound..");
+	if (soundIsOn == true) {
+        /* alert("Sound is now set to off!") */;
+		Howler.mute();
+		audio.stop();
+        soundIsOn = false;
+    }
+    else {
+		/* alert("Sound is now set to on!") */;
+        soundIsOn = true;
+		Howler.unmute();
+		audio.play();
+    }
 }
 
 // when clicking leader 
@@ -101,6 +134,30 @@ function leaderT(event) {
 	leader();
 	/* alert("leaderboards.."); */
 }
+
+function sound(){
+//Leaderboard transition	
+	var leadAudio = new Howl({
+	urls: ['../music/transition.mp3'],
+	})
+//Sound that plays on correct selection
+	var correctAudio = new Howl({
+	urls: ['../music/achieve.mp3'],
+	})
+//Sound that plays when wrong selection is made
+	var wrongAudio = new Howl({
+	urls: ['../music/beep.mp3'],
+	})
+//Alternative button press sound	
+	var buttonPressAudio = new Howl({
+	urls: ['../music/gamepress.mp3'],
+	})
+//When you select the play game option sound will play	
+	var introAudio = new Howl({
+	urls: ['../music/intro.mp3'],
+	})
+}
+
 
 
 
