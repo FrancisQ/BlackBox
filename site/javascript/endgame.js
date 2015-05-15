@@ -31,7 +31,7 @@ var cCenter = canvasW * .5;
 	
 	
 	
-}
+} 
  */
 function endGame2() {
 	count = "";
@@ -103,23 +103,6 @@ function endGame2() {
 
 }
 
-//Posts user score
-function postScore(name, num){
-    //post user ranking
-    $.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
-                 data: JSON.stringify({ id: name,
-                 score: num }),
-                 type: "POST",
-                 contentType: "application/json",
-                 success: function (data) {
-                     alert("posted");
-                 },
-                 error: function () {
-                     alert("boom");
-                 }
-
-             });
-}
 
 /* removes the endgame page from canvas - Turns OFF*/
 function removeEnd() {

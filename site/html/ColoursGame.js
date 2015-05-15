@@ -2,10 +2,10 @@ function game1(event){
 
 //BACKGROUND
 	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("black").drawRect(0,0,canvasW,canvasY);
+	backdrop.graphics.beginFill("white").drawRect(0,0,300,500);
 	stage.addChild(backdrop);
 	topBar();
-	 
+	
 
 //THIS PART IS FOR THE WORD WITH COLOUR
 
@@ -13,9 +13,9 @@ function game1(event){
 var pick = Math.floor(Math.random() * 9);
 var pick2 = Math.floor(Math.random() * 9);
 //words array
-var colourWords = ["blue", "red", "yellow", "green", "purple", "pink", "orange", "cyan", "white"];
+var colourWords = ["blue", "red", "yellow", "green", "purple", "pink", "orange", "cyan", "black"];
 //colour array
-var colourColour = ["#0000FF", "#FF0000", "#FFFF00", "#00FF00", "#6B238E", "#FF83FA", "#FF8C00", "#00FFFF", "white"];
+var colourColour = ["#0000FF", "#FF0000", "#FFFF00", "#00FF00", "#6B238E", "#FF83FA", "#FF8C00", "#00FFFF", "#000000"];
 //Choose a colour
 var colourChosen = colourColour[pick];
 //Choose WORD
@@ -23,9 +23,8 @@ var wordChosen = colourWords[pick2];
 
 						
 var text = new createjs.Text(wordChosen, "40px Times New Roman", colourChosen);
-text.x = cCenter;
-text.y = canvasY * .5;
-text.align = "center";
+text.x = 105;
+text.y = 250;
 text.textBaseline = "alphabetic";
 stage.addChild(text);
 stage.update();
@@ -70,9 +69,7 @@ if((random2 == pick) || (random2 == pick2) || (random == random2) || (random2 ==
 
 
 //Switch position of right answer
-/* var answerPlacement = Math.floor(Math.random()*4); */
-
-var answerPlacement = 0;
+var answerPlacement = Math.floor(Math.random()*4);
 switch(answerPlacement){
 	case 0: 
 		topLeft();
@@ -146,7 +143,7 @@ function bottomLeft(){
 		
 		//bottomRight
 		var bottomRight = new createjs.Shape();
-		bottomRight.graphics.beginFill(randomColour1).drawRect(450,-25,500,500);
+		bottomRight.graphics.beginFill(randomColour1).drawRect(420,-25,300,500);
 		bottomRight.rotation = 45;
 		stage.addChild(bottomRight);
 		bottomRight.addEventListener("click", wrong);
@@ -161,7 +158,7 @@ function bottomLeft(){
 function topLeft(){
 		//topLeft
 		var topLeft = new createjs.Shape();
-		topLeft.graphics.beginFill(answer).drawRect(-100,-100,300,500);
+		topLeft.graphics.beginFill(answer).drawRect(-150,-150,300,500);
 		topLeft.rotation = 45;
 		stage.addChild(topLeft);
 		topLeft.addEventListener("click",correct);
@@ -169,7 +166,7 @@ function topLeft(){
 
 		//topRight
 		var topRight = new createjs.Shape();
-		topRight.graphics.beginFill(colourOfWord).drawRect(60,-325,500,300);
+		topRight.graphics.beginFill(colourOfWord).drawRect(50,-365,500,300);
 		topRight.rotation = 45;
 		stage.addChild(topRight);
 		topRight.addEventListener("click", wrong);
@@ -185,7 +182,7 @@ function topLeft(){
 
 		//bottomRight
 		var bottomRight = new createjs.Shape();
-		bottomRight.graphics.beginFill(randomColour2).drawRect(440,-59,500,500);
+		bottomRight.graphics.beginFill(randomColour2).drawRect(420,-25,300,500);
 		bottomRight.rotation = 45;
 		stage.addChild(bottomRight);
 		bottomRight.addEventListener("click", wrong);
@@ -222,7 +219,7 @@ function topRight(){
 
 		//bottomRight
 		var bottomRight = new createjs.Shape();
-		bottomRight.graphics.beginFill(randomColour1).drawRect(450,-25,300,500);
+		bottomRight.graphics.beginFill(randomColour1).drawRect(420,-25,300,500);
 		bottomRight.rotation = 45;
 		stage.addChild(bottomRight);
 		bottomRight.addEventListener("click", wrong);

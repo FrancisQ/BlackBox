@@ -27,7 +27,7 @@ function mainMenu(){
 
 } */
 	
-	
+	 
 
 
 function removeTicker(){
