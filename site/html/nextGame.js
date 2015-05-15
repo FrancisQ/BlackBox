@@ -1,7 +1,6 @@
 		//Pick a random game
 		
  function nextGame(event) {
-<<<<<<< HEAD
              //variables
              var game = new createjs.Shape();
 			 var games = [gameOne, gameTwo, gameThree, gameBoss];
@@ -11,22 +10,32 @@
 
 
             if (lives > 0) {
-				if(complete == 3){
-					complete = 0;
-					difficulty++;
+				if(complete == 3){					
 					nextChallenge = 3; 
-					instructions();
-					gameBoss();
+					if(firstTime){
+						//createjs.Ticker.removeEventListener("tick", handleTick);
+						removeTicker();
+						instructions();
+						//createjs.Ticker.addEventListener("tick", handleTick);
+						firstTime = false;						
+					}
+					else{
+						gameBoss();
+						complete = 0;
+						difficulty++;
+					}
 					
-				}
 					
+				}					
 				else{
-				nextChallenge = randNum;
-				instructions();
-				games[randNum](difficulty);
+					nextChallenge = randNum;
+					if(firstTime){
+						removeTicker();
+						instructions();						
+					}
+					//games[randNum](difficulty);
 				}
             }
-=======
 	 //variables
 	var game = new createjs.Shape();
 	var games = [gameOne, gameTwo, gameThree, gameBoss];
@@ -34,13 +43,12 @@
 	var endButton = new createjs.Shape();
 
 //checks if lives are left
-	if (lives > 0) {
+	/*if (lives > 0) {
 	//if 3 games have been completed -- bossGame/reset completed/increase difficulty
 		if(complete == 3){
 			complete = 0;
 			difficulty++;
 			gameBoss();
->>>>>>> 061f9ede38a2b5b8e122a0c8eeb69e8763a339f1
 			
 		}
 	//if 3 games not completed -- regular game pool
@@ -51,7 +59,7 @@
 //if no lives left-- endScreen
 	else{
 		gameOver();
-	}
+	}*/
  }
 //Place holder for end game screen
 function gameOver(){
@@ -81,7 +89,7 @@ function gameOne(difficulty) {
 	backdrop.graphics.beginFill("blue").drawRect(0,0,300,500);
 	stage.addChild(backdrop);
 	complete++;
-	stage.update();
+	//stage.update();
  }
  
  
@@ -89,10 +97,10 @@ function gameOne(difficulty) {
 function gameTwo(difficulty) {
 	topBar();
 	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("red ").drawRect(0,0,300,500);
+	backdrop.graphics.beginFill("red").drawRect(0,0,300,500);
 	stage.addChild(backdrop);
 	complete++;
-	stage.update();
+	//stage.update();
  }
 //game 3 place holder
 function gameThree(difficulty) {
@@ -101,7 +109,7 @@ function gameThree(difficulty) {
 	backdrop.graphics.beginFill("green").drawRect(0,0,300,500);
 	stage.addChild(backdrop);
 	complete++;
-	stage.update();
+	//stage.update();
  }
  
 

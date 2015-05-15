@@ -5,14 +5,12 @@
 	<script src="ColoursGame.js"></script>
 	<script src="nextGame.js"></script>
 	<script src="simpleGame.js"></script>
-<<<<<<< HEAD
-
-=======
 	<script src="PauseMenu.js"></script>
 	<script src="leaderBoardPage.js"></script>
 	<script src="topBar.js"></script>
+	<script src="gamePrompt.js"></script>
 	
->>>>>>> 061f9ede38a2b5b8e122a0c8eeb69e8763a339f1
+
 </head>
 <body onload="mainMenu();">
 	<canvas id="myCanvas" width="300" height="500" style="border:2px solid #d3d3d3;"></canvas>
@@ -25,6 +23,7 @@
 	var complete = 0;
 	var currentScore = 0;
 	var count = 30;
+	var firstTime = true;
 	
 	function init(){
 	stage.removeAllEventListeners();
@@ -56,9 +55,10 @@
 		playText.x = 170;
 		playText.y = 350;
 		stage.addChild(playText);
-		//play functionality
-		playButton.addEventListener("click", nextGame);
 		
+		
+		//play functionality
+		playButton.addEventListener("click", nextGame);		
 		
 		
 		//SOUND

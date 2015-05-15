@@ -69,9 +69,7 @@
 			stage.removeAllChildren();
 			stage.update();
 			init();		
-		}
-		
-	
+		}	
 		
 	function retry(){
 		

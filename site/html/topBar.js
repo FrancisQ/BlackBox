@@ -1,9 +1,9 @@
 function topBar(event){
 	 count = 30;
 	 
-	 //timer
-	 var ticker = createjs.Ticker.addEventListener("tick", handleTick);
-	 createjs.Ticker.setInterval(1000);
+	//timer
+	var ticker = createjs.Ticker.addEventListener("tick", handleTick);
+	createjs.Ticker.setInterval(1000);
 	 
 	 }//topBar end 
 	 
@@ -33,16 +33,17 @@ function handleTick(event) {
 		
 		//Things that change go in here!!
 	  if (!event.paused) {
-	   
-			 if (count == 0){
+			
+			
+			stage.addChild(timerText);	
+			stage.update();
+			if (count == 24){
+					stage.removeChild(timerText);
 					createjs.Ticker.removeEventListener("tick", handleTick);
 					loseLife();
 					nextGame();
 				}
-			
-			count = count-1;
-			stage.addChild(timerText);	
-			stage.update();
+			count--;
 	   
 	   }
 
