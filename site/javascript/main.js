@@ -1,6 +1,13 @@
 var stage;
 
 var panel = new createjs.Bitmap("../img/menuPanel.png");
+var topCont = new createjs.Container();
+//Global Values
+var lives = 3;
+var difficulty = 1;
+var complete = 0;
+var currentScore = 0;
+var count = 30;
 
 
 var imgScale = .5;
@@ -13,7 +20,7 @@ var alphaV = .01;
 var soundB, playB, leaderB;
 
 /* TEST independent canvas */
-function start() {
+function init() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
 	
 	menu2();	
@@ -78,7 +85,8 @@ function removeMain() {
 // when clicking play
 function playT(event){
 	removeMain() ;
-	alert("playing game..");
+	nextGame();
+	/* alert("playing game.."); */
 	
 }
 

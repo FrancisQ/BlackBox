@@ -1,8 +1,8 @@
-var stage;
-
+/* var stage; */
+var container = new  createjs.Container();
 var headerb = new createjs.Bitmap("../img/MenuHead.png");
 var retry = new createjs.Bitmap("../img/retry.png");
-var menu = new createjs.Bitmap("../img/menu.png");
+var menuB = new createjs.Bitmap("../img/menu.png");
 var resume = new createjs.Bitmap("../img/resume.png");
 
 var BG = new createjs.Bitmap("../img/bgGray.png");
@@ -25,11 +25,11 @@ var cCenter = canvasW * .5;
 	
 	pause();
 	
-	
+	 
 	
 } */
 
-function pause() {
+function pause2() {
 
 	
 	headerb.scaleX = imgScale;
@@ -50,9 +50,9 @@ function pause() {
 	retry.y = resume.y - ( 305 * imgScale);
 	
 	/* Menu Button */
-	menu.scaleY = menu.scaleX = imgScale;
+	menuB.scaleY = menuB.scaleX = imgScale;
 	
-	menu.y = retry.y - (168 * imgScale);
+	menuB.y = retry.y - (168 * imgScale);
 	
 	/* Highest Score Bar */
 	highScoreBar.graphics.beginFill("#1f1f1f").drawRect(cCenter, 115, 225, 75);
@@ -73,23 +73,24 @@ function pause() {
 	highScoreTxtUser.y = 110;
 	highScoreTxtUser.textAlign = "center";
 	
-
+	
 	/* Adding components to the stage */
-	stage.addChild(BG);
 	
-	stage.addChild(headerb);
-	stage.addChild(resume);
-	stage.addChild(retry);
-	stage.addChild(menu);
-	stage.addChild(highScoreBar);
-	stage.addChild(highScoreInBar);
-	stage.addChild(highScoreTxt);
-	stage.addChild(highScoreTxtUser);
+	container.addChild(BG);
+	
+	container.addChild(headerb);
+	container.addChild(resume);
+	container.addChild(retry);
+	container.addChild(menuB);
+	container.addChild(highScoreBar);
+	container.addChild(highScoreInBar);
+	container.addChild(highScoreTxt);
+	container.addChild(highScoreTxtUser);
 
-	
+	stage.addChild(container);
 	
 	/* Functionality */
-	menu.addEventListener("click",menuP);
+	menuB.addEventListener("click",menuP);
 	retry.addEventListener("click", retryP);
 	resume.addEventListener("click", resumeP);
 	
@@ -100,7 +101,7 @@ function pause() {
 
 /* removes the endgame page from canvas - Turns OFF*/
 function removePause() {
-	stage.removeChild(BG);
+	/* stage.removeChild(BG);
 	stage.removeChild(headerb);
 	stage.removeChild(resume);
 	stage.removeChild(retry);
@@ -111,20 +112,28 @@ function removePause() {
 	stage.removeChild(highScoreTxtUser);
 
 	
+	 */
+	
+	
+	stage.removeChild(container);
 	stage.update();
 }
 
 function menuP(event) {
 	removePause();
-	alert("going menu..");
+	menu2();
+	/* alert("going menu.."); */
 }
 
 function resumeP(event) {
 	removePause();
-	alert("resuming game..");
+	createjs.Ticker.addEventListener("tick", handleTick);
+	
+	/* alert("resuming game.."); */
 }
 
 function retryP(event) {
 	removePause();
-	alert("retrying game..");
+	nextGame;
+	/* alert("retrying game.."); */
 }

@@ -1,4 +1,4 @@
-//Pick a random game
+		//Pick a random game
 		
  function nextGame(event) {
              //variables
@@ -6,6 +6,7 @@
 			 var games = [gameOne, gameTwo, gameThree, gameBoss];
              var randNum = Math.floor(Math.random()*3 )
              var endButton = new createjs.Shape();
+
 
             if (lives > 0) {
 				if(complete == 3){					
@@ -19,7 +20,9 @@
 						gameBoss();
 						complete = 0;
 						difficulty++;
-					}					
+					}
+					
+					
 				}					
 				else{
 					nextChallenge = randNum;
@@ -29,15 +32,12 @@
 					}
 				}
             }
-			else{
-				endGame2();				
-			}
 	 //variables
 	var game = new createjs.Shape();
 	var games = [gameOne, gameTwo, gameThree, gameBoss];
 	var randNum = Math.floor(Math.random()*3 )
-	var endButton = new createjs.Shape();		
-	
+	var endButton = new createjs.Shape();
+
  }
 //Place holder for end game screen
 function gameOver(){
@@ -64,7 +64,7 @@ function gameOne(difficulty) {
 	 
 	topBar();
 	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("blue").drawRect(0,0,canvasW,canvasY);
+	backdrop.graphics.beginFill("blue").drawRect(0,0,300,500);
 	stage.addChild(backdrop);
 	complete++;
 	//stage.update();
@@ -76,7 +76,6 @@ function gameTwo(difficulty) {
 	topBar();
 	var backdrop = new createjs.Shape();
 	backdrop.graphics.beginFill("red").drawRect(0,0,300,500);
-	backdrop.graphics.beginFill("red").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
 	//stage.update();
@@ -85,7 +84,7 @@ function gameTwo(difficulty) {
 function gameThree(difficulty) {
 	topBar();
 	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("green").drawRect(0,0,canvasW,canvasY);
+	backdrop.graphics.beginFill("green").drawRect(0,0,300,500);
 	stage.addChild(backdrop);
 	complete++;
 	//stage.update();
