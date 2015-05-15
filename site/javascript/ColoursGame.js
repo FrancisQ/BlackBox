@@ -25,7 +25,7 @@ var wordChosen = colourWords[pick2];
 var text = new createjs.Text(wordChosen, "40px Times New Roman", colourChosen);
 text.x = cCenter;
 text.y = canvasY * .5;
-text.align = "center";
+text.textAlign = "center";
 text.textBaseline = "alphabetic";
 stage.addChild(text);
 stage.update();

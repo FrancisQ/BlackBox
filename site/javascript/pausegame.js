@@ -134,6 +134,6 @@ function resumeP(event) {
 
 function retryP(event) {
 	removePause();
-	nextGame;
+	nextGame();
 	/* alert("retrying game.."); */
 }
