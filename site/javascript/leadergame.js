@@ -5,6 +5,8 @@ var contentBox = new createjs.Bitmap("../img/LCont.png");
 var bbutton = new createjs.Bitmap("../img/LBck.png");
 var lTxt = new createjs.Bitmap("../img/LTxt.png");
 var leaderTitle = new createjs.Bitmap("../img/LTitle.png");
+var players;
+var scores;
 
 
 var imgScale = .5;
@@ -64,19 +66,24 @@ function leader() {
 	lTxt.x = cCenter - 9;
 	lTxt.y = 240;
 	
-
     //Get user ranking
-    $.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?apiKey=NSMtfgEiRFg6AMmRoF-buHNYoRynthh",
-             type: "GET",
-             dataType: "json",
-             contentType: "application/json",
-             success: function (data) {
-                 alert(data);
-             },
-             error: function () {
-                 alert("boom");
-                }
-            });
+	$.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?s={score:1}&l=10&apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
+	    type: "GET",
+	    dataType: "json",
+	    contentType: "application/json",
+	    success: function (data) {
+	        alert(JSON.stringify(data));
+	         $.each(data, function(index, element) {
+	            players[index] = element.id;
+	            score[index] = element.score;
+	            alert(players + score);
+	        });
+
+	    },
+	    error: function () {
+	        alert("boom");
+	    }
+	});
 
 	// Leader User ranking
 	 r1 = new createjs.Text("1", "12px Arial", "white");
