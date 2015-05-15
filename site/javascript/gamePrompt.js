@@ -1,14 +1,36 @@
 var games = [game0Tips, game1Tips, game2Tips, game3Tips];
 var tempContainer = new createjs.Container();
+var okB = new createjs.Bitmap("../img/ok.png");
+var promptP = new createjs.Bitmap("../img/prompt.png");
+promptP.scaleY = promptP.scaleX = imgScale;
+promptP.regX = 409 * .5;
+promptP.regY = 518 * .5;
+		
+promptP.x = cCenter;
+promptP.y = cCenterY - 100;
+
 //var gameCount;
 function instructions(event){
+	okB.scaleY= okB.scaleX = .4;
+	okB.regX = 282 * .5;
+	okB.regY = 118 * .5;
+	
+	okB.x = cCenter;
+	okB.y = cCenterY + 150;
+	
+	
+	
+	
+	
 	var background = new createjs.Shape();
-	background.graphics.beginFill("#b2b2b2").drawRect(0,0,300,500);
+	background.graphics.beginFill("#b2b2b2").drawRect(0,0,canvasW, canvasY);
+	background.alpha = .7;
 	tempContainer.addChild(background);
-	var okayButton = new createjs.Shape();
-	okayButton.graphics.beginFill("orange").drawRect(100,400,50,50);
-	okayButton.addEventListener("click", unPause);
-	tempContainer.addChild(okayButton);
+	/* var okayButton = new createjs.Shape();
+	okayButton.graphics.beginFill("orange").drawRect(100,400,50,50); */
+	
+	okB.addEventListener("click", unPause);
+	tempContainer.addChild(okB);
 	//var newTicker = createjs.Ticker.addEventListener("tick", promptTicker);
 	//createjs.Ticker.setInterval(1000);
 	
@@ -26,52 +48,61 @@ function instructions(event){
 	
 	//Instructions for the first game
 	function game0Tips(){
-		var middleBox = new createjs.Shape();
-		middleBox.graphics.beginFill("purple").drawRoundRect(50,100,200,150,30);
-		tempContainer.addChild(middleBox);
+
+		
+	/* 	promptP.scaleY = promptP.scaleX = imgScale;
+		promptP.regX = 409 * .5;
+		promptP.regY = 518 * .5;
+		
+		promptP.x = cCenter;
+		promptP.y = cCenterY - 100; */
+		
+		
+		tempContainer.addChild(promptP);
 		
 		var instructionText = new createjs.Text("Touch the correct\ncolour of the word \nand not what the \nword says before\nthe timer runs out", "20px Verdana", "white");
-		instructionText.x = 60;
-		instructionText.y = 110;
+		instructionText.x = cCenter;
+		instructionText.y = cCenterY - 150;
+		instructionText.textAlign = "center";
 		tempContainer.addChild(instructionText);
 		//tempContainer.update();	
 	}
 	
 	//Instructions for the second game
 	function game1Tips() {
-		var middleBox = new createjs.Shape();
-		middleBox.graphics.beginFill("purple").drawRoundRect(50,100,200,150,30);
-		tempContainer.addChild(middleBox);
+
+		tempContainer.addChild(promptP);
 		
 		var instructionText = new createjs.Text("Tap on the balls \nin descending \norder", "20px Verdana", "white");
-		instructionText.x = 60;
-		instructionText.y = 120;
+		instructionText.x = cCenter;
+		instructionText.y = cCenterY - 150;
+		instructionText.textAlign = "center";
 		tempContainer.addChild(instructionText);
 		//tempContainer.update();	
 	}
 	
 	//Instructions for the third game
 	function game2Tips() {
-		var middleBox = new createjs.Shape();
-		middleBox.graphics.beginFill("purple").drawRoundRect(50,100,200,100,30);
-		tempContainer.addChild(middleBox);
+
+		tempContainer.addChild(promptP);
 		
 		var instructionText = new createjs.Text("Tap on the proper \nside of the arrow", "20px Verdana", "white");
-		instructionText.x = 60;
-		instructionText.y = 120;
+		instructionText.x = cCenter;
+		instructionText.y = cCenterY - 150;
+		instructionText.textAlign = "center";
 		tempContainer.addChild(instructionText);
 		//tempContainer.update();	
 	}
 	
 	//Instructions for the fourth game
 	function game3Tips() {
-		var middleBox = new createjs.Shape();
-		middleBox.graphics.beginFill("purple").drawRoundRect(50,100,210,150,30);
-		tempContainer.addChild(middleBox);
+
+		tempContainer.addChild(promptP);
 		
 		var instructionText = new createjs.Text("Avoid the obstacles \nuntil the timer runs \nout to continue", "20px Verdana", "white");
-		instructionText.x = 57;
-		instructionText.y = 120;
+		instructionText.x = cCenter;
+		instructionText.y = cCenterY - 150;
+		instructionText.textAlign = "center";
 		tempContainer.addChild(instructionText);
 		//tempContainer.update();	
 	}
@@ -99,4 +130,42 @@ function unPause(){
 					break;			
 				
 			}
+<<<<<<< HEAD
 }
+=======
+}
+		
+/*function promptTicker(event) {
+
+	   // Actions carried out each tick (aka frame)
+	   //Things that remain the same go here!!!
+	  if (!createjs.Ticker.getPaused()) {
+			if (gameCount>=0){
+				var background = new createjs.Shape();
+			background.graphics.beginFill("#b2b2b2").drawRect(0,0,300,500);
+			tempContainer.addChild(background);
+			stage.addChild(tempContainer);
+			games[nextChallenge]();
+			stage.update();}
+		}
+		
+		//Things that change go in here!!
+	  if (!event.paused) {
+	   
+			 if (gameCount == 0){
+					stage.removeChild(tempContainer);
+					createjs.Ticker.removeEventListener("tick", promptTicker);
+					count = 30;
+					//loseLife();
+					//nextGame();
+				}
+			
+			gameCount--;
+			stage.update();
+	   
+	   }
+
+	stage.update();
+
+}*/// ticker end
+>>>>>>> 32ebb390df1ed543a1846101689d9f3eed593d1b
