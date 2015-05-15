@@ -10,15 +10,15 @@
             if (lives > 0) {
 				if(complete == 3){					
 					nextChallenge = 3; 
+					complete = 0;
+					difficulty++;
 					if(firstTime){
 						removeTicker();
 						instructions();
 						firstTime = false;						
 					}
 					else{
-						gameBoss();
-						complete = 0;
-						difficulty++;
+						gameBoss();							
 					}					
 				}					
 				else{

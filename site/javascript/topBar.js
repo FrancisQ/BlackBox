@@ -50,14 +50,10 @@ function handleTick(event) {
 		}
 		
 		//Things that change go in here!!
-<<<<<<< HEAD
-	  if (!event.paused) {			
-=======
 	  if (!event.paused) {
 
 	   
 			
->>>>>>> 32ebb390df1ed543a1846101689d9f3eed593d1b
 			
 			count = count-1;
 			stage.addChild(timerText);	
@@ -70,11 +66,6 @@ function handleTick(event) {
 				}
 	   
 	   }
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 32ebb390df1ed543a1846101689d9f3eed593d1b
 			
 			
 			stage.addChild(timerText);	
@@ -92,11 +83,6 @@ function handleTick(event) {
 				}
 			count--;
 	    }
-	
-<<<<<<< HEAD
-=======
-
->>>>>>> 32ebb390df1ed543a1846101689d9f3eed593d1b
 	stage.update();
 
 }// ticker end
