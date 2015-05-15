@@ -1,4 +1,4 @@
-var stage;
+/* var stage; */
 
 var headerb = new createjs.Bitmap("../img/MenuHead.png");
 var retry = new createjs.Bitmap("../img/retry.png");
@@ -33,9 +33,8 @@ var cCenter = canvasW * .5;
 	
 }
  */
-function endGame() {
-
-	
+function endGame2() {
+	count = "";
 	headerb.scaleX = imgScale;
 	headerb.scaleY = imgScale;
 	
@@ -81,6 +80,7 @@ function endGame() {
 	
 
 	/* Adding components to the stage */
+
 	stage.addChild(BG);
 	
 	stage.addChild(headerb);
@@ -92,6 +92,7 @@ function endGame() {
 	stage.addChild(highScoreTxtUser);
 	stage.addChild(currentScoreTxtUser);
 	stage.addChild(currentScoreTxt);
+	
 	
 	
 	/* Functionality */
@@ -122,14 +123,22 @@ function removeEnd() {
 function menuE(event) {
 	removeEnd();
 	stage.update();
-	alert("going menu..");
-
+	menu2();
+	/* alert("going menu.."); */
+	lives = 3;
+	difficulty = 1;
+	complete = 0;
 }
 
 function retryE(event) {
+	lives = 3;
+	difficulty = 1;
+	complete = 0;
+	
 	removeEnd();
 	/* restart(); */
 	stage.update();
-	alert("retrying game..");
+	nextGame();
+	/* alert("retrying game.."); */
 	
 }

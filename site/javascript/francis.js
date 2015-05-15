@@ -1,55 +1,16 @@
-var stage = new createjs.Stage("myCanvas");
-//Global Values
-var lives = 4;
-var difficulty = 1;
-var complete = 0;
-var currentScore = 0;
-var count = 30;
+
 	
-function init(){
+/* function init(){
 stage.removeAllEventListeners();
 stage.removeAllChildren();
-/* mainMenu(); */
+mainMenu();
 menu2();
-}
+} */
 
+// Sound temp delete
+/* 
 function mainMenu(){
-
-	//HEADER
-	var backHeader = new createjs.Shape();
-	backHeader.graphics.beginFill("black").drawRect(0, 0, 500, 40);
-	stage.addChild(backHeader);
-	//Header text
-	var header = new createjs.Text("BlackBox", "20px Arial", "white");
-	header.x= 110;
-	stage.addChild(header);
-		
-	//PLAY BUTTON
-	var playButton = new createjs.Shape();
-	playButton.graphics.beginFill("yellow");
-	playButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 500).lineTo(150, 500).lineTo(150,250);
-	stage.addChild(playButton);
-	//Play text
-	var playText = new createjs.Text("Play", "20px Verdana", "black");
-	playText.x = 170;
-	playText.y = 350;
-	stage.addChild(playText);
-	//play functionality
-	playButton.addEventListener("click", nextGame);
 	
-	
-	
-	//SOUND
-	var soundIsOn = true;
-	var soundButton = new createjs.Shape();
-	soundButton.graphics.beginFill("green");
-	soundButton.graphics.moveTo(150, 250).lineTo(0, 175).lineTo(0, 500).lineTo(150, 500).lineTo(150,250);
-	stage.addChild(soundButton);
-	//Sound Text
-	var soundText = new createjs.Text("Sound", "20px Verdana", "black");
-	soundText.x = 50;
-	soundText.y = 350;
-	stage.addChild(soundText);
 	//Sound Functionality
 	var button1 =  soundButton.addEventListener("click",soundToggle);
 	//Sound toggle if clicked on main menu
@@ -62,38 +23,12 @@ function mainMenu(){
 			alert("Sound is now set to on!");
 		soundIsOn = true;
 		}
-		}
-	
-	//LEADERBOARDS
-	var leaderButton = new createjs.Shape();
-	leaderButton.graphics.beginFill("cyan");
-	leaderButton.graphics.moveTo(150, 250).lineTo(300, 175).lineTo(300, 40).lineTo(0, 40).lineTo(0,175).lineTo(150, 250);
-	stage.addChild(leaderButton);
-	//text
-	var leaderBoardText = new createjs.Text("Leaderboards", "20px Verdana", "black");
-	leaderBoardText.x = 75;
-	leaderBoardText.y = 100;
-	stage.addChild(leaderBoardText);
-	//Leaderboards functionality
-	leaderButton.addEventListener("click", gotoLeaderBoard);
-	stage.update();
-}
+	}
+
+} */
 	
 	
-function pauseButton(){
-	var pauseButton = new createjs.Shape();
-	pauseButton.graphics.beginFill("orange").drawRoundRect(275, 5, 25, 25, 5);
-	pauseButton.addEventListener("click", pause);
-	stage.addChild(pauseButton);
-	stage.update();
-}
-	
-function pause(event){
-	var pause = true;
-	var pausedCount = count;
-	removeTicker();
-	pauseScreen();
-}
+
 
 function removeTicker(){
 	createjs.Ticker.removeEventListener("tick", handleTick);

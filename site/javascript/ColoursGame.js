@@ -2,7 +2,7 @@ function game1(event){
 
 //BACKGROUND
 	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("white").drawRect(0,0,300,500);
+	backdrop.graphics.beginFill("black").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	topBar();
 	
@@ -13,9 +13,9 @@ function game1(event){
 var pick = Math.floor(Math.random() * 9);
 var pick2 = Math.floor(Math.random() * 9);
 //words array
-var colourWords = ["blue", "red", "yellow", "green", "purple", "pink", "orange", "cyan", "black"];
+var colourWords = ["blue", "red", "yellow", "green", "purple", "pink", "orange", "cyan", "white"];
 //colour array
-var colourColour = ["#0000FF", "#FF0000", "#FFFF00", "#00FF00", "#6B238E", "#FF83FA", "#FF8C00", "#00FFFF", "#000000"];
+var colourColour = ["#0000FF", "#FF0000", "#FFFF00", "#00FF00", "#6B238E", "#FF83FA", "#FF8C00", "#00FFFF", "white"];
 //Choose a colour
 var colourChosen = colourColour[pick];
 //Choose WORD
@@ -23,8 +23,8 @@ var wordChosen = colourWords[pick2];
 
 						
 var text = new createjs.Text(wordChosen, "40px Times New Roman", colourChosen);
-text.x = 105;
-text.y = 250;
+text.x = cCenter;
+text.y = canvasY * .5;
 text.textBaseline = "alphabetic";
 stage.addChild(text);
 stage.update();
@@ -143,7 +143,7 @@ function bottomLeft(){
 		
 		//bottomRight
 		var bottomRight = new createjs.Shape();
-		bottomRight.graphics.beginFill(randomColour1).drawRect(420,-25,300,500);
+		bottomRight.graphics.beginFill(randomColour1).drawRect(450,-25,500,500);
 		bottomRight.rotation = 45;
 		stage.addChild(bottomRight);
 		bottomRight.addEventListener("click", wrong);
@@ -182,7 +182,7 @@ function topLeft(){
 
 		//bottomRight
 		var bottomRight = new createjs.Shape();
-		bottomRight.graphics.beginFill(randomColour2).drawRect(420,-25,300,500);
+		bottomRight.graphics.beginFill(randomColour2).drawRect(450,-25,500,500);
 		bottomRight.rotation = 45;
 		stage.addChild(bottomRight);
 		bottomRight.addEventListener("click", wrong);
@@ -219,7 +219,7 @@ function topRight(){
 
 		//bottomRight
 		var bottomRight = new createjs.Shape();
-		bottomRight.graphics.beginFill(randomColour1).drawRect(420,-25,300,500);
+		bottomRight.graphics.beginFill(randomColour1).drawRect(450,-25,300,500);
 		bottomRight.rotation = 45;
 		stage.addChild(bottomRight);
 		bottomRight.addEventListener("click", wrong);
