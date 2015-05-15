@@ -100,7 +100,7 @@ switch(answerPlacement){
 };
 
 //Right Answer
-function correct(event){
+function correct(){
 	/* alert("You got it right!"); */
 	currentScore = getScore();
 	/* removeTicker(); */
@@ -108,7 +108,7 @@ function correct(event){
 
 }
 //Wrong Answer
-function wrong(event){
+function wrong(){
 	/* alert("WRONG"); */
 	/* removeTicker(); */
 	lives--;

@@ -12,7 +12,7 @@ var highScoreTxt = new createjs.Text("HIGHEST SCORE", "25px Arial", "#f5cb37");
 var highScoreTxtUser = new createjs.Text("000000", "30px Arial", "#f5cb37");
 
 var currentScoreTxt = new createjs.Text("YOUR SCORE", "22px Arial", "#f5cb37");
-var currentScoreTxtUser = new createjs.Text(score, "25px Arial", "#f5cb37");
+var currentScoreTxtUser = new createjs.Text("0000", "25px Arial", "#f5cb37");
 
 var retryY = 568 -(305 * .5);
 var menuY = retryY - (229 * .5)
@@ -73,11 +73,14 @@ function endGame2() {
 	highScoreTxtUser.x = cCenter;
 	highScoreTxtUser.y = 110;
 	highScoreTxtUser.textAlign = "center";
-	
+	var currentScoreTxt = new createjs.Text("YOUR SCORE", "22px Arial", "#f5cb37");
+	var currentScoreTxtUser = new createjs.Text("0000", "25px Arial", "#f5cb37");
 	/* Current Score Bar */
 	currentScoreTxt.x = cCenter;
 	currentScoreTxt.y = 190;
 	currentScoreTxt.textAlign = "center";
+	
+	
 	
 	currentScoreTxtUser.x = cCenter;
 	currentScoreTxtUser.y = 215;
@@ -145,8 +148,9 @@ function removeEnd() {
 
 function menuE(event) {
 	removeEnd();
+	stage.removeAllChildren();
 	stage.update();
-	menu2();
+	init();
 	/* alert("going menu.."); */
 	removePause();
 	count = countReset;
@@ -158,6 +162,7 @@ function menuE(event) {
 
 function retryE(event) {
 	removePause();
+	stage.removeAllChildren();
 	count = countReset;
 	lives = 4;
 	difficulty = 1;
