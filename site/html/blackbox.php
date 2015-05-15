@@ -15,19 +15,30 @@
 
 		<!--Specific site style sheet-->
 		<link href="../css/game.css" type="text/css" rel="stylesheet">
+		<link href="../css/canvas.css" rel="stylesheet" >
 		
+		<!-- Game Scripts -->
 		<script src="../javascript/preloadjs-0.6.0.combined.js"></script>
 		<script src="../javascript/easeljs-0.8.0.combined.js"></script>
-        <script src="../javascript/jquery-2.1.0.js" type="text/javascript"></script>
+		<script src="../javascript/jquery-2.1.0.js"></script>
+		<script src="../javascript/howler.js"></script>
 		
+		<script src="../javascript/simpleGame.js"></script>
+		<script src="../javascript/francis.js"></script>
+		<script src="../javascript/topBar.js"></script>
+
 		<script src="../javascript/main.js"></script>
+		<script src="../javascript/francis.js"></script>
+		<script src="../javascript/ColoursGame.js"></script>
+		<script src="../javascript/nextGame.js"></script>
+		<script src="../javascript/gamePrompt.js"></script>
 		<script src="../javascript/pausegame.js"></script>
 		<script src="../javascript/endgame.js"></script>
 		<script src="../javascript/leadergame.js"></script>
-		<link href="../css/canvas.css" rel="stylesheet" >
+		
 	</head>
 
-	<body onload="start();">
+	<body onload="init();">
 		<div id="wrapper">
 		
 			<!--Nav -->
