@@ -1,10 +1,6 @@
 var pauseB = new createjs.Bitmap("../img/pause.png");
 
-
 function topBar(event){
-	 count = 30;
-	 
-
 	pauseB.scaleY = pauseB.scaleX = imgScale;
 	
 	 
@@ -19,6 +15,7 @@ function topBar(event){
 	count = 30;
 	/* pauseButton(); */
 	//timer
+	
 	var ticker = createjs.Ticker.addEventListener("tick", handleTick);
 	createjs.Ticker.setInterval(1000);
 	 
@@ -52,11 +49,9 @@ function handleTick(event) {
 		//Things that change go in here!!
 	  if (!event.paused) {
 
-	   
-			
-			
-			count = count-1;
-			stage.addChild(timerText);	
+	
+			stage.addChild(timerText);
+			stage.addChild(pauseB);	
 			stage.update();
 			if (count == 0){
 					stage.removeChild(timerText);
@@ -64,27 +59,12 @@ function handleTick(event) {
 					loseLife();
 					nextGame();
 				}
-	   
-	   }
-
-
-			
-			
-			stage.addChild(timerText);	
-			stage.update();
-			if (count == 24){
-				stage.removeChild(timerText);
-				stage.addChild(pauseB);			
-				stage.update();
-			
-			 if (count == 0){
-					createjs.Ticker.removeEventListener("tick", handleTick);
-					stage.removeChild(timerText);
-					loseLife();
-					nextGame();
-				}
+				
 			count--;
-	    }
+	   
+		}
+		stage.update();
+
 	
 
 	stage.update();

@@ -3,7 +3,7 @@ var stage;
 var panel = new createjs.Bitmap("../img/menuPanel.png");
 var topCont = new createjs.Container();
 //Global Values
-var lives = 3;
+var lives = 4;
 var difficulty = 1;
 var complete = 0;
 var currentScore = 0;

@@ -76,11 +76,11 @@ function leader() {
 	    dataType: "json",
 	    contentType: "application/json",
 	    success: function (data) {
-	        alert(JSON.stringify(data));
+	        
 	         $.each(data, function(index, element) {
 	            players[index] = element.id;
 	            score[index] = element.score;
-	            alert(players + score);
+	            
 	        });
 
 	    },
@@ -211,7 +211,7 @@ function leader() {
         dataType: "json",
         contentType: "application/json",
         success: function (data) {
-            alert(JSON.stringify(data));
+
             $.each(data, function (index, element) {
                 players[index] = element.id;
                 score[index] = element.score;
@@ -274,7 +274,6 @@ function leader() {
         
         
         stage.addChild(r[i], user[i], scores[i]);
-    }
 
 
         /* Adding components to the stage */
@@ -302,7 +301,7 @@ function leader() {
 
         stage.update();
 
-    }
+}
 
 
     /* removes the leader page from canvas - Turns OFF*/
@@ -317,7 +316,7 @@ function leader() {
         stage.removeChild(r2, user2, score2);
 
         stage.update();
-    }
+}
 
     function leaderBack(event) {
         removeLeader();
