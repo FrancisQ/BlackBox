@@ -33,14 +33,14 @@ var cCenter = canvasW * .5;
 	
 } 
  */
-function endGame2() {
+function endGame2(num) {
 	stage.removeAllChildren();
 	stage.removeAllEventListeners("click");
 	count = countReset;
 	lives = 4;
 	difficulty = 1;
 	complete = 0;
-	currentScore = 0;
+	currentScore = num;
 	
 	headerb.scaleX = imgScale;
 	headerb.scaleY = imgScale;
@@ -76,7 +76,7 @@ function endGame2() {
 	highScoreTxtUser.y = 110;
 	highScoreTxtUser.textAlign = "center";
 	var currentScoreTxt = new createjs.Text("YOUR SCORE", "22px Arial", "#f5cb37");
-	var currentScoreTxtUser = new createjs.Text("0000", "25px Arial", "#f5cb37");
+	var currentScoreTxtUser = new createjs.Text(num, "25px Arial", "#f5cb37");
 	/* Current Score Bar */
 	currentScoreTxt.x = cCenter;
 	currentScoreTxt.y = 190;
@@ -111,6 +111,11 @@ function endGame2() {
 	
 	stage.update();
 
+	var username = toUpperCase(prompt("Please enter a three letter name.", "AAA"));
+	while (username.length > 3 || username.length < 3) { 
+        username = toUpperCase(prompt("Please enter a three letter name.", "AAA"));
+    }
+    postScore(username, currentScore);
 }
 
 //Posts user score
@@ -159,7 +164,8 @@ function menuE(event) {
 	lives = 4;
 	difficulty = 1;
 	complete = 0;
-	currentScore = 0;stage.update();
+	currentScore = 0;
+    stage.update();
 }
 
 function retryE(event) {
