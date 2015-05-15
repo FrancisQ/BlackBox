@@ -12,7 +12,7 @@ var highScoreTxt = new createjs.Text("HIGHEST SCORE", "25px Arial", "#f5cb37");
 var highScoreTxtUser = new createjs.Text("000000", "30px Arial", "#f5cb37");
 
 var currentScoreTxt = new createjs.Text("YOUR SCORE", "22px Arial", "#f5cb37");
-var currentScoreTxtUser = new createjs.Text("000000", "25px Arial", "#f5cb37");
+var currentScoreTxtUser = new createjs.Text(score, "25px Arial", "#f5cb37");
 
 var retryY = 568 -(305 * .5);
 var menuY = retryY - (229 * .5)
@@ -34,7 +34,12 @@ var cCenter = canvasW * .5;
 } 
  */
 function endGame2() {
-	count = "";
+	count = countReset;
+	lives = 4;
+	difficulty = 1;
+	complete = 0;
+	currentScore = 0;
+	
 	headerb.scaleX = imgScale;
 	headerb.scaleY = imgScale;
 	
@@ -143,15 +148,21 @@ function menuE(event) {
 	stage.update();
 	menu2();
 	/* alert("going menu.."); */
-	lives = 3;
+	removePause();
+	count = countReset;
+	lives = 4;
 	difficulty = 1;
 	complete = 0;
+	currentScore = 0;
 }
 
 function retryE(event) {
-	lives = 3;
+	removePause();
+	count = countReset;
+	lives = 4;
 	difficulty = 1;
 	complete = 0;
+	currentScore = 0;
 	
 	removeEnd();
 	/* restart(); */

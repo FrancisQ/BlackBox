@@ -17,7 +17,7 @@ function instructions(event){
 	
 	okB.x = cCenter;
 	okB.y = cCenterY + 150;
-	
+	count = countReset;
 	
 	
 	

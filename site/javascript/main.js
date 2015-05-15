@@ -7,6 +7,7 @@ var lives = 4;
 var difficulty = 1;
 var complete = 0;
 var currentScore = 0;
+var countReset = 15;
 var count = 15;
 var soundIsOn = true;
 

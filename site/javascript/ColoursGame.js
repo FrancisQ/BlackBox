@@ -70,9 +70,8 @@ if((random2 == pick) || (random2 == pick2) || (random == random2) || (random2 ==
 
 
 //Switch position of right answer
-/* var answerPlacement = Math.floor(Math.random()*4); */
+var answerPlacement = Math.floor(Math.random()*4);
 
-var answerPlacement = 0;
 switch(answerPlacement){
 	case 0: 
 		topLeft();
@@ -102,16 +101,16 @@ switch(answerPlacement){
 
 //Right Answer
 function correct(event){
-	alert("You got it right!");
+	/* alert("You got it right!"); */
 	currentScore = getScore();
-	removeTicker();
+	/* removeTicker(); */
 	nextGame();
 
 }
 //Wrong Answer
 function wrong(event){
-	alert("WRONG");
-	removeTicker();
+	/* alert("WRONG"); */
+	/* removeTicker(); */
 	lives--;
 	nextGame();
 	}

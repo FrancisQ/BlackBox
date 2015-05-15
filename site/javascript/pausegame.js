@@ -121,6 +121,12 @@ function removePause() {
 
 function menuP(event) {
 	removePause();
+	removePause();
+	count = 15;
+	lives = 4;
+	difficulty = 1;
+	complete = 0;
+	currentScore = 0;
 	menu2();
 	/* alert("going menu.."); */
 }
@@ -134,6 +140,11 @@ function resumeP(event) {
 
 function retryP(event) {
 	removePause();
+	count = 15;
+	lives = 4;
+	difficulty = 1;
+	complete = 0;
+	currentScore = 0;
 	nextGame();
 	/* alert("retrying game.."); */
 }
