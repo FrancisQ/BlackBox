@@ -18,6 +18,7 @@
 						firstTime = false;						
 					}
 					else{
+						count = countReset;
 						gameBoss();
 						
 					}					
@@ -27,6 +28,11 @@
 					if(firstTime){
 						removeTicker();
 						instructions();						
+					}
+					else{
+						
+						count = countReset;
+						games[nextChallenge]();
 					}
 				}
             }

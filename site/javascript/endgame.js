@@ -34,6 +34,8 @@ var cCenter = canvasW * .5;
 } 
  */
 function endGame2() {
+	stage.removeAllChildren();
+	stage.removeAllEventListeners("click");
 	count = countReset;
 	lives = 4;
 	difficulty = 1;
@@ -149,7 +151,7 @@ function removeEnd() {
 function menuE(event) {
 	removeEnd();
 	stage.removeAllChildren();
-	stage.update();
+	
 	init();
 	/* alert("going menu.."); */
 	removePause();
@@ -157,11 +159,11 @@ function menuE(event) {
 	lives = 4;
 	difficulty = 1;
 	complete = 0;
-	currentScore = 0;
+	currentScore = 0;stage.update();
 }
 
 function retryE(event) {
-	removePause();
+	removeEnd();
 	stage.removeAllChildren();
 	count = countReset;
 	lives = 4;
@@ -169,9 +171,9 @@ function retryE(event) {
 	complete = 0;
 	currentScore = 0;
 	
-	removeEnd();
+	
 	/* restart(); */
-	stage.update();
+	/* stage.update(); */
 	nextGame();
 	/* alert("retrying game.."); */
 	 

@@ -49,15 +49,16 @@ function handleTick(event) {
 		//Things that change go in here!!
 	  if (!event.paused) {
 
-	
+			
 			stage.addChild(timerText);
 			stage.addChild(pauseB);	
 			stage.update();
-			if (count == 0){
+			if (count <= 0){
 					stage.removeChild(timerText);
 					createjs.Ticker.removeEventListener("tick", handleTick);
 					loseLife();
 					nextGame();
+
 				}
 				
 			count--;

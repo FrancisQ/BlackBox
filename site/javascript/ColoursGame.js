@@ -103,18 +103,22 @@ switch(answerPlacement){
 function correct(){
 	/* alert("You got it right!"); */
 	currentScore = getScore();
-	/* removeTicker(); */
+	removeTicker();
+	stage.removeAllChildren();
+	stage.removeAllEventListeners("click");
+	stage.update();
 	nextGame();
 
 }
 //Wrong Answer
 function wrong(){
 	/* alert("WRONG"); */
-	/* removeTicker(); */
-	lives--;
+	removeTicker();
+	lives--; 
+	stage.removeAllChildren();
+	stage.update();
 	nextGame();
-	}
-
+}
 
 //OPTION 1
 function bottomLeft(){
