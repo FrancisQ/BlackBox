@@ -104,10 +104,10 @@ function endGame() {
 }
 
 //Posts user score
-function postScore(a, num){
+function postScore(name, num){
     //post user ranking
     $.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
-                 data: JSON.stringify({ name: a,
+                 data: JSON.stringify({ id: name,
                  score: num }),
                  type: "POST",
                  contentType: "application/json",
