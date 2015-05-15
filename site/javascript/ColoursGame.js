@@ -108,6 +108,11 @@ function correct(){
 	stage.removeAllEventListeners("click");
 	stage.update();
 	nextGame();
+	
+	
+	//audio
+	correctAudio.play();
+	
 
 }
 //Wrong Answer
@@ -118,6 +123,9 @@ function wrong(){
 	stage.removeAllChildren();
 	stage.update();
 	nextGame();
+	
+	// audio
+	wrongAudio.play();
 }
 
 //OPTION 1

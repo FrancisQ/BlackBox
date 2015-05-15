@@ -109,7 +109,14 @@ function instructions(event){
 
 
 function unPause(){
-			stage.removeChild(tempContainer);			
+			stage.removeChild(tempContainer);
+			
+			
+			//added audio
+			buttonPressAudio.play();
+			leadAudio.play();
+
+			
 			createjs.Ticker.addEventListener("tick", handleTick);
 			switch(nextChallenge){
 				case 0: 
