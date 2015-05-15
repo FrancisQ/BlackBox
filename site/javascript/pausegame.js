@@ -122,6 +122,7 @@ function removePause() {
 function menuP(event) {
     stage.removeAllChildren();
 	removePause();
+
 	menu2();
 	/* alert("going menu.."); */
 }
@@ -136,6 +137,11 @@ function resumeP(event) {
 function retryP(event) {
     removeAllChildren();
 	removePause();
+	count = countReset;
+	lives = 4;
+	difficulty = 1;
+	complete = 0;
+	currentScore = 0;
 	nextGame();
 	/* alert("retrying game.."); */
 }

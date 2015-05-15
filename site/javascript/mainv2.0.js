@@ -121,17 +121,17 @@ function sound(){
 // when clicking sound
 function soundT(event) {
 	if (soundIsOn == true) {
-                 alert("Sound is now set to off!");
-				 Howler.mute();
-				 audio.stop();
-                 soundIsOn = false;
-             }
-             else {
-                 alert("Sound is now set to on!");
-                 soundIsOn = true;
-				 Howler.unmute();
-				 audio.play();
-             }
+        alert("Sound is now set to off!");
+		Howler.mute();
+		audio.stop();
+        soundIsOn = false;
+    }
+    else {
+		alert("Sound is now set to on!");
+        soundIsOn = true;
+		Howler.unmute();
+		audio.play();
+    }
 }
 
 // when clicking leader 

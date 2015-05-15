@@ -30,7 +30,7 @@ function mainMenu(){
 	 
 
 
-function removeTicker(){
+/* function removeTicker(){
 	createjs.Ticker.removeEventListener("tick", handleTick);
 }
 	
@@ -50,7 +50,7 @@ function score(){
 	scoreText.y = 5;
 	stage.addChild(scoreText);
 	stage.update();
-}
+} */
 
 var xM = 10;
 //Lives

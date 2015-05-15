@@ -70,9 +70,8 @@ if((random2 == pick) || (random2 == pick2) || (random == random2) || (random2 ==
 
 
 //Switch position of right answer
-/* var answerPlacement = Math.floor(Math.random()*4); */
+var answerPlacement = Math.floor(Math.random()*4);
 
-var answerPlacement = 0;
 switch(answerPlacement){
 	case 0: 
 		topLeft();
@@ -101,21 +100,35 @@ switch(answerPlacement){
 };
 
 //Right Answer
+<<<<<<< HEAD
 function correct(event){
 	//alert("Shit, you got it right!");
+=======
+function correct(){
+	/* alert("You got it right!"); */
+>>>>>>> 057e723f37afaf8a56920c6c9acb1abf1724b2db
 	currentScore = getScore();
 	removeTicker();
+	stage.removeAllChildren();
+	stage.removeAllEventListeners("click");
+	stage.update();
 	nextGame();
 
 }
 //Wrong Answer
+<<<<<<< HEAD
 function wrong(event){
 	//alert("WRONG");
+=======
+function wrong(){
+	/* alert("WRONG"); */
+>>>>>>> 057e723f37afaf8a56920c6c9acb1abf1724b2db
 	removeTicker();
-	lives--;
+	lives--; 
+	stage.removeAllChildren();
+	stage.update();
 	nextGame();
-	}
-
+}
 
 //OPTION 1
 function bottomLeft(){
