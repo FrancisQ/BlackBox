@@ -39,7 +39,7 @@ var  */
 	
 } */
 
-function leader() {	
+function leader(){
     // BG
     leaderbg.scaleX = leaderbg.scaleY = imgScale;
 
