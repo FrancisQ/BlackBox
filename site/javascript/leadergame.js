@@ -69,6 +69,7 @@ function leader() {
     $.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?apiKey=NSMtfgEiRFg6AMmRoF-buHNYoRynthh",
              type: "GET",
              dataType: "json",
+             contentType: "application/json",
              success: function (data) {
                  alert(data);
              },
