@@ -2,10 +2,9 @@ var pauseB = new createjs.Bitmap("../img/pause.png");
 
 
 function topBar(event){
-<<<<<<< HEAD
 	 count = 30;
 	 
-=======
+
 	pauseB.scaleY = pauseB.scaleX = imgScale;
 	
 	
@@ -19,7 +18,6 @@ function topBar(event){
 	pauseB.addEventListener("click", pauseF);
 	count = 30;
 	/* pauseButton(); */
->>>>>>> 5f08171b5f97a7d88cbaadc745628bd1768ece7a
 	//timer
 	var ticker = createjs.Ticker.addEventListener("tick", handleTick);
 	createjs.Ticker.setInterval(1000);
@@ -56,28 +54,21 @@ function handleTick(event) {
 			
 			
 			stage.addChild(timerText);	
-<<<<<<< HEAD
 			stage.update();
 			if (count == 24){
 					stage.removeChild(timerText);
-=======
 			stage.addChild(pauseB);			
 			stage.update();
 			
 			 if (count == 0){
->>>>>>> 5f08171b5f97a7d88cbaadc745628bd1768ece7a
 					createjs.Ticker.removeEventListener("tick", handleTick);
 					stage.removeChild(timerText);
 					loseLife();
 					nextGame();
 				}
 			count--;
-<<<<<<< HEAD
-	   
-=======
->>>>>>> 5f08171b5f97a7d88cbaadc745628bd1768ece7a
-	   }
-
+	    }
+	}
 	stage.update();
 
 }// ticker end
