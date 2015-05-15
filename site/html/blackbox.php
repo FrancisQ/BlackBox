@@ -1,5 +1,5 @@
-<html>
 <!DOCTYPE HTML>
+<html>
 	<head lang="en">
 		<meta charset="utf-8">
 		<title> Black Box | Game </title>
@@ -18,6 +18,7 @@
 		
 		<script src="../javascript/preloadjs-0.6.0.combined.js"></script>
 		<script src="../javascript/easeljs-0.8.0.combined.js"></script>
+        <script src="../javascript/jquery-2.1.0.js" type="text/javascript"></script>
 		
 		<script src="../javascript/main.js"></script>
 		<script src="../javascript/pausegame.js"></script>

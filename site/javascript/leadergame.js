@@ -64,6 +64,19 @@ function leader() {
 	lTxt.x = cCenter - 9;
 	lTxt.y = 240;
 	
+
+    //Get user ranking
+    $.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?apiKey=NSMtfgEiRFg6AMmRoF-buHNYoRynthh",
+             type: "GET",
+             dataType: "json",
+             success: function (data) {
+                 alert(data);
+             },
+             error: function () {
+                 alert("boom");
+                }
+            });
+
 	// Leader User ranking
 	 r1 = new createjs.Text("1", "12px Arial", "white");
 	 user1 = new createjs.Text("USER", "12px Arial", "white");
