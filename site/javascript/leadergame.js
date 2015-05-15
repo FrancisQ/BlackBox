@@ -5,8 +5,8 @@ var contentBox = new createjs.Bitmap("../img/LCont.png");
 var bbutton = new createjs.Bitmap("../img/LBck.png");
 var lTxt = new createjs.Bitmap("../img/LTxt.png");
 var leaderTitle = new createjs.Bitmap("../img/LTitle.png");
-var players;
-var score;
+var players = [];
+var score = [];
 
 
 var imgScale = .5;
@@ -22,7 +22,7 @@ var scoreX = 220;
 
 var yInc = 30;
 
-var r;
+var rank;
 var user;
 var scores;
 
@@ -69,27 +69,6 @@ function leader() {
     lTxt.x = cCenter - 9;
     lTxt.y = 240;
 
-    //Get user ranking
-    $.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?s={score:-1}&l=10&apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
-        type: "GET",
-        dataType: "json",
-        contentType: "application/json",
-        success: function (data) {
-            alert(JSON.stringify(data));
-            $.each(data, function (index, element) {
-                players[index] = element.id;
-                score[index] = element.score;
-
-                r[index] = new createjs.Text(index, "12px Arial", "white");
-                user[index] = new createjs.Text(players[index], "12px Arial", "white");
-                scores[index] = new createjs.Text(score[index], "12px Arial", "white");
-            });
-
-        },
-        error: function () {
-            alert("boom");
-        }
-    });
 
     // Leader User ranking
     /*r1 = new createjs.Text("1", "12px Arial", "white");
@@ -120,25 +99,6 @@ function leader() {
 	
     score2.y = r2.y;*/
 
-    for(i = 0; i <= user.length; i++) {    
-        r[i].x = rankX;
-        user[i].x = userX;
-        user[i].textAlign = "center";
-        score[i].x = scoreX;
-        if (i == 0) {
-            r[i].y = 280;
-        }
-        else {
-            r[i].y = 280 + yInc; ;
-        }
-
-        user[i].y = r[i].y;
-
-        scores[i].y = r[i].y;
-        
-        
-        stage.addChild(r[i], user[i], scores[i]);
-    }
 
 
         /* Adding components to the stage */
@@ -160,9 +120,61 @@ function leader() {
         stage.addChild(r9, user9, score9);
         stage.addChild(r10, user10, score10); */
         /* Functionality */
+
+        //Get user ranking and add it to the page
+        $.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?s={score:-1}&l=10&apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+                alert(JSON.stringify(data));
+                $.each(data, function (index, element) {
+                    players[index] = element.id;
+                    score[index] = element.score;
+                    rank = new createjs.Text(index+1, "12px Arial", "white");
+                    user = new createjs.Text(players[index], "12px Arial", "white")
+                    scores = new createjs.Text(score[index], "12px Arial", "white")
+
+                    rank.x = rankX;
+                    user.x = userX;
+                    user.textAlign = "center";
+                    scores.x = scoreX;
+                    rank.y = 280 + yInc * index;
+
+                    user.y = rank.y;
+                    scores.y = rank.y;
+
+                    stage.addChild(rank, user, scores);
+                    stage.update();
+
+                });
+
+                /*for(i = 0; i <= 10; i++) {
+                
+                r[i] = new createjs.Text(i, "12px Arial", "white");
+                user[i] = new createjs.Text(players[i], "12px Arial", "white");
+                scores[i] = new createjs.Text(score[i], "12px Arial", "white");
+                    
+                r[i].x = rankX;
+                user[i].x = userX;
+                user[i].textAlign = "center";
+                score[i].x = scoreX;
+                r[i].y = 280 + yInc*i;
+
+                user[i].y = r[i].y;
+                scores[i].y = r[i].y;
+        
+                stage.addChild(r[i], user[i], scores[i]);
+                }*/
+
+            },
+            error: function () {
+                alert("boom");
+            }
+        });
+
+
         bbutton.addEventListener("click", leaderBack);
-
-
 
         stage.update();
 
@@ -171,15 +183,7 @@ function leader() {
 
     /* removes the leader page from canvas - Turns OFF*/
     function removeLeader() {
-        stage.removeChild(leaderbg);
-        stage.removeChild(contentBox);
-        stage.removeChild(lTxt);
-        stage.removeChild(leaderTitle);
-        stage.removeChild(bbutton);
-
-        stage.removeChild(r1, user1, score1);
-        stage.removeChild(r2, user2, score2);
-
+        stage.removeAllChildren();
         stage.update();
     }
 
