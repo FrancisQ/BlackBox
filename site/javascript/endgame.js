@@ -111,11 +111,11 @@ function endGame2(num) {
 	
 	stage.update();
 
-	var username = toUpperCase(prompt("Please enter a three letter name.", "AAA"));
+	var username = prompt("Please enter a three letter name.", "AAA");
 	while (username.length > 3 || username.length < 3) { 
-        username = toUpperCase(prompt("Please enter a three letter name.", "AAA"));
+        username = prompt("Please enter a three letter name.", "AAA");
     }
-    postScore(username, currentScore);
+    postScore(username.toUpperCase(), currentScore);
 }
 
 //Posts user score
