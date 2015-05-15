@@ -1,0 +1,43 @@
+<script src="howler.js-master/howler.js"></script>
+<script>
+//Background Music
+	var audio = new Howl({
+	urls: ['../Music/theme.mp3'],
+	loop: true}).play();
+//Leaderboard transition	
+	var leadAudio = new Howl({
+	urls: ['../Music/transition.mp3'],
+    event: gotoLeaderBoard()
+	})
+//Sound that plays on correct selection
+	var correctAudio = new Howl({
+	urls: ['../Music/achieve.mp3'],
+	})
+//Sound that plays when wrong selection is made
+	var wrongAudio = new Howl({
+	urls: ['../Music/beep.mp3'],
+	})
+//Alternative button press sound	
+	var buttonPressAudio = new Howl({
+	urls: ['../Music/gamepress.mp3'],
+	})
+//When you select the play game option sound will play	
+	var introAudio = new Howl({
+	urls: ['../Music/intro.mp3'],
+	})
+	</script>
+	
+	function soundToggle(event) {
+             if (soundIsOn == true) {
+                 alert("Sound is now set to off!");
+				 Howler.mute();
+				 audio.stop();
+                 soundIsOn = false;
+             }
+             else {
+                 alert("Sound is now set to on!");
+                 soundIsOn = true;
+				 Howler.unmute();
+				 audio.play();
+             }
+		  }
