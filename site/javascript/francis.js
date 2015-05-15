@@ -52,11 +52,12 @@ function score(){
 	stage.update();
 }
 
+var xM = 10;
 //Lives
 function life1(){
 	if ( lives >= 3){
 	var life1 = new createjs.Shape();
-	life1.graphics.beginFill("orange").drawPolyStar(250, 18, 10, 5, 0.6, -90);
+	life1.graphics.beginFill("orange").drawPolyStar(250 - xM , 18, 10, 5, 0.6, -90);
 	stage.addChild(life1);
 	stage.update();
 	}
@@ -65,7 +66,7 @@ function life1(){
 function life2(){
 	if(lives >= 2){
 		var life2 = new createjs.Shape();
-		life2.graphics.beginFill("orange").drawPolyStar(235, 18, 10, 5, 0.6, -90);
+		life2.graphics.beginFill("orange").drawPolyStar(230 - xM, 18, 10, 5, 0.6, -90);
 		stage.addChild(life2);
 		stage.update();
 	}
@@ -74,7 +75,7 @@ function life2(){
 function life3(){
 	if(lives >= 1){
 		var life3 = new createjs.Shape();
-		life3.graphics.beginFill("orange").drawPolyStar(220, 18, 10, 5, 0.6, -90);
+		life3.graphics.beginFill("orange").drawPolyStar(210 - xM, 18, 10, 5, 0.6, -90);
 		stage.addChild(life3);
 		stage.update();
 	}

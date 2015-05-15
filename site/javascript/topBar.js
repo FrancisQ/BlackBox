@@ -5,7 +5,7 @@ function topBar(event){
 	pauseB.scaleY = pauseB.scaleX = imgScale;
 	
 	
-	pauseB.regX = 117;
+	pauseB.regX = 104;
 	
 	pauseB.x = canvasW;
 	pauseB.y = 0;

@@ -25,6 +25,7 @@ var wordChosen = colourWords[pick2];
 var text = new createjs.Text(wordChosen, "40px Times New Roman", colourChosen);
 text.x = cCenter;
 text.y = canvasY * .5;
+text.align = "center";
 text.textBaseline = "alphabetic";
 stage.addChild(text);
 stage.update();
@@ -69,7 +70,9 @@ if((random2 == pick) || (random2 == pick2) || (random == random2) || (random2 ==
 
 
 //Switch position of right answer
-var answerPlacement = Math.floor(Math.random()*4);
+/* var answerPlacement = Math.floor(Math.random()*4); */
+
+var answerPlacement = 0;
 switch(answerPlacement){
 	case 0: 
 		topLeft();
@@ -158,7 +161,7 @@ function bottomLeft(){
 function topLeft(){
 		//topLeft
 		var topLeft = new createjs.Shape();
-		topLeft.graphics.beginFill(answer).drawRect(-150,-150,300,500);
+		topLeft.graphics.beginFill(answer).drawRect(-100,-100,300,500);
 		topLeft.rotation = 45;
 		stage.addChild(topLeft);
 		topLeft.addEventListener("click",correct);
@@ -166,7 +169,7 @@ function topLeft(){
 
 		//topRight
 		var topRight = new createjs.Shape();
-		topRight.graphics.beginFill(colourOfWord).drawRect(50,-365,500,300);
+		topRight.graphics.beginFill(colourOfWord).drawRect(60,-325,500,300);
 		topRight.rotation = 45;
 		stage.addChild(topRight);
 		topRight.addEventListener("click", wrong);
@@ -182,7 +185,7 @@ function topLeft(){
 
 		//bottomRight
 		var bottomRight = new createjs.Shape();
-		bottomRight.graphics.beginFill(randomColour2).drawRect(450,-25,500,500);
+		bottomRight.graphics.beginFill(randomColour2).drawRect(440,-59,500,500);
 		bottomRight.rotation = 45;
 		stage.addChild(bottomRight);
 		bottomRight.addEventListener("click", wrong);
