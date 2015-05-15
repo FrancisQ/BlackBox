@@ -50,10 +50,7 @@ function handleTick(event) {
 		}
 		
 		//Things that change go in here!!
-	  if (!event.paused) {
-<<<<<<< HEAD
-	   
-			
+	  if (!event.paused) {			
 			
 			count = count-1;
 			stage.addChild(timerText);	
@@ -67,7 +64,6 @@ function handleTick(event) {
 	   
 	   }
 
-=======
 			
 			
 			stage.addChild(timerText);	
@@ -85,8 +81,7 @@ function handleTick(event) {
 				}
 			count--;
 	    }
-	}
->>>>>>> 197b73cc7b7db50ea877bba501b5c5d353dd4c99
+	
 	stage.update();
 
 }// ticker end

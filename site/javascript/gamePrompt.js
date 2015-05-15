@@ -99,38 +99,4 @@ function unPause(){
 					break;			
 				
 			}
-		}
-		
-/*function promptTicker(event) {
-
-	   // Actions carried out each tick (aka frame)
-	   //Things that remain the same go here!!!
-	  if (!createjs.Ticker.getPaused()) {
-			if (gameCount>=0){
-				var background = new createjs.Shape();
-			background.graphics.beginFill("#b2b2b2").drawRect(0,0,300,500);
-			tempContainer.addChild(background);
-			stage.addChild(tempContainer);
-			games[nextChallenge]();
-			stage.update();}
-		}
-		
-		//Things that change go in here!!
-	  if (!event.paused) {
-	   
-			 if (gameCount == 0){
-					stage.removeChild(tempContainer);
-					createjs.Ticker.removeEventListener("tick", promptTicker);
-					count = 30;
-					//loseLife();
-					//nextGame();
-				}
-			
-			gameCount--;
-			stage.update();
-	   
-	   }
-
-	stage.update();
-
-}*/// ticker end
+}

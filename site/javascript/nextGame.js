@@ -27,6 +27,9 @@
 						removeTicker();
 						instructions();						
 					}
+					else{
+						games[randNum]();
+					}
 				}
             }
 			else{
