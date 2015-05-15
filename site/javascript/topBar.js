@@ -1,11 +1,30 @@
+var pauseB = new createjs.Bitmap("../img/pause.png");
+
+
 function topBar(event){
+<<<<<<< HEAD
 	 count = 30;
 	 
+=======
+	pauseB.scaleY = pauseB.scaleX = imgScale;
+	
+	
+	pauseB.regX = 104;
+	
+	pauseB.x = canvasW;
+	pauseB.y = 0;
+	
+	stage.addChild(pauseB);
+	
+	pauseB.addEventListener("click", pauseF);
+	count = 30;
+	/* pauseButton(); */
+>>>>>>> 5f08171b5f97a7d88cbaadc745628bd1768ece7a
 	//timer
 	var ticker = createjs.Ticker.addEventListener("tick", handleTick);
 	createjs.Ticker.setInterval(1000);
 	 
-	 }//topBar end 
+}//topBar end 
 	 
 	 
 function handleTick(event) {
@@ -21,9 +40,10 @@ function handleTick(event) {
 				var timerText = new createjs.Text(count, "20px Verdana", "orange");
 				timerText.y = 5;
 				timerText.x = 5;
-				stage.addChild(timerText);
+				/* stage.addChild(timerText); */
 				stage.addChild(gameHeader);
-				pauseButton();
+				stage.addChild(pauseB);
+				/* pauseButton(); */
 				life1();
 				life2();
 				life3();
@@ -36,17 +56,35 @@ function handleTick(event) {
 			
 			
 			stage.addChild(timerText);	
+<<<<<<< HEAD
 			stage.update();
 			if (count == 24){
 					stage.removeChild(timerText);
+=======
+			stage.addChild(pauseB);			
+			stage.update();
+			
+			 if (count == 0){
+>>>>>>> 5f08171b5f97a7d88cbaadc745628bd1768ece7a
 					createjs.Ticker.removeEventListener("tick", handleTick);
+					stage.removeChild(timerText);
 					loseLife();
 					nextGame();
 				}
 			count--;
+<<<<<<< HEAD
 	   
+=======
+>>>>>>> 5f08171b5f97a7d88cbaadc745628bd1768ece7a
 	   }
 
 	stage.update();
 
 }// ticker end
+
+function pauseF(event) {
+	
+	removeTicker();
+	pause2();
+	
+}

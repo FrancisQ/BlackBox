@@ -1,4 +1,4 @@
-		//Pick a random game
+//Pick a random game
 		
  function nextGame(event) {
              //variables
@@ -53,13 +53,22 @@
 		}
 	//if 3 games not completed -- regular game pool
 		else{
-		games[randNum](difficulty);
+		/* games[randNum](difficulty); */
+		game1();
 		}
 	}
 //if no lives left-- endScreen
 	else{
+<<<<<<< HEAD
 		gameOver();
 	}*/
+=======
+
+		endGame2();
+		
+		
+	}
+>>>>>>> 5f08171b5f97a7d88cbaadc745628bd1768ece7a
  }
 //Place holder for end game screen
 function gameOver(){
@@ -86,7 +95,7 @@ function gameOne(difficulty) {
 	 
 	topBar();
 	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("blue").drawRect(0,0,300,500);
+	backdrop.graphics.beginFill("blue").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
 	//stage.update();
@@ -97,7 +106,11 @@ function gameOne(difficulty) {
 function gameTwo(difficulty) {
 	topBar();
 	var backdrop = new createjs.Shape();
+<<<<<<< HEAD
 	backdrop.graphics.beginFill("red").drawRect(0,0,300,500);
+=======
+	backdrop.graphics.beginFill("red").drawRect(0,0,canvasW,canvasY);
+>>>>>>> 5f08171b5f97a7d88cbaadc745628bd1768ece7a
 	stage.addChild(backdrop);
 	complete++;
 	//stage.update();
@@ -106,7 +119,7 @@ function gameTwo(difficulty) {
 function gameThree(difficulty) {
 	topBar();
 	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("green").drawRect(0,0,300,500);
+	backdrop.graphics.beginFill("green").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
 	//stage.update();

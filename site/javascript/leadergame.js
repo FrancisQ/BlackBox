@@ -1,12 +1,10 @@
-var stage;
+/* var stage; */
 
 var leaderbg = new createjs.Bitmap("../img/leaderBG.png");
 var contentBox = new createjs.Bitmap("../img/LCont.png");
 var bbutton = new createjs.Bitmap("../img/LBck.png");
 var lTxt = new createjs.Bitmap("../img/LTxt.png");
 var leaderTitle = new createjs.Bitmap("../img/LTitle.png");
-var players;
-var scores;
 
 
 var imgScale = .5;
@@ -25,6 +23,9 @@ var yInc = 30;
 var r1, r2;
 var user1, user2;
 var score1, score2;
+
+/* var r3, r4, ,r5, r6, r7, r8, r9, r10;
+var  */
 
 /* TEST independent canvas */
 /* function start() {
@@ -65,7 +66,7 @@ function leader() {
 	lTxt.regX = 451 * .5;
 	lTxt.x = cCenter - 9;
 	lTxt.y = 240;
-	
+
     //Get user ranking
 	$.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?s={score:-1}&l=10&apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
 	    type: "GET",
@@ -84,7 +85,7 @@ function leader() {
 	        alert("boom");
 	    }
 	});
-
+	
 	// Leader User ranking
 	 r1 = new createjs.Text("1", "12px Arial", "white");
 	 user1 = new createjs.Text("USER", "12px Arial", "white");
@@ -125,6 +126,14 @@ function leader() {
 	stage.addChild(r1, user1, score1);
 	stage.addChild(r2, user2, score2);
 	
+	/* stage.addChild(r3, user3, score3);
+	stage.addChild(r4, user4, score4);
+	stage.addChild(r5, user5, score5);
+	stage.addChild(r6, user6, score6);
+	stage.addChild(r7, user7, score7);
+	stage.addChild(r8, user8, score8);
+	stage.addChild(r9, user9, score9);
+	stage.addChild(r10, user10, score10); */
 	/* Functionality */
 	bbutton.addEventListener("click", leaderBack);
 	
