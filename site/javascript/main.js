@@ -16,7 +16,7 @@ var canvasY = 568;
 var cCenter = canvasW * .5;
 var cCenterY = canvasY * .5;
 var alphaV = .01;
-
+var firstTime = true;
 var soundB, playB, leaderB;
 
 /* TEST independent canvas */

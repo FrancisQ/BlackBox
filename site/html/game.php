@@ -12,7 +12,7 @@
 	<script src="../javascript/topBar.js"></script>
 	<script src="../javascript/ColoursGame.js"></script>
 	<script src="../javascript/nextGame.js"></script>
-	
+	<script src="../javascript/gamePrompt.js"></script>
 	<script src="../javascript/pausegame.js"></script>
 	<script src="../javascript/endgame.js"></script>
 	<script src="../javascript/leadergame.js"></script>
