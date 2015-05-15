@@ -51,6 +51,23 @@ function handleTick(event) {
 		
 		//Things that change go in here!!
 	  if (!event.paused) {
+<<<<<<< HEAD
+	   
+			
+			
+			count = count-1;
+			stage.addChild(timerText);	
+			stage.update();
+			if (count == 27){
+					stage.removeChild(timerText);
+					createjs.Ticker.removeEventListener("tick", handleTick);
+					loseLife();
+					nextGame();
+				}
+	   
+	   }
+
+=======
 			
 			
 			stage.addChild(timerText);	
@@ -69,6 +86,7 @@ function handleTick(event) {
 			count--;
 	    }
 	}
+>>>>>>> 197b73cc7b7db50ea877bba501b5c5d353dd4c99
 	stage.update();
 
 }// ticker end
