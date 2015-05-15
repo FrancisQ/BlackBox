@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Aldrin's Attempt Home</title>
+	<title> Game Only</title>
 	<script src="../javascript/preloadjs-0.6.0.combined.js"></script>
 	<script src="../javascript/easeljs-0.8.0.combined.js"></script>
     <script src="../javascript/jquery-2.1.0.js"></script>
@@ -10,11 +10,16 @@
 <<<<<<< HEAD
 =======
 	<script src="../javascript/simpleGame.js"></script>
+<<<<<<< HEAD
 	<script src="../javascript/topBar.js"></script>
 >>>>>>> 32ebb390df1ed543a1846101689d9f3eed593d1b
+=======
+>>>>>>> 057e723f37afaf8a56920c6c9acb1abf1724b2db
 	<script src="../javascript/francis.js"></script>
+	<script src="../javascript/topBar.js"></script>
+
 	<script src="../javascript/main.js"></script>
-	
+	<script src="../javascript/francis.js"></script>
 	<script src="../javascript/ColoursGame.js"></script>
 	<script src="../javascript/nextGame.js"></script>
 	<script src="../javascript/gamePrompt.js"></script>

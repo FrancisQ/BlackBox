@@ -18,7 +18,13 @@
 						firstTime = false;						
 					}
 					else{
+<<<<<<< HEAD
 						gameBoss();							
+=======
+						count = countReset;
+						gameBoss();
+						
+>>>>>>> 057e723f37afaf8a56920c6c9acb1abf1724b2db
 					}					
 				}					
 				else{
@@ -28,7 +34,13 @@
 						instructions();						
 					}
 					else{
+<<<<<<< HEAD
 						games[randNum]();
+=======
+						
+						count = countReset;
+						games[nextChallenge]();
+>>>>>>> 057e723f37afaf8a56920c6c9acb1abf1724b2db
 					}
 				}
             }
