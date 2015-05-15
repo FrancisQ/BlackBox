@@ -174,5 +174,5 @@ function retryE(event) {
 	stage.update();
 	nextGame();
 	/* alert("retrying game.."); */
-	
+	 
 }
