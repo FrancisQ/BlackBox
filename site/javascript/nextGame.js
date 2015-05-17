@@ -37,7 +37,7 @@
 				}
             }
 			else{
-				endGame2();				
+				endGame2(currentScore);				
 			}
 	 //variables
 	var game = new createjs.Shape();
