@@ -130,9 +130,6 @@ function unPause(){
 					break;			
 				
 			}
-<<<<<<< HEAD
-}
-=======
 }
 		
 /*function promptTicker(event) {
@@ -168,4 +165,3 @@ function unPause(){
 	stage.update();
 
 }*/// ticker end
->>>>>>> 32ebb390df1ed543a1846101689d9f3eed593d1b

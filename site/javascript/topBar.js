@@ -58,7 +58,6 @@ function handleTick(event) {
 					createjs.Ticker.removeEventListener("tick", handleTick);
 					loseLife();
 					nextGame();
-<<<<<<< HEAD
 				}
 	   
 	   }
@@ -76,21 +75,12 @@ function handleTick(event) {
 					stage.removeChild(timerText);
 					loseLife();
 					nextGame();
-=======
-
->>>>>>> 057e723f37afaf8a56920c6c9acb1abf1724b2db
 				}
 				
 			count--;
-<<<<<<< HEAD
 	    }
-=======
-	   
-		}
 
 	
-
->>>>>>> 057e723f37afaf8a56920c6c9acb1abf1724b2db
 	stage.update();
 
 }// ticker end
