@@ -7,7 +7,7 @@ var lives = 4;
 var difficulty = 1;
 var complete = 0;
 var currentScore = 0;
-var countReset = 5;
+var countReset = 10;
 var count = 15;
 var soundIsOn = true;
 
@@ -110,7 +110,8 @@ function playT(event){
 	removeMain() ;
 	nextGame();
 	/* alert("playing game.."); */
-	
+	buttonPressAudio.play();
+	leadAudio.play();
 }
 
 // when clicking sound
@@ -127,6 +128,7 @@ function soundT(event) {
 		Howler.unmute();
 		audio.play();
     }
+	
 }
 
 // when clicking leader 
@@ -134,6 +136,7 @@ function leaderT(event) {
 	removeMain();
 	leader();
 	/* alert("leaderboards.."); */
+	buttonPressAudio.play();
 }
 
 function sound(){

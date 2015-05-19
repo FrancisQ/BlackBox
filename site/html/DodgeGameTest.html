@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bryn's Test Studio</title>
+	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+	<script>
+		
+		var stage;
+
+		function init() {
+			
+			stage = new createjs.Stage("game2");
+			
+			//leftclic variable
+			leftclic = new createjs.Shape();
+			leftclic.graphics.beginFill("grey").drawRect(0,0,stage.canvas.width/2,stage.canvas.height);
+			leftclic.addEventListener("click", toggleLeft);
+			stage.addChild(leftclic)
+		
+			//rightclic variable
+			rightclic = new createjs.Shape();
+			rightclic.graphics.beginFill("black").drawRect(stage.canvas.width/2,0,stage.canvas.width/2,stage.canvas.height);
+			rightclic.addEventListener("click", toggleRight);
+			stage.addChild(rightclic)
+			
+			//Button click to move user to the left
+			function toggleLeft(){
+			stage.removeChild(user);
+			if(user.x >= stage.canvas.width/4){
+			user.x = user.x - stage.canvas.width/4;
+			}
+			else{user.x >= user.x - stage.canavas.width/2;}
+			stage.addChild(user);
+			alert("Good touch");
+			}
+		
+			//Button click to move user to the right
+			function toggleRight(){
+			stage.removeChild(user);
+			if(user.x <= stage.canvas.width/4){
+			user.x = user.x + stage.canvas.width/2;
+			}
+			else{
+			user.x = user.x + stage.canvas.width/4;
+			}
+			stage.addChild(user);
+			alert("Good touch");
+			}
+			
+			//Falling Object
+			enemy = new createjs.Shape();
+			//enemy.graphics.beginFill("red").drawRect(40,0, stage.canvas.width/3, 40);
+			enemy.graphics.beginFill("red").drawCircle(0 , 0, 40);
+			enemy.x = Math.random()*200;
+			enemy.y = -50;
+			
+			stage.addChild(enemy);		
+			
+			//User Object
+			user = new createjs.Shape();
+			user.graphics.beginFill("Blue").drawCircle(0,0,30);
+			user.x = stage.canvas.width/2;
+			user.y = 500;
+			
+			stage.addChild(user);
+			
+			//Ticker that moves the enemy down from the top/Mostly controls speed
+			createjs.Ticker.on("tick", tick);
+			createjs.Ticker.setFPS(30);
+			
+			stage.update();
+			
+		}
+		
+		//Not sure if this function is working but the logic within it is what Is important.
+		function checkCollisions(){
+			var xDist = user.x - enemy.x;
+			var yDist = user.y - enemy.y;
+			var distance = Math.sqrt(xDist*xDist + yDist*yDist);
+			if (distance <= (user.radius + enemy.radius)){
+			alert("bad touch");
+			}else{}
+			}
+		
+		//Tick function that actually moves the enemy object
+		function tick(event) {
+			enemy.y = enemy.y + 5;
+			if (enemy.y > stage.canvas.height+50) { 
+			enemy.y = 0; 
+			stage.removeChild(enemy);
+			}
+			checkCollisions();
+			stage.addChild(enemy);
+			stage.update(event); // important!! without the object does not move
+		}
+		
+	</script>
+</head>
+<body onload="init();">
+	<canvas id="game2" width="320" height="568" style="border:2px solid #d3d3d3;">
+		alternate content
+	</canvas>
+</body>
+</html>

@@ -122,7 +122,11 @@ function removePause() {
 function menuP(event) {
     stage.removeAllChildren();
 	removePause();
-
+	count = countReset;
+	lives = 4;
+	difficulty = 1;
+	complete = 0;
+	currentScore = 0;
 	menu2();
 	/* alert("going menu.."); */
 }
