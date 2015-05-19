@@ -100,13 +100,11 @@ switch(answerPlacement){
 };
 
 //Right Answer
-<<<<<<< HEAD
-function correct(event){
-	//alert("Shit, you got it right!");
-=======
+
+
 function correct(){
 	/* alert("You got it right!"); */
->>>>>>> 057e723f37afaf8a56920c6c9acb1abf1724b2db
+
 	currentScore = getScore();
 	removeTicker();
 	stage.removeAllChildren();
@@ -116,13 +114,10 @@ function correct(){
 
 }
 //Wrong Answer
-<<<<<<< HEAD
-function wrong(event){
-	//alert("WRONG");
-=======
+
 function wrong(){
 	/* alert("WRONG"); */
->>>>>>> 057e723f37afaf8a56920c6c9acb1abf1724b2db
+
 	removeTicker();
 	lives--; 
 	stage.removeAllChildren();

@@ -19,6 +19,7 @@
 	<script src="../javascript/pausegame.js"></script>
 	<script src="../javascript/endgame.js"></script>
 	<script src="../javascript/leadergame.js"></script>
+	<script src="../javascript/ballGame.js"></script>
 	<link href="../css/canvas.css" rel="stylesheet" >
 </head>
 

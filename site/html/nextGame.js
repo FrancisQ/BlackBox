@@ -39,6 +39,7 @@
 	var endButton = new createjs.Shape();
 
  }
+ 
 //Place holder for end game screen
 function gameOver(){
 	gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "black");
@@ -82,18 +83,15 @@ function gameTwo(difficulty) {
  }
 //game 3 place holder
 function gameThree(difficulty) {
-	topBar();
-	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("green").drawRect(0,0,300,500);
-	stage.addChild(backdrop);
-	complete++;
-	//stage.update();
+	ballGame();
  }
  
-
 function gameBoss(difficulty){
 			game1();
  }
+ 
+ 
+
 
 	
  
