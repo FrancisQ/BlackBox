@@ -2,15 +2,29 @@
 <html>
 <head>
 	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+<<<<<<< HEAD
 	<script src="../javascript/ColoursGame.js"></script>
+=======
+
+	<script src="../javascript/ColoursGame.js"></script>
+
+>>>>>>> f46fb83a90f023cf0838c3f51a80e1e64b81a2b8
 	<script src="../javascript/nextGame.js"></script>
 	<script src="../javascript/PauseMenu.js"></script>
 	<script src="../javascript/leaderBoardPage.js"></script>
 	<script src="../javascript/topBar.js"></script>
+<<<<<<< HEAD
 	<script src="../javascript/gamePrompt.js"></script>
 	<script src="../javascript/main.js"></script>
 	
 
+=======
+
+	<script src="../javascript/gamePrompt.js"></script>
+	
+
+
+>>>>>>> f46fb83a90f023cf0838c3f51a80e1e64b81a2b8
 </head>
 <body onload="mainMenu();">
 	<canvas id="myCanvas" width="300" height="500" style="border:2px solid #d3d3d3;"></canvas>
@@ -23,8 +37,15 @@
 	var complete = 0;
 	var currentScore = 0;
 	var count = 30;
+<<<<<<< HEAD
 	var firstTime = true;
 	
+=======
+<<<<<<< HEAD
+=======
+	var firstTime = true;
+>>>>>>> 197b73cc7b7db50ea877bba501b5c5d353dd4c99
+>>>>>>> f46fb83a90f023cf0838c3f51a80e1e64b81a2b8
 	
 	function init(){
 	stage.removeAllEventListeners();
@@ -56,13 +77,28 @@
 		playText.x = 170;
 		playText.y = 350;
 		stage.addChild(playText);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f46fb83a90f023cf0838c3f51a80e1e64b81a2b8
 		//play functionality
 		playButton.addEventListener("click", nextGame);
+		
+		
+<<<<<<< HEAD
+		//play functionality
+		playButton.addEventListener("click", nextGame);		
+		
+=======
+=======
 		
 		
 		//play functionality
 		playButton.addEventListener("click", nextGame);		
 		
+>>>>>>> 197b73cc7b7db50ea877bba501b5c5d353dd4c99
+		
+>>>>>>> f46fb83a90f023cf0838c3f51a80e1e64b81a2b8
 		//SOUND
 		var soundIsOn = true;
 		var soundButton = new createjs.Shape();
@@ -102,6 +138,15 @@
 		leaderButton.addEventListener("click", gotoLeaderBoard);
 		stage.update();
 		}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+		  
+=======
+		
+>>>>>>> 197b73cc7b7db50ea877bba501b5c5d353dd4c99
+			
+>>>>>>> f46fb83a90f023cf0838c3f51a80e1e64b81a2b8
 		function pauseButton(){
 			var pauseButton = new createjs.Shape();
 			pauseButton.graphics.beginFill("orange").drawRoundRect(275, 5, 25, 25, 5);

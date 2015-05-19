@@ -1,4 +1,4 @@
-//Pick a random game
+		//Pick a random game
 		
  function nextGame(event) {
              //variables
@@ -6,23 +6,23 @@
 			 var games = [gameOne, gameTwo, gameThree, gameBoss];
              var randNum = Math.floor(Math.random()*3 )
              var endButton = new createjs.Shape();
-			 
+
 
             if (lives > 0) {
 				if(complete == 3){					
 					nextChallenge = 3; 
-					complete = 0;
-					difficulty++;
 					if(firstTime){
 						removeTicker();
 						instructions();
 						firstTime = false;						
 					}
 					else{
-						gameBoss();		
-						count = countReset;
 						gameBoss();
-					}					
+						complete = 0;
+						difficulty++;
+					}
+					
+					
 				}					
 				else{
 					nextChallenge = randNum;
@@ -30,28 +30,16 @@
 						removeTicker();
 						instructions();						
 					}
-					else{
-						games[randNum]();
-						count = countReset;
-						games[nextChallenge]();
-					}
 				}
             }
-			else{
-<<<<<<< HEAD
-			    stage.removeAllEventListeners();
-				endGame2();				
-=======
-				endGame2(currentScore);				
->>>>>>> f5472cf62beae3e47eb4a9f674900ab21c0602aa
-			}
 	 //variables
 	var game = new createjs.Shape();
 	var games = [gameOne, gameTwo, gameThree, gameBoss];
 	var randNum = Math.floor(Math.random()*3 )
-	var endButton = new createjs.Shape();		
-	
+	var endButton = new createjs.Shape();
+
  }
+ 
 //Place holder for end game screen
 function gameOver(){
 	gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "black");
@@ -77,7 +65,7 @@ function gameOne(difficulty) {
 	 
 	topBar();
 	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("blue").drawRect(0,0,canvasW,canvasY);
+	backdrop.graphics.beginFill("blue").drawRect(0,0,300,500);
 	stage.addChild(backdrop);
 	complete++;
 	//stage.update();
@@ -89,25 +77,21 @@ function gameTwo(difficulty) {
 	topBar();
 	var backdrop = new createjs.Shape();
 	backdrop.graphics.beginFill("red").drawRect(0,0,300,500);
-	backdrop.graphics.beginFill("red").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
 	//stage.update();
  }
 //game 3 place holder
 function gameThree(difficulty) {
-	topBar();
-	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("green").drawRect(0,0,canvasW,canvasY);
-	stage.addChild(backdrop);
-	complete++;
-	//stage.update();
+	ballGame();
  }
  
-
 function gameBoss(difficulty){
 			game1();
  }
+ 
+ 
+
 
 	
  

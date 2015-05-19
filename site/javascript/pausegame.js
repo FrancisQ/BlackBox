@@ -120,6 +120,7 @@ function removePause() {
 }
 
 function menuP(event) {
+    stage.removeAllChildren();
 	removePause();
 	count = countReset;
 	lives = 4;
@@ -138,6 +139,7 @@ function resumeP(event) {
 }
 
 function retryP(event) {
+    removeAllChildren();
 	removePause();
 	count = countReset;
 	lives = 4;

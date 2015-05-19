@@ -100,8 +100,11 @@ switch(answerPlacement){
 };
 
 //Right Answer
+
+
 function correct(){
 	/* alert("You got it right!"); */
+
 	currentScore = getScore();
 	removeTicker();
 	stage.removeAllChildren();
@@ -116,8 +119,10 @@ function correct(){
 
 }
 //Wrong Answer
+
 function wrong(){
 	/* alert("WRONG"); */
+
 	removeTicker();
 	lives--; 
 	stage.removeAllChildren();

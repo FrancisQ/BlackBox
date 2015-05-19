@@ -85,7 +85,7 @@ function menu2(){
 	
 	
 	//button functionality
-	playB.addEventListener("click", playT);
+	playB.addEventListener("click", nextGame);
 	soundB.addEventListener("click", soundT);
 	leaderB.addEventListener("click", leaderT);
 	
