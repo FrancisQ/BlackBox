@@ -7,14 +7,8 @@
     <script src="../javascript/jquery-2.1.0.js"></script>
     <script src="../javascript/howler.js"></script>
 	
-<<<<<<< HEAD
-=======
 	<script src="../javascript/simpleGame.js"></script>
-<<<<<<< HEAD
 	<script src="../javascript/topBar.js"></script>
->>>>>>> 32ebb390df1ed543a1846101689d9f3eed593d1b
-=======
->>>>>>> 057e723f37afaf8a56920c6c9acb1abf1724b2db
 	<script src="../javascript/francis.js"></script>
 	<script src="../javascript/topBar.js"></script>
 

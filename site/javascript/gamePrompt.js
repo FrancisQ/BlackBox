@@ -1,6 +1,9 @@
 var games = [game0Tips, game1Tips, game2Tips, game3Tips];
 var tempContainer = new createjs.Container();
 var okB = new createjs.Bitmap("../img/ok.png");
+var cCenter = 360 * .5;
+var cCenterY = 538 * .5;
+var imgScale = .5;
 var promptP = new createjs.Bitmap("../img/prompt.png");
 promptP.scaleY = promptP.scaleX = imgScale;
 promptP.regX = 409 * .5;
@@ -138,37 +141,3 @@ function unPause(){
 				
 			}
 }
-		
-/*function promptTicker(event) {
-
-	   // Actions carried out each tick (aka frame)
-	   //Things that remain the same go here!!!
-	  if (!createjs.Ticker.getPaused()) {
-			if (gameCount>=0){
-				var background = new createjs.Shape();
-			background.graphics.beginFill("#b2b2b2").drawRect(0,0,300,500);
-			tempContainer.addChild(background);
-			stage.addChild(tempContainer);
-			games[nextChallenge]();
-			stage.update();}
-		}
-		
-		//Things that change go in here!!
-	  if (!event.paused) {
-	   
-			 if (gameCount == 0){
-					stage.removeChild(tempContainer);
-					createjs.Ticker.removeEventListener("tick", promptTicker);
-					count = 30;
-					//loseLife();
-					//nextGame();
-				}
-			
-			gameCount--;
-			stage.update();
-	   
-	   }
-
-	stage.update();
-
-}*/// ticker end
