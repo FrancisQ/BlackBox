@@ -65,6 +65,9 @@ function gameOne(difficulty) {
 	backdrop.graphics.beginFill("blue").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
+	if (firstGame == true) {
+	    achievementOne();
+    }
 	//stage.update();
  }
  
@@ -77,6 +80,9 @@ function gameTwo(difficulty) {
 	backdrop.graphics.beginFill("red").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
+    if (firstGame == true) {
+	    achievementOne();
+    }
 	//stage.update();
  }
 //game 3 place holder
@@ -86,6 +92,9 @@ function gameThree(difficulty) {
 	backdrop.graphics.beginFill("green").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
+    if (firstGame == true) {
+	    achievementOne();
+    }
 	//stage.update();
  }
  
@@ -94,5 +103,8 @@ function gameBoss(difficulty){
 			game1();
  }
 
+ function achievementOne() {
+     achieveOne = true;
+ }
 	
  

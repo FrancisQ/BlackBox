@@ -109,6 +109,9 @@ function correct(){
 	removeTicker();
 	stage.removeAllChildren();
 	stage.removeAllEventListeners("click");
+    if (firstGame == true) {
+	    achievementOne();
+    }
 	stage.update();
 	nextGame();
 	
