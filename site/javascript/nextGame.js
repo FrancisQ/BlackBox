@@ -16,9 +16,11 @@
 					difficulty++;
 					bossInc += 3;
 					if(firstTime){
+                        achievementThree();
 						removeTicker();
 						instructions();
-						firstTime = false;						
+						firstTime = false;
+                        						
 					}
 					else{
 						gameBoss();		
@@ -40,8 +42,7 @@
 				}
             }
 			else{
-			    stage.removeAllEventListeners();
-				endGame2();				
+			    stage.removeAllEventListeners();			
 
 				endGame2(currentScore);				
 
@@ -110,7 +111,7 @@ function achievementOne() {
 
 function achievementTwo() {
     achieveTwo = true;
-    alert("Achievement Get: Beat 'em all");
+    alert("Achievement Get: Reality Hurts");
 }
 
 function achievementThree() {

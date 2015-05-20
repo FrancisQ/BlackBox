@@ -127,6 +127,9 @@ function wrong(){
 	/* alert("WRONG"); */
 
 	removeTicker();
+	if (lives == 3) {
+	    achievementTwo();
+    }
 	lives--; 
 	stage.removeAllChildren();
 	stage.update();
