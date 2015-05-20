@@ -116,6 +116,7 @@ function playT(event){
     gameOneFirst = true;
     gameTwoFirst = true;
     gamethreeFirst = true;
+    firstGame = true;
 	removeMain() ;
 	nextGame();
 	/* alert("playing game.."); */
