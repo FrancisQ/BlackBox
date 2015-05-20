@@ -100,11 +100,22 @@ function gameThree(difficulty) {
  
 
 function gameBoss(difficulty){
-			game1();
+	game1();
  }
 
- function achievementOne() {
-     achieveOne = true;
- }
+function achievementOne() {
+    achieveOne = true;
+    alert("Achievement Get: First Blood");
+}
+
+function achievementTwo() {
+    achieveTwo = true;
+    alert("Achievement Get: Beat 'em all");
+}
+
+function achievementThree() {
+    achieveThree = true;
+    alert("Achievement Get: Three's");
+}
 	
  
