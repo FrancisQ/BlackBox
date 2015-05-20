@@ -71,11 +71,11 @@ function handleTick(event) {
 			
 			
 
-				}
+				
 				
 			count--;
 	   
-		}
+		
 
 
 	

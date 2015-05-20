@@ -38,12 +38,11 @@
 				}
             }
 			else{
-<<<<<<< HEAD
 			    stage.removeAllEventListeners();
 				endGame2();				
-=======
+
 				endGame2(currentScore);				
->>>>>>> f5472cf62beae3e47eb4a9f674900ab21c0602aa
+
 			}
 	 //variables
 	var game = new createjs.Shape();
