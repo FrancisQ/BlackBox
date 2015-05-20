@@ -189,14 +189,14 @@ var header = 40;
 		}
 	}
 	if(directionX1 == false){
-		container1.x = container1.x - 5;
+		container1.x = container1.x -5;
 		if( container1.x <= (0 - (xStart1*0.95) +  (radius1*0.95))){
 			directionX1 = true;
 		}
 	}
 //vertical bounce
 	if (directionY1 == true){
-		container1.y = container1.y+5; 
+		container1.y = container1.y+5;
 		if( container1.y >= (stage.canvas.height - (radius1*1.2)- (yStart1*0.95))){
 			directionY1 = false;
 		}
@@ -344,6 +344,7 @@ function topBar(event){
 	lives = 3;
 	difficulty= 1;
 	currentScore=0;
+	frame = 0;
 	
 	var ticker = createjs.Ticker.addEventListener("tick", handleTick);
 	createjs.Ticker.setFPS(60);
@@ -400,6 +401,14 @@ function handleTick(event) {
 				count = num;
 				moveCircle();
 				}
+				}
+			if(frame == 20){
+				count--;
+				frame = 0;
+			}
+			frame++;
+				moveCircle(event);
+				
 			
 			 
 			
@@ -407,7 +416,7 @@ function handleTick(event) {
 	   }
 
 
-}// ticker end
+// ticker end
 
 function pauseF(event) {
 	
@@ -471,6 +480,6 @@ function life3(){
 stage.update();
 </script>
     </body>
-    </br>
+		</br>
     
 </html>

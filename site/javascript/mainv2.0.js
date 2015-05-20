@@ -19,6 +19,7 @@ var cCenterY = canvasY * .5;
 var alphaV = .01;
 
 var soundB, playB, leaderB;
+var achieveOne, achieveTwo, achieveThree;
 
 /* TEST independent canvas */
 function init() {
@@ -85,6 +86,9 @@ function removeMain() {
 
 // when clicking play
 function playT(event){
+    achieveOne = false;
+    achieveTwo = false;
+    achieveThree = false;
 	removeMain() ;
 	nextGame();
 	/* alert("playing game.."); */
