@@ -116,7 +116,15 @@ function removeMain() {
 
 // when clicking play
 function playT(event){
-	removeMain();
+
+    achieveOne = false;
+    achieveTwo = false;
+    achieveThree = false;
+    gameOneFirst = true;
+    gameTwoFirst = true;
+    gamethreeFirst = true;
+    firstGame = true;
+	removeMain() ;
 	nextGame();
 	/* alert("playing game.."); */
 	audio.stop();
