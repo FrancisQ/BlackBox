@@ -1,6 +1,7 @@
 //Pick a random game
 		
  function nextGame(event) {
+			leadAudio.play();
              //variables
              var game = new createjs.Shape();
 			 var games = [gameOne, gameTwo, gameThree, gameBoss];
@@ -9,19 +10,20 @@
 			 
 
             if (lives > 0) {
-				if(complete == 3){					
+				if(complete == bossInc){					
 					nextChallenge = 3; 
 					complete = 0;
 					difficulty++;
+					bossInc += 3;
 					if(firstTime){
 						removeTicker();
 						instructions();
 						firstTime = false;						
 					}
 					else{
+						gameBoss();		
 						count = countReset;
 						gameBoss();
-						
 					}					
 				}					
 				else{
@@ -31,7 +33,7 @@
 						instructions();						
 					}
 					else{
-						
+						games[randNum]();
 						count = countReset;
 						games[nextChallenge]();
 					}
@@ -45,30 +47,14 @@
 
 			}
 	 //variables
-	var game = new createjs.Shape();
+	/* var game = new createjs.Shape();
 	var games = [gameOne, gameTwo, gameThree, gameBoss];
 	var randNum = Math.floor(Math.random()*3 )
-	var endButton = new createjs.Shape();		
+	var endButton = new createjs.Shape();	 */	
 	
  }
 //Place holder for end game screen
-function gameOver(){
-	gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "black");
-	gameOver.x = 50;
-	gameOver.y = 50;
-	stage.removeAllChildren();
-	var home = new createjs.Shape();
-	home.graphics.beginFill("red").drawRect(150,250, 100, 50);
-	home.addEventListener("click", init);
-	stage.addChild(home);
-	stage.addChild(gameOver);
-	stage.update();
-	
-	//reset values to original
-	lives = 3;
-	difficulty=1;
-	complete = 0;
- }
+
  
  
 //game 1 place holder

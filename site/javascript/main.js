@@ -7,9 +7,11 @@ var lives = 4;
 var difficulty = 1;
 var complete = 0;
 var currentScore = 0;
-var countReset = 10;
-var count = 15;
+var countReset = 10 - difficulty;
+var count = 15 - difficulty;
 var soundIsOn = true;
+
+var bossInc = 3;
 
 var imgScale = .5;
 var canvasW = 320;
@@ -17,10 +19,11 @@ var canvasY = 568;
 var cCenter = canvasW * .5;
 var cCenterY = canvasY * .5;
 var alphaV = .01;
+var alphaClk = .4;
 var firstTime = true;
 var soundB, playB, leaderB;
 var audio = new Howl({
-	urls: ['../music/theme.mp3'],
+	urls: ['../music/theme2.mp3'],
 	loop: true}).play();
 var leadAudio = new Howl({
 	urls: ['../music/transition.mp3'],
@@ -35,7 +38,7 @@ var leadAudio = new Howl({
 	})
 //Alternative button press sound	
 	var buttonPressAudio = new Howl({
-	urls: ['../music/gamepress.mp3'],
+	urls: ['../music/click.mp3'],
 	})
 //When you select the play game option sound will play	
 	var introAudio = new Howl({
@@ -110,8 +113,9 @@ function playT(event){
 	removeMain() ;
 	nextGame();
 	/* alert("playing game.."); */
+	audio.stop();
 	buttonPressAudio.play();
-	leadAudio.play();
+
 }
 
 // when clicking sound
@@ -140,6 +144,9 @@ function leaderT(event) {
 }
 
 function sound(){
+	var audio = new Howl({
+	urls: ['../music/theme2.mp3'],
+	loop: true}).play();
 //Leaderboard transition	
 	var leadAudio = new Howl({
 	urls: ['../music/transition.mp3'],
@@ -154,7 +161,7 @@ function sound(){
 	})
 //Alternative button press sound	
 	var buttonPressAudio = new Howl({
-	urls: ['../music/gamepress.mp3'],
+	urls: ['../music/click.mp3'],
 	})
 //When you select the play game option sound will play	
 	var introAudio = new Howl({

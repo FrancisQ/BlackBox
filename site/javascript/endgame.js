@@ -169,6 +169,8 @@ function menuE(event) {
 	complete = 0;
 	currentScore = 0;
     stage.update();
+	buttonPressAudio.play();
+	audio.play();
 }
 
 function retryE(event) {
@@ -179,7 +181,7 @@ function retryE(event) {
 	difficulty = 1;
 	complete = 0;
 	currentScore = 0;
-	
+	buttonPressAudio.play();
 	
 	/* restart(); */
 	/* stage.update(); */

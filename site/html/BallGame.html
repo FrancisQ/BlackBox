@@ -18,8 +18,9 @@ var stage = new createjs.Stage("myCanvas");
 //Background
 var background = new createjs.Shape();
 background.graphics.beginFill("black").drawRect(0,0,300,500);
+//background.cache(0,40,300,460);
 stage.addChild(background);
-stage.update();
+//stage.update();
 
 topBar();
 
@@ -34,28 +35,29 @@ var yStart1 =  Math.floor(Math.random() * 440 + 40);
 var clicked1 = false;
 
 //shape
- circle1 = new createjs.Shape();
-	circle1.graphics.beginStroke("gray");
-	circle1.graphics.setStrokeStyle(2); // 2 pixel
-	circle1.graphics.beginFill("red").drawCircle(xStart1,yStart1,radius1);
-	circle1.setBounds(xStart1,yStart1,radius1);
-	container1.addChild(circle1);
+circle1 = new createjs.Shape();
+circle1.graphics.beginStroke("gray");
+circle1.graphics.setStrokeStyle(2); // 2 pixel
+circle1.graphics.beginFill("red").drawCircle(xStart1,yStart1,radius1);
+circle1.setBounds(xStart1,yStart1,radius1);
+//circle1.cache(0,40,300,460);
+container1.addChild(circle1);
 //text
 var text1 = new createjs.Text("1", "30px Times New Roman", "white");
-	text1.x = circle1.x + xStart1 - 10;
-	text1.y = circle1.y + yStart1 - 15;
-	container1.addChild(text1);
-	
-	
-	stage.addChild(container1);
-	container1.addEventListener("click",removeCircle1);
-	stage.update();
-	
-	function removeCircle1(event){
-	stage.removeChild(container1);
-	clicked1 = true
-	answer1();
-	stage.update();
+text1.x = circle1.x + xStart1 - 10;
+text1.y = circle1.y + yStart1 - 15;
+container1.addChild(text1);
+
+
+stage.addChild(container1);
+container1.addEventListener("click",removeCircle1);
+stage.update();
+
+function removeCircle1(event){
+stage.removeChild(container1);
+clicked1 = true
+answer1();
+stage.update();
 }
 
 
@@ -189,14 +191,14 @@ var header = 40;
 		}
 	}
 	if(directionX1 == false){
-		container1.x = container1.x - 5;
+		container1.x = container1.x -5;
 		if( container1.x <= (0 - (xStart1*0.95) +  (radius1*0.95))){
 			directionX1 = true;
 		}
 	}
 //vertical bounce
 	if (directionY1 == true){
-		container1.y = container1.y+5; 
+		container1.y = container1.y+5;
 		if( container1.y >= (stage.canvas.height - (radius1*1.2)- (yStart1*0.95))){
 			directionY1 = false;
 		}
@@ -344,9 +346,10 @@ function topBar(event){
 	lives = 3;
 	difficulty= 1;
 	currentScore=0;
+	frame = 0;
 	
-	var ticker = createjs.Ticker.addEventListener("tick", handleTick);
-	createjs.Ticker.setFPS(20);
+	createjs.Ticker.addEventListener("tick", handleTick);
+	createjs.Ticker.setInterval(100);
 	
 	 
 }//topBar end 
@@ -385,28 +388,26 @@ function handleTick(event) {
 			stage.update();
 
 			if (count <= 0){
-					stage.removeChild(timerText);
+					//stage.removeChild(timerText);
 					createjs.Ticker.removeEventListener("tick", handleTick);
+					//stage.addChild(timerText);
 					loseLife();
-					nextGame();
+					//nextGame();
 
-				}
+				}else{
 				//count--;
 		
 				stage.addChild(timerText);	
-				count = count-((event.delta)/1000);
-				var num = count.toFixed(1);
-				count = num;
+				count = count - (event.delta/1000);
 				moveCircle();
-				
-			
-			 
+				}
+				}
 			
 			stage.update();
 	   }
 
 
-}// ticker end
+// ticker end
 
 function pauseF(event) {
 	
@@ -443,7 +444,7 @@ var xM = 10;
 function life1(){
 	if ( lives >= 3){
 	var life1 = new createjs.Shape();
-	life1.graphics.beginFill("orange").drawPolyStar(250 - xM , 18, 10, 5, 0.6, -90);
+	life1.graphics.beginFill("orange").drawPolyStar(250 - xM , 18, 10, 5, 0.6, -90);	
 	stage.addChild(life1);
 	stage.update();
 	}
@@ -470,6 +471,6 @@ function life3(){
 stage.update();
 </script>
     </body>
-    </br>
+		</br>
     
 </html>

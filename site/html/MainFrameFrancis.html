@@ -2,17 +2,18 @@
 <html>
 <head>
 	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
-
 	<script src="../javascript/ColoursGame.js"></script>
-
+	<script src="../javascript/ColoursGame.js"></script>
 	<script src="../javascript/nextGame.js"></script>
 	<script src="../javascript/PauseMenu.js"></script>
 	<script src="../javascript/leaderBoardPage.js"></script>
 	<script src="../javascript/topBar.js"></script>
+	<script src="../javascript/gamePrompt.js"></script>
+	<script src="../javascript/main.js"></script>
+	
 
 	<script src="../javascript/gamePrompt.js"></script>
 	
-
 
 </head>
 <body onload="mainMenu();">
@@ -26,10 +27,8 @@
 	var complete = 0;
 	var currentScore = 0;
 	var count = 30;
-<<<<<<< HEAD
-=======
 	var firstTime = true;
->>>>>>> 197b73cc7b7db50ea877bba501b5c5d353dd4c99
+	var firstTime = true;
 	
 	function init(){
 	stage.removeAllEventListeners();
@@ -61,19 +60,15 @@
 		playText.x = 170;
 		playText.y = 350;
 		stage.addChild(playText);
-<<<<<<< HEAD
 		//play functionality
 		playButton.addEventListener("click", nextGame);
-		
-		
-=======
 		
 		
 		//play functionality
 		playButton.addEventListener("click", nextGame);		
 		
->>>>>>> 197b73cc7b7db50ea877bba501b5c5d353dd4c99
-		
+		//play functionality
+		playButton.addEventListener("click", nextGame);		
 		//SOUND
 		var soundIsOn = true;
 		var soundButton = new createjs.Shape();
@@ -112,13 +107,6 @@
 		//Leaderboards functionality
 		leaderButton.addEventListener("click", gotoLeaderBoard);
 		stage.update();
-		}
-<<<<<<< HEAD
-		  
-=======
-		
->>>>>>> 197b73cc7b7db50ea877bba501b5c5d353dd4c99
-			
 		function pauseButton(){
 			var pauseButton = new createjs.Shape();
 			pauseButton.graphics.beginFill("orange").drawRoundRect(275, 5, 25, 25, 5);
@@ -187,7 +175,7 @@
 
 		
 		
-		
-	</script>
+}		
+</script>
 </body>
 </html>

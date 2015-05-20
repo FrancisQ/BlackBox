@@ -8,6 +8,7 @@
     <script src="../javascript/howler.js"></script>
 	
 	<script src="../javascript/simpleGame.js"></script>
+	<script src="../javascript/topBar.js"></script>
 	<script src="../javascript/francis.js"></script>
 	<script src="../javascript/topBar.js"></script>
 
@@ -21,6 +22,7 @@
 	<script src="../javascript/leadergame.js"></script>
 	<script src="../javascript/ballGame.js"></script>
 	<link href="../css/canvas.css" rel="stylesheet" >
+	<meta name="viewport" content="width=500, initial-scale=1">
 </head>
 
 <body onload="init();">
