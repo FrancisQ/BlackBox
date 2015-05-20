@@ -7,6 +7,7 @@
 			 var games = [gameOne, gameTwo, gameThree, gameBoss];
              var randNum = Math.floor(Math.random()*3 )
              var endButton = new createjs.Shape();
+			 
 
             if (lives > 0) {
 				if(complete == bossInc){					
@@ -20,10 +21,9 @@
 						firstTime = false;						
 					}
 					else{
+						gameBoss();		
 						count = countReset;
 						gameBoss();
-						
-						
 					}					
 				}					
 				else{
@@ -33,14 +33,18 @@
 						instructions();						
 					}
 					else{
-						
+						games[randNum]();
 						count = countReset;
 						games[nextChallenge]();
 					}
 				}
             }
 			else{
+			    stage.removeAllEventListeners();
+				endGame2();				
+
 				endGame2(currentScore);				
+
 			}
 	 //variables
 	/* var game = new createjs.Shape();

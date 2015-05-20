@@ -7,8 +7,8 @@ var lives = 4;
 var difficulty = 1;
 var complete = 0;
 var currentScore = 0;
-var countReset = 10;
-var count = 15;
+var countReset = 10 - difficulty;
+var count = 15 - difficulty;
 var soundIsOn = true;
 
 var bossInc = 3;
@@ -88,7 +88,7 @@ function menu2(){
 	
 	
 	//button functionality
-	playB.addEventListener("click", playT);
+	playB.addEventListener("click", nextGame);
 	soundB.addEventListener("click", soundT);
 	leaderB.addEventListener("click", leaderT);
 	
