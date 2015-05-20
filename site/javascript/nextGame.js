@@ -102,7 +102,7 @@ function gameThree(difficulty) {
 
 function gameBoss(difficulty){
 	game1();
- }
+}
 
 function achievementOne() {
     achieveOne = true;
