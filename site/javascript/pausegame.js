@@ -127,12 +127,15 @@ function menuP(event) {
 	complete = 0;
 	currentScore = 0;
 	menu2();
+	audio.play();
+	buttonPressAudio.play();
 	/* alert("going menu.."); */
 }
 
 function resumeP(event) {
 	removePause();
 	createjs.Ticker.addEventListener("tick", handleTick);
+	buttonPressAudio.play();
 	
 	/* alert("resuming game.."); */
 }
@@ -145,5 +148,6 @@ function retryP(event) {
 	complete = 0;
 	currentScore = 0;
 	nextGame();
+	buttonPressAudio.play();
 	/* alert("retrying game.."); */
 }

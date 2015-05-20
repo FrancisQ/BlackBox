@@ -114,7 +114,6 @@ function unPause(){
 			
 			//added audio
 			buttonPressAudio.play();
-			leadAudio.play();
 
 			
 			createjs.Ticker.addEventListener("tick", handleTick);

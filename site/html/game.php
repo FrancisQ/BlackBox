@@ -20,6 +20,7 @@
 	<script src="../javascript/endgame.js"></script>
 	<script src="../javascript/leadergame.js"></script>
 	<link href="../css/canvas.css" rel="stylesheet" >
+	<meta name="viewport" content="width=500, initial-scale=1">
 </head>
 
 <body onload="init();">
