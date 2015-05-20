@@ -22,10 +22,13 @@ var alphaV = .01;
 var alphaClk = .4;
 var firstTime = true;
 var soundB, playB, leaderB;
-var audio = new Howl({
+
+
+	var audio = new Howl({
 	urls: ['../music/theme2.mp3'],
 	loop: true}).play();
-var leadAudio = new Howl({
+//Leaderboard transition	
+	var leadAudio = new Howl({
 	urls: ['../music/transition.mp3'],
 	})
 //Sound that plays on correct selection
@@ -45,11 +48,14 @@ var leadAudio = new Howl({
 	urls: ['../music/intro.mp3'],
 	})
 
+
 /* TEST independent canvas */
 function init() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
-	sound();
-	menu2();	
+	/* sound(); */
+	menu2();
+	/* achievement()	 */
+	/* endGame2(); */
 }
 
 function menu2(){
@@ -88,7 +94,7 @@ function menu2(){
 	
 	
 	//button functionality
-	playB.addEventListener("click", nextGame);
+	playB.addEventListener("click", playT);
 	soundB.addEventListener("click", soundT);
 	leaderB.addEventListener("click", leaderT);
 	
@@ -110,7 +116,7 @@ function removeMain() {
 
 // when clicking play
 function playT(event){
-	removeMain() ;
+	removeMain();
 	nextGame();
 	/* alert("playing game.."); */
 	audio.stop();
@@ -143,31 +149,7 @@ function leaderT(event) {
 	buttonPressAudio.play();
 }
 
-function sound(){
-	var audio = new Howl({
-	urls: ['../music/theme2.mp3'],
-	loop: true}).play();
-//Leaderboard transition	
-	var leadAudio = new Howl({
-	urls: ['../music/transition.mp3'],
-	})
-//Sound that plays on correct selection
-	var correctAudio = new Howl({
-	urls: ['../music/achieve.mp3'],
-	})
-//Sound that plays when wrong selection is made
-	var wrongAudio = new Howl({
-	urls: ['../music/beep.mp3'],
-	})
-//Alternative button press sound	
-	var buttonPressAudio = new Howl({
-	urls: ['../music/click.mp3'],
-	})
-//When you select the play game option sound will play	
-	var introAudio = new Howl({
-	urls: ['../music/intro.mp3'],
-	})
-}
+
 
 
 

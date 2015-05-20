@@ -5,6 +5,7 @@ var contentBox = new createjs.Bitmap("../img/LCont.png");
 var bbutton = new createjs.Bitmap("../img/LBck.png");
 var lTxt = new createjs.Bitmap("../img/LTxt.png");
 var leaderTitle = new createjs.Bitmap("../img/LTitle.png");
+var achiveB = new createjs.Bitmap("../img/achie.png");
 var players = [];
 var score = [];
 
@@ -26,8 +27,11 @@ var rank;
 var user;
 var scores;
 
-/* var r3, r4, ,r5, r6, r7, r8, r9, r10;
-var  */
+bbutton.scaleX = bbutton.scaleY = imgScale;
+    bbutton.regX = 117;
+    bbutton.regY = 112 * .5;
+    bbutton.y = 80;
+    bbutton.x = canvasW;
 
 /* TEST independent canvas */
 /* function start() {
@@ -56,12 +60,19 @@ function leader(){
     leaderTitle.x = cCenter;
 
     // Back button
-    bbutton.scaleX = bbutton.scaleY = imgScale;
+    /* bbutton.scaleX = bbutton.scaleY = imgScale;
     bbutton.regX = 117;
     bbutton.regY = 112 * .5;
     bbutton.y = 80;
-    bbutton.x = canvasW;
-
+    bbutton.x = canvasW; */
+	
+	//Achivement Button
+	achiveB.scaleX = achiveB.scaleY = imgScale;
+	achiveB.regY = 112 * .5;
+	achiveB.y = 80;
+	achiveB.x = 0;
+	
+	
     // Leader Cont User
     lTxt.scaleX = lTxt.scaleY = imgScale;
     lTxt.regX = 451 * .5;
@@ -106,6 +117,7 @@ function leader(){
         stage.addChild(lTxt);
         stage.addChild(leaderTitle);
         stage.addChild(bbutton);
+		stage.addChild(achiveB);
 
         /*stage.addChild(r1, user1, score1);
         stage.addChild(r2, user2, score2);*/
@@ -178,7 +190,7 @@ function leader(){
 
 
         bbutton.addEventListener("click", leaderBack);
-
+		achiveB.addEventListener("click", achievementF);
         stage.update();
 
     }
@@ -196,3 +208,8 @@ function leader(){
         menu2();
         /* alert("going back.."); */
     } 
+	
+	function achievementF(event) {
+		buttonPressAudio.play();
+		achievement();
+	}
