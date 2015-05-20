@@ -115,15 +115,18 @@ function endGame2(num) {
 	while (username.length > 3 || username.length < 3) { 
         username = prompt("Please enter a three letter name.", "AAA");
     }
-    postScore(username.toUpperCase(), currentScore);
+    postScore(username.toUpperCase(), currentScore, achieveOne, achieveTwo, achieveThree);
 }
 
 //Posts user score
-function postScore(name, num){
+function postScore(name, num, one, two, three){
     //post user ranking
     $.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
                  data: JSON.stringify({ id: name,
-                 score: num }),
+                 score: num,
+                 achievementone: one,
+                 achievementtwo: two,
+                 achievementthree: three }),
                  type: "POST",
                  contentType: "application/json",
                  success: function (data) {
