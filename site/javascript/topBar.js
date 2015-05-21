@@ -90,18 +90,11 @@ function handleTick(event) {
 				
 				
 			count--;
-<<<<<<< HEAD
 	    }
-=======
-	   
-		
->>>>>>> c5b1bdcf06547ae6120022380eac8401c2d7701f
-
-
 	
 	stage.update();
 
-}// ticker end
+// ticker end
 
 function pauseF(event) {
 	

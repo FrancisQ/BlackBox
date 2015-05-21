@@ -1,4 +1,4 @@
-var stage;
+var stage = new createjs.Stage("canvas");
 
 var panel = new createjs.Bitmap("../img/menuPanel.png");
 var topCont = new createjs.Container();
