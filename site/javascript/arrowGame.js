@@ -384,6 +384,8 @@ function checkBtmAnswer(){
 function finished(){
 	if((firstAnswer && secAnswer && thirdAnswer)== true){
 		alert("good job!");
+		nextGame();
+		currentScore += 10;
 	}
 	/* else if((firstAnswer && secAnswer && thirdAnswer)== false){
 		alert("you suck");
@@ -394,10 +396,16 @@ function checkIfOneWrong(){
 	
 	if(secAnswer == false){
 		alert("wronggg Already");
+		nextGame();
+		loseLife()
 	} else if (firstAnswer == false ) {
 		alert("wronggg Already");
+		nextGame();
+		loseLife()
 	} else if ( thirdAnswer == false) {
 		alert("wronggg Already");
+		nextGame();
+		loseLife()
 	}
 	
 }

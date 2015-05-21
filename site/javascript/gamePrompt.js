@@ -132,7 +132,7 @@ function unPause(){
 					ballGame();
 					break;
 				case 2: 
-					gameThree();				
+					arrowGame();				
 					break;
 				case 3:
 					gameBoss();

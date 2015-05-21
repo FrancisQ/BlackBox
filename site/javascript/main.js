@@ -56,10 +56,10 @@ var soundB, playB, leaderB;
 function init() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
 	/* sound(); */
-	//menu2();
+	menu2();
 	//arrowGame();
 	/* achievement(); */	
-	endGame2(100, false, false, false);
+	/* endGame2(100, false, false, false); */
 	//ballGame();
 }
 
