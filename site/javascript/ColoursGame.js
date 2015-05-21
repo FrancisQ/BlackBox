@@ -111,6 +111,7 @@ function correct(){
 	stage.removeAllEventListeners("click");
     if (firstGame == true) {
 	    achievementOne();
+        firstGame = false;
     }
 	stage.update();
 	nextGame();

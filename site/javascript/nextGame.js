@@ -65,6 +65,7 @@ function gameOne() {
 	complete++;
 	if (firstGame == true) {
 	    achievementOne();
+        firstGame = false;
     }
 	//stage.update();
  }
@@ -80,6 +81,7 @@ function gameTwo() {
 	complete++;
     if (firstGame == true) {
 	    achievementOne();
+	    firstGame = false;
     }
 	//stage.update();
  }
@@ -92,6 +94,7 @@ function gameThree() {
 	complete++;
     if (firstGame == true) {
 	    achievementOne();
+        firstGame = false;
     }
 	//stage.update();
  }
