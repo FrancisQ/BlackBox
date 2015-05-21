@@ -7,18 +7,89 @@ var bLeft = new createjs.Bitmap("../img/bLeft.png");
 var gLeft = new createjs.Bitmap("../img/gLeft.png");
 var gRight = new createjs.Bitmap("../img/gRight.png");
 
+var boxY = (canvasY-40) /3;
+var boxX = canvasW /2;
+
+var arrRX = 375 * .5;
+var arrRY = 277 * .5;
+var boxBA = 1;
+var boxBAB = .01;
+
+var topBarY = 40;
+var answered = 0;
+var TopAnswer;
+var midAnswer;
+var btmAnswer;
+		
+var firstAnswer = true;
+var secAnswer  = true;
+var thirdAnswer  = true;
+
+var num;
+var num2;		
+var num3;
+
+var arrows = [pointRight, pointLeft];
+var arrows2 = [pointRight2, pointLeft2];
+var arrows3 = [pointRight3, pointLeft3];
+var answer = ["right", "left"];
+var answer1 = ["right", "left"];
+var answer2 = ["right", "left"];
+
+// Answer Indicator 
+var topLeft;
+var topRight;
+var midLeft;
+var midRight;
+var btmLeft;
+var btmRight;
+
+// buttons
+var topLeftB;
+var topRightB;
+var midLeftB;
+var midRightB;
+var btmLeftB;
+var btmRightB;
+
 function arrowGame() {
 	// arrow image styling
 	oLeft.scaleX = oLeft.scaleY = imgScale;
-	oRight.scaleX = oRight.scaleY = imgScale;
+	oLeft.regX = arrRX;
+	oLeft.regY = arrRY;
+	oLeft.x = cCenter;
+	oLeft.y = 125;
 	
+	oRight.scaleX = oRight.scaleY = imgScale;
+	oRight.regX = arrRX;
+	oRight.regY = arrRY;
+	oRight.x = cCenter;
+	oRight.y = 125;
 	
 	
 	bRight.scaleX = bRight.scaleY = imgScale;
+	bRight.regX = arrRX;
+	bRight.regY = arrRY;
+	bRight.x = cCenter;
+	bRight.y = 125 + boxY;
+	
 	bLeft.scaleX = bLeft.scaleY = imgScale;
+	bLeft.regX = arrRX;
+	bLeft.regY = arrRY;
+	bLeft.x = cCenter;
+	bLeft.y = 125 + boxY;
 	
 	gLeft.scaleX = gLeft.scaleY = imgScale;
+	gLeft.regX = arrRX;
+	gLeft.regY = arrRY;
+	gLeft.x = cCenter +3;
+	gLeft.y = 125 + boxY * 2;
+	
 	gRight.scaleX = gRight.scaleY = imgScale;
+	gRight.regX = arrRX;
+	gRight.regY = arrRY;
+	gRight.x = cCenter + 3;
+	gRight.y = 125 + boxY * 2;
 	
 	
 	
@@ -28,132 +99,185 @@ function arrowGame() {
 	stage.addChild(background);
 
 	//Top left
-	var topLeft = new createjs.Shape();
-	topLeft.graphics.beginStroke("gray");
-	topLeft.graphics.setStrokeStyle(2); // 2 pixel
-	topLeft.graphics.beginFill("#3c3c3c").drawRect(0,0,cCenter,166);
-	topLeft.addEventListener("click", checkFirstLeft);
+	topLeft = new createjs.Shape();
+	topLeft.graphics.beginStroke("#505050");
+	topLeft.graphics.setStrokeStyle(1); // 2 pixel
+	topLeft.graphics.beginFill("#3c3c3c").drawRect(0,topBarY,boxX,boxY);
+	/* topLeft.addEventListener("click", checkFirstLeft); */
+	topLeft.alpha = boxBA;
 	stage.addChild(topLeft);
+	
 	//top Right
-	var topRight = new createjs.Shape();
-	topRight.graphics.beginStroke("gray");
-	topRight.graphics.setStrokeStyle(2); // 2 pixel
-	topRight.graphics.beginFill("#3c3c3c").drawRect(150,0,150,166);
+	topRight = new createjs.Shape();
+	topRight.graphics.beginStroke("#505050");
+	topRight.graphics.setStrokeStyle(1); // 2 pixel
+	topRight.graphics.beginFill("#3c3c3c").drawRect(cCenter,topBarY,boxX,boxY);
+	topRight.alpha = boxBA;
 	stage.addChild(topRight);
-	topRight.addEventListener("click", checkFirstRight);
+/* 	topRight.addEventListener("click", checkFirstRight); */
 	stage.update();
+	
 	//mid left
-	var midLeft = new createjs.Shape();
-	midLeft.graphics.beginStroke("gray");
-	midLeft.graphics.setStrokeStyle(2); // 2 pixel
-	midLeft.graphics.beginFill("#3c3c3c").drawRect(0,166,150,166);
-	midLeft.addEventListener("click", checkSecLeft);
+	midLeft = new createjs.Shape();
+	midLeft.graphics.beginStroke("#505050");
+	midLeft.graphics.setStrokeStyle(1); // 2 pixel
+	midLeft.graphics.beginFill("#3c3c3c").drawRect(0,boxY + topBarY,boxX,boxY);
+	/* midLeft.addEventListener("click", checkSecLeft); */
+	midLeft.alpha = boxBA;
 	stage.addChild(midLeft);
+	
 	//mid Right
-	var midRight = new createjs.Shape();
-	midRight.graphics.beginStroke("gray");
-	midRight.graphics.setStrokeStyle(2); // 2 pixel
-	midRight.graphics.beginFill("#3c3c3c").drawRect(150,166,150,166);
-	midRight.addEventListener("click", checkSecRight);
+	midRight = new createjs.Shape();
+	midRight.graphics.beginStroke("#505050");
+	midRight.graphics.setStrokeStyle(1); // 2 pixel
+	midRight.graphics.beginFill("#3c3c3c").drawRect(cCenter,boxY  + topBarY,boxX,boxY);
+	/* midRight.addEventListener("click", checkSecRight); */
+	midRight.alpha = boxBA;
 	stage.addChild(midRight);
+	
 	stage.update();
+	
 	//bottom left
-	var btmLeft = new createjs.Shape();
-	btmLeft.graphics.beginStroke("gray");
-	btmLeft.graphics.setStrokeStyle(2); // 2 pixel
-	btmLeft.graphics.beginFill("#3c3c3c").drawRect(0,332,150,166);
-	btmLeft.addEventListener("click", checkBtmLeft);
+	btmLeft = new createjs.Shape();
+	btmLeft.graphics.beginStroke("#505050");
+	btmLeft.graphics.setStrokeStyle(1); // 2 pixel
+	btmLeft.graphics.beginFill("#3c3c3c").drawRect(0,boxY * 2  + topBarY,boxX,boxY);
+	/* btmLeft.addEventListener("click", checkBtmLeft); */
+	btmLeft.alpha = boxBA;
 	stage.addChild(btmLeft);
+	stage.update();
+	
 	//bottom Right
-	var btmRight = new createjs.Shape();
-	btmRight.graphics.beginStroke("gray");
-	btmRight.graphics.setStrokeStyle(2); // 2 pixel
-	btmRight.graphics.beginFill("#3c3c3c").drawRect(150,332,150,166);
-	btmRight.addEventListener("click", checkBtmRight);
+	btmRight = new createjs.Shape();
+	btmRight.graphics.beginStroke("#505050");
+	btmRight.graphics.setStrokeStyle(1); // 2 pixel
+	btmRight.graphics.beginFill("#3c3c3c").drawRect(cCenter,boxY * 2  + topBarY,boxX,boxY);
+	/* btmRight.addEventListener("click", checkBtmRight); */
+	btmRight.alpha = boxBA;
 	stage.addChild(btmRight);
+	stage.update();
+	
+	
+	// BUTTONTS ~~!!
+	//Top left
+	topLeftB = new createjs.Shape();
+	topLeftB.graphics.beginStroke("#505050");
+	topLeftB.graphics.setStrokeStyle(1); // 2 pixel
+	topLeftB.graphics.beginFill("#3c3c3c").drawRect(0,topBarY,boxX,boxY);
+	topLeftB.addEventListener("click", checkFirstLeft);
+	topLeftB.alpha = boxBAB;
+
+	
+	//top Right
+	topRightB = new createjs.Shape();
+	topRightB.graphics.beginStroke("#505050");
+	topRightB.graphics.setStrokeStyle(1); // 2 pixel
+	topRightB.graphics.beginFill("#3c3c3c").drawRect(cCenter,topBarY,boxX,boxY);
+	topRightB.alpha = boxBAB;
+
+	topRightB.addEventListener("click", checkFirstRight);
+	stage.update();
+	
+	//mid left
+	midLeftB = new createjs.Shape();
+	midLeftB.graphics.beginStroke("#505050");
+	midLeftB.graphics.setStrokeStyle(1); // 2 pixel
+	midLeftB.graphics.beginFill("#3c3c3c").drawRect(0,boxY + topBarY,boxX,boxY);
+	midLeftB.addEventListener("click", checkSecLeft);
+	midLeftB.alpha = boxBAB;
+
+	
+	//mid Right
+	midRightB = new createjs.Shape();
+	midRightB.graphics.beginStroke("#505050");
+	midRightB.graphics.setStrokeStyle(1); // 2 pixel
+	midRightB.graphics.beginFill("#3c3c3c").drawRect(cCenter,boxY  + topBarY,boxX,boxY);
+	midRightB.addEventListener("click", checkSecRight);
+	midRightB.alpha = boxBAB;
+
+	
+	stage.update();
+	
+	//bottom left
+	btmLeftB = new createjs.Shape();
+	btmLeftB.graphics.beginStroke("#505050");
+	btmLeftB.graphics.setStrokeStyle(1); // 2 pixel
+	btmLeftB.graphics.beginFill("#3c3c3c").drawRect(0,boxY * 2  + topBarY,boxX,boxY);
+	btmLeftB.addEventListener("click", checkBtmLeft);
+	btmLeftB.alpha = boxBAB;
+
+	stage.update();
+	
+	//bottom Right
+	btmRightB = new createjs.Shape();
+	btmRightB.graphics.beginStroke("#505050");
+	btmRightB.graphics.setStrokeStyle(1); // 2 pixel
+	btmRightB.graphics.beginFill("#3c3c3c").drawRect(cCenter,boxY * 2  + topBarY,boxX,boxY);
+	btmRightB.addEventListener("click", checkBtmRight);
+	btmRightB.alpha = boxBAB;
+
 	stage.update();
 
 	/* 	arrow1 = left
 		arrow2 = right*/
-		var TopAnswer;
-		var midAnswer;
-		var btmAnswer;
 		
-		var firstAnswer;
-		var secAnswer;
-		var thirdAnswer;
+		num = Math.floor(Math.random()*2);
+		num2 = Math.floor(Math.random()*2);
+		num3 = Math.floor(Math.random()*2);
+
 		
-		/* var arrows = [pointRight, pointLeft];
-		var arrows2 = [pointRight2, pointLeft2];
-		var arrows3 = [pointRight3, pointLeft3];
-		var answer = ["right", "left"];
-		var answer1 = ["right", "left"];
-		var answer2 = ["right", "left"];
-		var num = Math.floor(Math.random()*2);
-		var num2 = Math.floor(Math.random()*2);
-		var num3 = Math.floor(Math.random()*2);
-		var answered = 0;
 		
 		arrows[num]();
 		arrows2[num2]();
-		arrows3[num3](); */
-		stage.addChild(oRight);
+		arrows3[num3]();
+		
+		stage.addChild(topLeftB);
+		stage.addChild(topRightB);
+		stage.addChild(midLeftB);
+		stage.addChild(midRightB);
+		stage.addChild(btmLeftB);
+		stage.addChild(btmRightB);
+		
+		
+		stage.update();
 	
 
 }
 
 function pointLeft(){
-var pointLeft= new createjs.Shape();
-pointLeft.graphics.beginFill("blue");
-pointLeft.graphics.beginStroke("orange");
-pointLeft.graphics.setStrokeStyle(2); // 2 pixel
-pointLeft.graphics.moveTo(125,75).lineTo(250, 75).lineTo(250,100).lineTo(125,100).lineTo(125,150).lineTo(75,85).lineTo(125,25).lineTo(125,75);
-stage.addChild(pointLeft);
+
+stage.addChild(oLeft);
 stage.update();
 }
+
 function pointLeft2(){
-var pointLeft2= new createjs.Shape();
-pointLeft2.graphics.beginFill("blue");
-pointLeft2.graphics.beginStroke("orange");
-pointLeft2.graphics.setStrokeStyle(2); // 2 pixel
-pointLeft2.graphics.moveTo(125,225).lineTo(250, 225).lineTo(250,250).lineTo(125,250).lineTo(125,300).lineTo(75,235).lineTo(125,175).lineTo(125,225);
-stage.addChild(pointLeft2);
+	
+stage.addChild(bLeft);
 stage.update();
+
 }
+
 function pointLeft3(){
-var pointLeft3= new createjs.Shape();
-pointLeft3.graphics.beginFill("blue");
-pointLeft3.graphics.beginStroke("orange");
-pointLeft3.graphics.setStrokeStyle(2); // 2 pixel
-pointLeft3.graphics.moveTo(125,400).lineTo(250, 400).lineTo(250,425).lineTo(125,425).lineTo(125,475).lineTo(75,415).lineTo(125,350).lineTo(125,400);
-stage.addChild(pointLeft3);
+
+stage.addChild(gLeft);
 stage.update();
 }
+
 function pointRight(){
-var pointRight = new createjs.Shape();
-pointRight.graphics.beginFill("blue");
-pointRight.graphics.beginStroke("orange");
-pointRight.graphics.setStrokeStyle(2); // 2 pixel
-pointRight.graphics.moveTo(50,75).lineTo(175, 75).lineTo(175, 25).lineTo(225, 85).lineTo(175,150).lineTo(175,100).lineTo(50,100).lineTo(50,75);
-stage.addChild(pointRight);
+
+stage.addChild(oRight);
 stage.update();
 }
+
 function pointRight2(){
-var pointRight2 = new createjs.Shape();
-pointRight2.graphics.beginFill("blue");
-pointRight2.graphics.beginStroke("orange");
-pointRight2.graphics.setStrokeStyle(2); // 2 pixel
-pointRight2.graphics.moveTo(50,250).lineTo(175, 250).lineTo(175, 200).lineTo(225, 255).lineTo(175,325).lineTo(175,275).lineTo(50,275).lineTo(50,250);
-stage.addChild(pointRight2);
+	
+stage.addChild(bRight);
 stage.update();
 }
+
 function pointRight3(){
-var pointRight3 = new createjs.Shape();
-pointRight3.graphics.beginFill("blue");
-pointRight3.graphics.beginStroke("orange");
-pointRight3.graphics.setStrokeStyle(2); // 2 pixel
-pointRight3.graphics.moveTo(50,400).lineTo(175, 400).lineTo(175, 350).lineTo(225, 405).lineTo(175,475).lineTo(175,425).lineTo(50,425).lineTo(50,400);
-stage.addChild(pointRight3);
+	
+stage.addChild(gRight);
 stage.update();
 }
 
@@ -169,15 +293,18 @@ function checkFirstLeft(){
 	checkFirstAnswer();
 }
 function checkFirstAnswer(){
+	
 	if(topAnswer == answer[num]){
-		topLeft.graphics.beginFill("green").drawRect(0,0,150,166);
-		topRight.graphics.beginFill("green").drawRect(150,0,150,166);
+		boxBA = 1;
+		topLeft.graphics.beginFill("#357722").drawRect(0,topBarY,boxX,boxY);
+		topRight.graphics.beginFill("#357722").drawRect(cCenter,topBarY,boxX,boxY);
 		firstAnswer = true;
 		stage.update();
 	}
 	else{
-		topLeft.graphics.beginFill("red").drawRect(0,0,150,166);
-		topRight.graphics.beginFill("red").drawRect(150,0,150,166);
+		boxBA = 1;
+		topLeft.graphics.beginFill("#772222").drawRect(0,topBarY,boxX,boxY);
+		topRight.graphics.beginFill("#772222").drawRect(cCenter,topBarY,boxX,boxY);
 		firstAnswer = false;
 		stage.update();
 		}
@@ -185,6 +312,7 @@ function checkFirstAnswer(){
 	if(answered == 3){
 		finished();
 	}
+	checkIfOneWrong();
 }
 
 
@@ -200,21 +328,25 @@ function checkSecLeft(){
 	checkSecAnswer();
 }
 function checkSecAnswer(){
+
 	if(midAnswer == answer[num2]){
-		midLeft.graphics.beginFill("green").drawRect(0,166,150,166);
-		midRight.graphics.beginFill("green").drawRect(150,166,150,166);
+		boxBA = 1;
+		midLeft.graphics.beginFill("#357722").drawRect(0,boxY  + topBarY,boxX,boxY);
+		midRight.graphics.beginFill("#357722").drawRect(cCenter,boxY  + topBarY,boxX,boxY);
 		secAnswer = true;
 		stage.update();
 	}
 	else{
-		midLeft.graphics.beginFill("red").drawRect(0,166,150,166);
-		midRight.graphics.beginFill("red").drawRect(150,166,150,166);
+		boxBA = 1;
+		midLeft.graphics.beginFill("#772222").drawRect(0,boxY  + topBarY,boxX,boxY);
+		midRight.graphics.beginFill("#772222").drawRect(cCenter,boxY  + topBarY,boxX,boxY);
 		secAnswer = false;
 		stage.update();
 		}
 	if(answered == 3){
 		finished();
 	}
+	checkIfOneWrong();
 }
 
 //Middle Answer Check
@@ -229,27 +361,43 @@ function checkBtmLeft(){
 	checkBtmAnswer();
 }
 function checkBtmAnswer(){
+	
 	if(btmAnswer == answer[num3]){
-		btmLeft.graphics.beginFill("green").drawRect(0,332,150,166);
-		btmRight.graphics.beginFill("green").drawRect(150,332,150,166);
+		boxBA = 1;
+		btmLeft.graphics.beginFill("#357722").drawRect(0,boxY * 2 + topBarY,boxX,boxY);
+		btmRight.graphics.beginFill("#357722").drawRect(cCenter,boxY * 2 + topBarY,boxX,boxY);
 		thirdAnswer = true;
 		stage.update();
 	}
 	else{
-		btmLeft.graphics.beginFill("red").drawRect(0,332,150,166);
-		btmRight.graphics.beginFill("red").drawRect(150,332,150,166);
+		boxBA = 1;
+		btmLeft.graphics.beginFill("#772222").drawRect(0,boxY * 2 + topBarY,boxX,boxY);
+		btmRight.graphics.beginFill("#772222").drawRect(cCenter,boxY * 2 + topBarY,boxX,boxY);
 		thirdAnswer = false;
 		stage.update();
 		}
 	if(answered == 3){
 		finished();
 	}
+	checkIfOneWrong();
 }
 function finished(){
 	if((firstAnswer && secAnswer && thirdAnswer)== true){
 		alert("good job!");
 	}
-	else if((firstAnswer && secAnswer && thirdAnswer)== false){
+	/* else if((firstAnswer && secAnswer && thirdAnswer)== false){
 		alert("you suck");
+	} */
+}
+
+function checkIfOneWrong(){
+	
+	if(secAnswer == false){
+		alert("wronggg Already");
+	} else if (firstAnswer == false ) {
+		alert("wronggg Already");
+	} else if ( thirdAnswer == false) {
+		alert("wronggg Already");
 	}
+	
 }
