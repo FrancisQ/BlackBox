@@ -20,6 +20,7 @@
 	<script src="../javascript/leadergame.js"></script>
 	<script src="../javascript/ballGame.js"></script>
 	<script src="../javascript/achie.js"></script>
+	<script src="../javascript/arrowGame.js"></script>
 	
 	<link href="../css/canvas.css" rel="stylesheet" >
 	<meta name="viewport" content="width=500, initial-scale=1">
