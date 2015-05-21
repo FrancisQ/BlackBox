@@ -82,17 +82,11 @@ function handleTick(event) {
 			stage.update();
 	   }
 
-
-			
-			
-			
-
-				
-				
 			count--;
-	    }
-	
+
 	stage.update();
+}
+
 
 function pauseF(event) {
 	

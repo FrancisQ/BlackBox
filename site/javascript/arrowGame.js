@@ -1,93 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>arrow game</title>
-		<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
-        
-    </head>
-    <body>
-<canvas id="myCanvas" width="300" height="500" style="border:1px solid #d3d3d3;">
-Your browser does not support the HTML5 canvas tag.</canvas>
+var oLeft = new createjs.Bitmap("../img/oLeft.png");
+var oRight = new createjs.Bitmap("../img/oRight.png");
 
-<script>
+var bRight = new createjs.Bitmap("../img/bRight.png");
+var bLeft = new createjs.Bitmap("../img/bLeft.png");
 
+var gLeft = new createjs.Bitmap("../img/gLeft.png");
+var gRight = new createjs.Bitmap("../img/gRight.png");
 
-var stage = new createjs.Stage("myCanvas");
-var background = new createjs.Shape();
-background.graphics.beginFill("black").drawRect(0,0,300,500);
-stage.addChild(background);
-
-//Top left
-var topLeft = new createjs.Shape();
-topLeft.graphics.beginStroke("gray");
-topLeft.graphics.setStrokeStyle(2); // 2 pixel
-topLeft.graphics.beginFill("black").drawRect(0,0,150,166);
-topLeft.addEventListener("click", checkFirstLeft);
-stage.addChild(topLeft);
-//top Right
-var topRight = new createjs.Shape();
-topRight.graphics.beginStroke("gray");
-topRight.graphics.setStrokeStyle(2); // 2 pixel
-topRight.graphics.beginFill("black").drawRect(150,0,150,166);
-stage.addChild(topRight);
-topRight.addEventListener("click", checkFirstRight);
-stage.update();
-//mid left
-var midLeft = new createjs.Shape();
-midLeft.graphics.beginStroke("gray");
-midLeft.graphics.setStrokeStyle(2); // 2 pixel
-midLeft.graphics.beginFill("black").drawRect(0,166,150,166);
-midLeft.addEventListener("click", checkSecLeft);
-stage.addChild(midLeft);
-//mid Right
-var midRight = new createjs.Shape();
-midRight.graphics.beginStroke("gray");
-midRight.graphics.setStrokeStyle(2); // 2 pixel
-midRight.graphics.beginFill("black").drawRect(150,166,150,166);
-midRight.addEventListener("click", checkSecRight);
-stage.addChild(midRight);
-stage.update();
-//bottom left
-var btmLeft = new createjs.Shape();
-btmLeft.graphics.beginStroke("gray");
-btmLeft.graphics.setStrokeStyle(2); // 2 pixel
-btmLeft.graphics.beginFill("black").drawRect(0,332,150,166);
-btmLeft.addEventListener("click", checkBtmLeft);
-stage.addChild(btmLeft);
-//bottom Right
-var btmRight = new createjs.Shape();
-btmRight.graphics.beginStroke("gray");
-btmRight.graphics.setStrokeStyle(2); // 2 pixel
-btmRight.graphics.beginFill("black").drawRect(150,332,150,166);
-btmRight.addEventListener("click", checkBtmRight);
-stage.addChild(btmRight);
-stage.update();
-
-/* 	arrow1 = left
-	arrow2 = right*/
-	var TopAnswer;
-	var midAnswer;
-	var btmAnswer;
+function arrowGame() {
+	// arrow image styling
+	oLeft.scaleX = oLeft.scaleY = imgScale;
+	oRight.scaleX = oRight.scaleY = imgScale;
 	
-	var firstAnswer;
-	var secAnswer;
-	var thirdAnswer;
 	
-	var arrows = [pointRight, pointLeft];
-	var arrows2 = [pointRight2, pointLeft2];
-	var arrows3 = [pointRight3, pointLeft3];
-	var answer = ["right", "left"];
-	var answer1 = ["right", "left"];
-	var answer2 = ["right", "left"];
-	var num = Math.floor(Math.random()*2);
-	var num2 = Math.floor(Math.random()*2);
-	var num3 = Math.floor(Math.random()*2);
-	var answered = 0;
 	
-	arrows[num]();
-	arrows2[num2]();
-	arrows3[num3]();
+	bRight.scaleX = bRight.scaleY = imgScale;
+	bLeft.scaleX = bLeft.scaleY = imgScale;
+	
+	gLeft.scaleX = gLeft.scaleY = imgScale;
+	gRight.scaleX = gRight.scaleY = imgScale;
+	
+	
+	
+	
+	var background = new createjs.Shape();
+	background.graphics.beginFill("#3c3c3c").drawRect(0,0,canvasW,canvasY);
+	stage.addChild(background);
+
+	//Top left
+	var topLeft = new createjs.Shape();
+	topLeft.graphics.beginStroke("gray");
+	topLeft.graphics.setStrokeStyle(2); // 2 pixel
+	topLeft.graphics.beginFill("#3c3c3c").drawRect(0,0,cCenter,166);
+	topLeft.addEventListener("click", checkFirstLeft);
+	stage.addChild(topLeft);
+	//top Right
+	var topRight = new createjs.Shape();
+	topRight.graphics.beginStroke("gray");
+	topRight.graphics.setStrokeStyle(2); // 2 pixel
+	topRight.graphics.beginFill("#3c3c3c").drawRect(150,0,150,166);
+	stage.addChild(topRight);
+	topRight.addEventListener("click", checkFirstRight);
+	stage.update();
+	//mid left
+	var midLeft = new createjs.Shape();
+	midLeft.graphics.beginStroke("gray");
+	midLeft.graphics.setStrokeStyle(2); // 2 pixel
+	midLeft.graphics.beginFill("#3c3c3c").drawRect(0,166,150,166);
+	midLeft.addEventListener("click", checkSecLeft);
+	stage.addChild(midLeft);
+	//mid Right
+	var midRight = new createjs.Shape();
+	midRight.graphics.beginStroke("gray");
+	midRight.graphics.setStrokeStyle(2); // 2 pixel
+	midRight.graphics.beginFill("#3c3c3c").drawRect(150,166,150,166);
+	midRight.addEventListener("click", checkSecRight);
+	stage.addChild(midRight);
+	stage.update();
+	//bottom left
+	var btmLeft = new createjs.Shape();
+	btmLeft.graphics.beginStroke("gray");
+	btmLeft.graphics.setStrokeStyle(2); // 2 pixel
+	btmLeft.graphics.beginFill("#3c3c3c").drawRect(0,332,150,166);
+	btmLeft.addEventListener("click", checkBtmLeft);
+	stage.addChild(btmLeft);
+	//bottom Right
+	var btmRight = new createjs.Shape();
+	btmRight.graphics.beginStroke("gray");
+	btmRight.graphics.setStrokeStyle(2); // 2 pixel
+	btmRight.graphics.beginFill("#3c3c3c").drawRect(150,332,150,166);
+	btmRight.addEventListener("click", checkBtmRight);
+	stage.addChild(btmRight);
+	stage.update();
+
+	/* 	arrow1 = left
+		arrow2 = right*/
+		var TopAnswer;
+		var midAnswer;
+		var btmAnswer;
+		
+		var firstAnswer;
+		var secAnswer;
+		var thirdAnswer;
+		
+		/* var arrows = [pointRight, pointLeft];
+		var arrows2 = [pointRight2, pointLeft2];
+		var arrows3 = [pointRight3, pointLeft3];
+		var answer = ["right", "left"];
+		var answer1 = ["right", "left"];
+		var answer2 = ["right", "left"];
+		var num = Math.floor(Math.random()*2);
+		var num2 = Math.floor(Math.random()*2);
+		var num3 = Math.floor(Math.random()*2);
+		var answered = 0;
+		
+		arrows[num]();
+		arrows2[num2]();
+		arrows3[num3](); */
+		stage.addChild(oRight);
+	
+
+}
+
 function pointLeft(){
 var pointLeft= new createjs.Shape();
 pointLeft.graphics.beginFill("blue");
@@ -239,14 +253,3 @@ function finished(){
 		alert("you suck");
 	}
 }
-
-	
-
-
-
-
-</script>
-    </body>
-		</br>
-    
-</html>

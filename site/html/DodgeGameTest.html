@@ -1,9 +1,11 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Bryn's Test Studio</title>
 	<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+	<script src="../javascript/topbar.js"></script>
 	<script>
 		
 		var stage;
@@ -28,46 +30,55 @@
 			function toggleLeft(){
 			stage.removeChild(user);
 			if(user.x >= stage.canvas.width/4){
-			user.x = user.x - stage.canvas.width/4;
-			}
-			else{user.x >= user.x - stage.canavas.width/2;}
+			user.x = stage.canvas.width/4;
 			stage.addChild(user);
 			alert("Good touch");
-			}
+			}}
 		
 			//Button click to move user to the right
 			function toggleRight(){
 			stage.removeChild(user);
-			if(user.x <= stage.canvas.width/4){
-			user.x = user.x + stage.canvas.width/2;
-			}
-			else{
-			user.x = user.x + stage.canvas.width/4;
-			}
+			if(user.x <= stage.canvas.width/2 && user.x <= stage.canvas.width){
+			user.x = (stage.canvas.width*3/4);
 			stage.addChild(user);
 			alert("Good touch");
-			}
+			}else{}}
 			
 			//Falling Object
+			function createEnemy(){
 			enemy = new createjs.Shape();
-			//enemy.graphics.beginFill("red").drawRect(40,0, stage.canvas.width/3, 40);
-			enemy.graphics.beginFill("red").drawCircle(0 , 0, 40);
-			enemy.x = Math.random()*200;
+			enemy.graphics.beginFill("red").drawRect(0,0, stage.canvas.width/2, 40);
+			
+			//position 1
+			//enemy.x = stage.canvas.width/2;
+			
+			//position 2
+			enemy.x = stage.canvas.width/2-stage.canvas.width/2;
 			enemy.y = -50;
+			enemy.width = 75;
+			
 			
 			stage.addChild(enemy);		
+			}
+			//enemyPosition(){
 			
+			//}
+			createEnemy();
 			//User Object
+			function createUser(){
 			user = new createjs.Shape();
 			user.graphics.beginFill("Blue").drawCircle(0,0,30);
 			user.x = stage.canvas.width/2;
 			user.y = 500;
+			user.width = 25;
 			
 			stage.addChild(user);
-			
+			}
+			createUser();
 			//Ticker that moves the enemy down from the top/Mostly controls speed
 			createjs.Ticker.on("tick", tick);
-			createjs.Ticker.setFPS(30);
+			createjs.Ticker.setFPS(25);
+			checkCollisions();
 			
 			stage.update();
 			
@@ -78,10 +89,12 @@
 			var xDist = user.x - enemy.x;
 			var yDist = user.y - enemy.y;
 			var distance = Math.sqrt(xDist*xDist + yDist*yDist);
-			if (distance <= (user.radius + enemy.radius)){
-			alert("bad touch");
-			}else{}
-			}
+			if (distance <= (user.width + enemy.width)){
+			//alert("bad touch");
+			stage.removeChild(user);
+			stage.update;
+			}else{
+			}}
 		
 		//Tick function that actually moves the enemy object
 		function tick(event) {

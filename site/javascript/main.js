@@ -1,5 +1,7 @@
 var stage;
+
 var firstGame;
+
 
 var panel = new createjs.Bitmap("../img/menuPanel.png");
 var topCont = new createjs.Container();
@@ -27,7 +29,7 @@ var soundB, playB, leaderB;
 
 	var audio = new Howl({
 	urls: ['../music/theme2.mp3'],
-	loop: true}).play();
+	loop: true})/* .play() */;
 //Leaderboard transition	
 	var leadAudio = new Howl({
 	urls: ['../music/transition.mp3'],
@@ -54,9 +56,11 @@ var soundB, playB, leaderB;
 function init() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
 	/* sound(); */
-	menu2();
+	//menu2();
+	arrowGame();
 	/* achievement(); */	
 	/* endGame2(); */
+	//ballGame();
 }
 
 function menu2(){
@@ -125,7 +129,7 @@ function playT(event){
     gameTwoFirst = true;
     gamethreeFirst = true;
     firstGame = true;
-	removeMain() ;
+	removeMain();
 	nextGame();
 	/* alert("playing game.."); */
 	audio.stop();
