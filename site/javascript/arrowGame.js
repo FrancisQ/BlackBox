@@ -384,6 +384,9 @@ function checkBtmAnswer(){
 function finished(){
 	if((firstAnswer && secAnswer && thirdAnswer)== true){
 		alert("good job!");
+		firstAnswer = true;
+		secAnswer = true;
+		thirdAnswer = true;
 		nextGame();
 		getScore();
 	}
@@ -396,14 +399,23 @@ function checkIfOneWrong(){
 	
 	if(secAnswer == false){
 		alert("wronggg Already");
+		firstAnswer = true;
+		secAnswer = true;
+		thirdAnswer = true;
 		nextGame();
 		loseLife()
 	} else if (firstAnswer == false ) {
 		alert("wronggg Already");
+		firstAnswer = true;
+		secAnswer = true;
+		thirdAnswer = true;
 		nextGame();
 		loseLife()
 	} else if ( thirdAnswer == false) {
 		alert("wronggg Already");
+		firstAnswer = true;
+		secAnswer = true;
+		thirdAnswer = true;
 		nextGame();
 		loseLife()
 	}
