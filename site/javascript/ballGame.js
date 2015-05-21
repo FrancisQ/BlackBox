@@ -293,18 +293,19 @@ moveCircle();
 				/* alert("correct 1st ball last"); */
 				stage.removeChild(container1);
 				nextGame();
+				getScore();
 			}
 			else{
 				clicked1 = false;
 				/* alert("2nd ball not touched - 1st ball bad"); */
-				lives--;
+				loseLife();
 				nextGame();
 			}
 		}
 		else{
 				clicked1 = false;
 				/* alert("3rd ball not touched -1st ball bad"); */
-				lives--;
+				loseLife();
 				nextGame();
 			
 		}
@@ -324,7 +325,7 @@ moveCircle();
 		else{
 				clicked2 = false;
 				/* alert("3rd ball not touched yet - 2nd bad"); */
-				lives--;
+				loseLife();
 				nextGame();
 		}
 }
@@ -336,7 +337,7 @@ moveCircle();
 				clicked2 = false;
 				clicked1 = false;			
 				/* alert("wrong"); */
-				lives--;
+				loseLife();
 				nextGame();
 				}
 			stage.removeChild(container3);
