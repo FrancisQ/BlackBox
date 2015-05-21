@@ -53,6 +53,7 @@ var btmLeftB;
 var btmRightB;
 
 function arrowGame() {
+	topBar();
 	// arrow image styling
 	oLeft.scaleX = oLeft.scaleY = imgScale;
 	oLeft.regX = arrRX;
@@ -376,10 +377,12 @@ function checkBtmAnswer(){
 		thirdAnswer = false;
 		stage.update();
 		}
+	checkIfOneWrong();
 	if(answered == 3){
 		finished();
+		answered = 0;
 	}
-	checkIfOneWrong();
+
 }
 function finished(){
 	if((firstAnswer && secAnswer && thirdAnswer)== true){
@@ -387,8 +390,12 @@ function finished(){
 		firstAnswer = true;
 		secAnswer = true;
 		thirdAnswer = true;
+		stage.removeAllChildren();
+		stage.update();
 		nextGame();
 		getScore();
+		answered = 0;
+		
 	}
 	/* else if((firstAnswer && secAnswer && thirdAnswer)== false){
 		alert("you suck");
@@ -402,22 +409,33 @@ function checkIfOneWrong(){
 		firstAnswer = true;
 		secAnswer = true;
 		thirdAnswer = true;
+		stage.removeAllChildren();
+		stage.update();
 		nextGame();
 		loseLife();
+		answered = 0;
 	} else if (firstAnswer == false ) {
 		alert("wronggg Already");
 		firstAnswer = true;
 		secAnswer = true;
 		thirdAnswer = true;
+		stage.removeAllChildren();
+		stage.update();
 		nextGame();
 		loseLife();
+		
+		answered = 0;
 	} else if ( thirdAnswer == false) {
 		alert("wronggg Already");
 		firstAnswer = true;
 		secAnswer = true;
 		thirdAnswer = true;
+		stage.removeAllChildren();
+		stage.update();
 		nextGame();
 		loseLife();
+		
+		answered = 0;
 	}
 	
 }

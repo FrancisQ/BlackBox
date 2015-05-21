@@ -5,7 +5,7 @@
 			leadAudio.play();
              //variables
              var game = new createjs.Shape();
-			 var games = [gameOne, gameTwo, gameThree, gameBoss];
+			 var games = [game1(), ballGame(), arrowGame(), gameBoss];
              var randNum = Math.floor(Math.random()*3 )
              var endButton = new createjs.Shape();
 			 
@@ -36,15 +36,16 @@
 						instructions();						
 					}
 					else{
-						games[randNum]();
+						
 						count = countReset;
-						games[nextChallenge]();
+						/* games[nextChallenge](); */
+						games[randNum]();
 					}
 				}
             }
 			else{
 			    stage.removeAllEventListeners();			
-
+				stage.removeAllChildren();
 				endGame2(currentScore, achievementOne, achievementTwo, achievementThree);				
 
 			}
@@ -60,7 +61,7 @@
  
  
 //game 1 place holder
-function gameOne() {
+/* function gameOne() {
 	ballGame();
 	complete++;
 	if (firstGame == true) {
@@ -98,7 +99,7 @@ function gameThree() {
     }
 	//stage.update();
  }
- 
+  */
 
 function gameBoss(){
 	game1();
