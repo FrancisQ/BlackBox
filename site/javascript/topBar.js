@@ -1,5 +1,5 @@
 var pauseB = new createjs.Bitmap("../img/pause.png");
-
+var stage = new createjs.Stage("canvas");
 function topBar(event){
 	pauseB.scaleY = pauseB.scaleX = imgScale;
 	
@@ -82,20 +82,11 @@ function handleTick(event) {
 			stage.update();
 	   }
 
-
-			
-			
-			
-
-				
-				
 			count--;
 
-
-	
 	stage.update();
+}
 
-}// ticker end
 
 function pauseF(event) {
 	

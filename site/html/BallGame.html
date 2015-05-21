@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Ball game</title>
-		<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+		<script src="../javascript/easeljs-0.8.0.combined.js"></script>
         
     </head>
     <body>
@@ -54,7 +54,6 @@ container1.addEventListener("click",removeCircle1);
 stage.update();
 
 function removeCircle1(event){
-stage.removeChild(container1);
 clicked1 = true
 answer1();
 stage.update();
@@ -72,25 +71,24 @@ var clicked2 = false;
 
 //shape
 circle2 = new createjs.Shape();
-	circle2.graphics.beginStroke("gray");
-	circle2.graphics.setStrokeStyle(2); // 2 pixel
-	circle2.graphics.beginFill("blue").drawCircle(xStart2,yStart2,radius2);
-	container2.addChild(circle2);
-	stage.addChild(container2);
-	container2.addEventListener("click",removeCircle2);
-	stage.update();
+circle2.graphics.beginStroke("gray");
+circle2.graphics.setStrokeStyle(2); // 2 pixel
+circle2.graphics.beginFill("blue").drawCircle(xStart2,yStart2,radius2);
+container2.addChild(circle2);
+stage.addChild(container2);
+container2.addEventListener("click",removeCircle2);
+stage.update();
 //text
 var text2 = new createjs.Text("2", "30px Times New Roman", "white");
-	text2.x = circle2.x + xStart2 - 10;
-	text2.y = circle2.y + yStart2 - 15;
-	container2.addChild(text2);	
-	
-	function removeCircle2(event){
-	stage.removeChild(container2);
-	clicked2 = true;
-	
-	stage.update();
-	}
+text2.x = circle2.x + xStart2 - 10;
+text2.y = circle2.y + yStart2 - 15;
+container2.addChild(text2);	
+
+function removeCircle2(event){
+clicked2 = true;
+answer2();
+stage.update();
+}
 	
 	
 	
@@ -117,10 +115,9 @@ var text3 = new createjs.Text("3", "30px Times New Roman", "white");
 	text3.y = circle3.y + yStart3 - 15;
 	container3.addChild(text3);
 	
-	function removeCircle3(event){
-	stage.removeChild(container3);
+	function removeCircle3(event){	
 	clicked3 = true
-	
+	answer3();
 	stage.update();
 	}
 
@@ -178,9 +175,45 @@ else{
 	 directionY3 = false;
 	}
 
+moveCircle();
 
+// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+ 
+// requestAnimationFrame polyfill by Erik Möller
+// fixes from Paul Irish and Tino Zijdel
+ 
+(function() {
+    var lastTime = 0;
+    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+                                   || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
+ 
+    if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+              timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+ 
+    if (!window.cancelAnimationFrame)
+        window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+        };
+}());
+
+
+	
 //moves each circle differently	
-function moveCircle(event){
+function moveCircle(){
+setTimeout(function() {
+	requestAnimationFrame(moveCircle);
 
 var header = 40;
 //number 1
@@ -264,8 +297,8 @@ var header = 40;
 			directionY3 = true;
 		}
 	}
-	stage.update();
-	
+	//stage.update();
+	}, 1000/60);
 	
 }
 
@@ -274,43 +307,38 @@ var header = 40;
 function answer1(event){
 	if(clicked3 == true){
 		if(clicked2 == true){
-		removeCircle1();
-		clicked3 = false;
-		clicked2 = false;
-		clicked1 = false;
-		alert("correct");
-			correct();
+			alert("correct 1st ball last");
+			stage.removeChild(container1);
+			nextGame();
 		}
 		else{
-			clicked3 = false;
-			clicked2 = false;
 			clicked1 = false;
-			alert("wrong");
-			wrong();
+			alert("2nd ball not touched - 1st ball bad");
+			lives--;
 		}
 	}
 	else{
-			clicked3 = false;
-			clicked2 = false;
 			clicked1 = false;
-			alert("wrong");
-			wrong();
+			alert("3rd ball not touched -1st ball bad");
+			lives--;
 		
 	}
 	
 }
 function answer2(event){
-	if(clicked2 == true){
-		if(clicked3==true){
-		removeCircle2();
+	if(clicked3 == true){
+		if(clicked2==true){
+			alert("good touch on ball 3 and 2");
+			stage.removeChild(container2);
+		}
+		else{
+			alert("how did you even get here?");
 		}
 	}
 	else{
-			clicked3 = false;
 			clicked2 = false;
-			clicked1 = false;
-			alert("wrong");
-			wrong();
+			alert("3rd ball not touched yet - 2nd bad");
+			lives--;
 	}
 }
 
@@ -319,10 +347,12 @@ function answer3(event){
 		if(clicked1 == true || clicked2 == true){
 			clicked3 = false;
 			clicked2 = false;
-			clicked1 = false;
+			clicked1 = false;			
 			alert("wrong");
-			wrong();
+			lives--;
 			}
+		stage.removeChild(container3);
+		alert("3rd first good");
 	}
 }
 
@@ -349,7 +379,7 @@ function topBar(event){
 	frame = 0;
 	
 	createjs.Ticker.addEventListener("tick", handleTick);
-	createjs.Ticker.setInterval(100);
+	createjs.Ticker.setInterval(1000);
 	
 	 
 }//topBar end 
@@ -398,8 +428,8 @@ function handleTick(event) {
 				//count--;
 		
 				stage.addChild(timerText);	
-				count = count - (event.delta/1000);
-				moveCircle();
+				count--;
+				//moveCircle();
 				}
 				}
 			

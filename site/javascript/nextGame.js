@@ -1,6 +1,7 @@
 //Pick a random game
 		
  function nextGame(event) {
+			stage.removeAllChildren();
 			leadAudio.play();
              //variables
              var game = new createjs.Shape();
@@ -16,9 +17,11 @@
 					difficulty++;
 					bossInc += 3;
 					if(firstTime){
+                        achievementThree();
 						removeTicker();
 						instructions();
-						firstTime = false;						
+						firstTime = false;
+                        						
 					}
 					else{
 						gameBoss();		
@@ -40,8 +43,7 @@
 				}
             }
 			else{
-			    stage.removeAllEventListeners();
-				endGame2();				
+			    stage.removeAllEventListeners();			
 
 				endGame2(currentScore);				
 
@@ -58,41 +60,60 @@
  
  
 //game 1 place holder
-function gameOne(difficulty) {
-	 
-	topBar();
-	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("blue").drawRect(0,0,canvasW,canvasY);
-	stage.addChild(backdrop);
+function gameOne() {
+	ballGame();
 	complete++;
+	if (firstGame == true) {
+	    achievementOne();
+    }
 	//stage.update();
  }
  
  
 //game 2 place holder
-function gameTwo(difficulty) {
+function gameTwo() {
 	topBar();
 	var backdrop = new createjs.Shape();
 	backdrop.graphics.beginFill("red").drawRect(0,0,300,500);
 	backdrop.graphics.beginFill("red").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
+    if (firstGame == true) {
+	    achievementOne();
+    }
 	//stage.update();
  }
 //game 3 place holder
-function gameThree(difficulty) {
+function gameThree() {
 	topBar();
 	var backdrop = new createjs.Shape();
 	backdrop.graphics.beginFill("green").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
+    if (firstGame == true) {
+	    achievementOne();
+    }
 	//stage.update();
  }
  
 
-function gameBoss(difficulty){
-			game1();
- }
+function gameBoss(){
+	game1();
+}
 
+function achievementOne() {
+    achieveOne = true;
+    alert("Achievement Get: First Blood");
+}
+
+function achievementTwo() {
+    achieveTwo = true;
+    alert("Achievement Get: Reality Hurts");
+}
+
+function achievementThree() {
+    achieveThree = true;
+    alert("Achievement Get: Three's");
+}
 	
  
