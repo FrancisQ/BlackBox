@@ -1,4 +1,4 @@
-var games = [game0Tips, game1Tips, game2Tips, game3Tips];
+var gameTip = [game0Tips, game1Tips, game2Tips, game3Tips];
 var tempContainer = new createjs.Container();
 var okB = new createjs.Bitmap("../img/ok.png");
 var cCenter = 360 * .5;
@@ -37,7 +37,7 @@ function instructions(event){
 	//var newTicker = createjs.Ticker.addEventListener("tick", promptTicker);
 	//createjs.Ticker.setInterval(1000);
 	
-	games[nextChallenge]();
+	gameTip[nextChallenge]();
 	stage.addChild(tempContainer);
 	stage.update();
 	//Sets up the background
@@ -122,20 +122,20 @@ function unPause(){
 			createjs.Ticker.addEventListener("tick", handleTick);
 			switch(nextChallenge){
 				case 0: 
-					gameOne(difficulty);
+					game1();
 					break;
 				case 1:
-					gameTwo(difficulty);
+					ballGame();
 					break;
 				case 2: 
-					gameThree(difficulty);				
+					gameThree();				
 					break;
 				case 3:
-					gameBoss(difficulty);
+					gameBoss();
 					break;
 					
 				default:
-					gameOne(difficulty);
+					gameOne();
 					break;			
 				
 			}
