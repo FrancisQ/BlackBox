@@ -17,9 +17,14 @@ var stage = new createjs.Stage("myCanvas");
 
 //Background
 var background = new createjs.Shape();
+<<<<<<< HEAD
 background.graphics.beginFill("black").drawRect(0,0,200,300);
+=======
+background.graphics.beginFill("black").drawRect(0,0,300,500);
+//background.cache(0,40,300,460);
+>>>>>>> 686c4a67ca90769700c685b76547e23a4aad4d69
 stage.addChild(background);
-stage.update();
+//stage.update();
 
 topBar();
 
@@ -34,28 +39,29 @@ var yStart1 =  Math.floor(Math.random() * 440 + 40);
 var clicked1 = false;
 
 //shape
- circle1 = new createjs.Shape();
-	circle1.graphics.beginStroke("gray");
-	circle1.graphics.setStrokeStyle(2); // 2 pixel
-	circle1.graphics.beginFill("red").drawCircle(xStart1,yStart1,radius1);
-	circle1.setBounds(xStart1,yStart1,radius1);
-	container1.addChild(circle1);
+circle1 = new createjs.Shape();
+circle1.graphics.beginStroke("gray");
+circle1.graphics.setStrokeStyle(2); // 2 pixel
+circle1.graphics.beginFill("red").drawCircle(xStart1,yStart1,radius1);
+circle1.setBounds(xStart1,yStart1,radius1);
+//circle1.cache(0,40,300,460);
+container1.addChild(circle1);
 //text
 var text1 = new createjs.Text("1", "30px Times New Roman", "white");
-	text1.x = circle1.x + xStart1 - 10;
-	text1.y = circle1.y + yStart1 - 15;
-	container1.addChild(text1);
-	
-	
-	stage.addChild(container1);
-	container1.addEventListener("click",removeCircle1);
-	stage.update();
-	
-	function removeCircle1(event){
-	stage.removeChild(container1);
-	clicked1 = true
-	answer1();
-	stage.update();
+text1.x = circle1.x + xStart1 - 10;
+text1.y = circle1.y + yStart1 - 15;
+container1.addChild(text1);
+
+
+stage.addChild(container1);
+container1.addEventListener("click",removeCircle1);
+stage.update();
+
+function removeCircle1(event){
+stage.removeChild(container1);
+clicked1 = true
+answer1();
+stage.update();
 }
 
 
@@ -347,8 +353,8 @@ function topBar(event){
 	currentScore=0;
 	frame = 0;
 	
-	var ticker = createjs.Ticker.addEventListener("tick", handleTick);
-	createjs.Ticker.setFPS(20);
+	createjs.Ticker.addEventListener("tick", handleTick);
+	createjs.Ticker.setInterval(100);
 	
 	 
 }//topBar end 
@@ -387,12 +393,21 @@ function handleTick(event) {
 			stage.update();
 
 			if (count <= 0){
-					stage.removeChild(timerText);
+					//stage.removeChild(timerText);
 					createjs.Ticker.removeEventListener("tick", handleTick);
+					//stage.addChild(timerText);
 					loseLife();
-					nextGame();
+					//nextGame();
 
+				}else{
+				//count--;
+		
+				stage.addChild(timerText);	
+				count = count - (event.delta/1000);
+				moveCircle();
 				}
+				}
+<<<<<<< HEAD
 			if(frame == 20){
 				count--;
 				frame = 0;
@@ -403,12 +418,14 @@ function handleTick(event) {
 				
 			
 			 
+=======
+>>>>>>> 686c4a67ca90769700c685b76547e23a4aad4d69
 			
 			stage.update();
 	   }
 
 
-}// ticker end
+// ticker end
 
 function pauseF(event) {
 	
@@ -445,7 +462,7 @@ var xM = 10;
 function life1(){
 	if ( lives >= 3){
 	var life1 = new createjs.Shape();
-	life1.graphics.beginFill("orange").drawPolyStar(250 - xM , 18, 10, 5, 0.6, -90);
+	life1.graphics.beginFill("orange").drawPolyStar(250 - xM , 18, 10, 5, 0.6, -90);	
 	stage.addChild(life1);
 	stage.update();
 	}

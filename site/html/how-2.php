@@ -3,8 +3,12 @@
 	<head lang="en">
 		<meta charset="utf-8">
 		<title> Black Box | How to </title>
-		<link href="../img/BBlogo.png" type="image/x-icon" rel="icon">
+		<link href="../img/BBlogo.png" tyaldr113pe="image/x-icon" rel="icon">
 		<link href="../img/BBlogo.png" type="image/x-icon" rel="shortcut icon">
+		
+		<!-- Text from google -->
+		<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 		
 		<!--Boostrap style sheet-->
 		<link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
@@ -39,9 +43,37 @@
 					<img src="../img/blackboxTextBlack.png" alt="Blackbox Name" id="blackboxText">
 				</div>
 				<div id="content">
+					<h1 id="how2Head"> How to </h1>
 					<div id="inner">
-						<div id="Divs">
+						<div class="inst">
+							<img src="../img/test1.png" alt="Tutorial Placeholder" class="fRight">
+							<p class="fLeft"> Black box  Black box  Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box </p>
+
+							<p class="clearF"></p>
 						</div>
+						
+						<div class="inst">
+							<img src="../img/test1.png" alt="Tutorial Placeholder" class="fRight">
+							<p class="fLeft"> Black box  Black box  Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box </p>
+
+							<p class="clearF"></p>
+						</div>
+						
+						
+						<div class="inst">
+							<img src="../img/test1.png" alt="Tutorial Placeholder" class="fRight">
+							<p class="fLeft"> Black box  Black box  Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box </p>
+
+							<p class="clearF"></p>
+						</div>
+						
+						<div class="inst">
+							<img src="../img/test1.png" alt="Tutorial Placeholder" class="fRight">
+							<p class="fLeft"> Black box  Black box  Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box Black box </p>
+
+							<p class="clearF"></p>
+						</div>
+						
 					</div>
 					<!--Footer -->
 					

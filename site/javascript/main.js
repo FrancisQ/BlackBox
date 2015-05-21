@@ -7,9 +7,11 @@ var lives = 4;
 var difficulty = 1;
 var complete = 0;
 var currentScore = 0;
-var countReset = 10;
-var count = 15;
+var countReset = 10 - difficulty;
+var count = 15 - difficulty;
 var soundIsOn = true;
+
+var bossInc = 3;
 
 var imgScale = .5;
 var canvasW = 320;
@@ -17,12 +19,16 @@ var canvasY = 568;
 var cCenter = canvasW * .5;
 var cCenterY = canvasY * .5;
 var alphaV = .01;
+var alphaClk = .4;
 var firstTime = true;
 var soundB, playB, leaderB;
-var audio = new Howl({
-	urls: ['../music/theme.mp3'],
+
+
+	var audio = new Howl({
+	urls: ['../music/theme2.mp3'],
 	loop: true}).play();
-var leadAudio = new Howl({
+//Leaderboard transition	
+	var leadAudio = new Howl({
 	urls: ['../music/transition.mp3'],
 	})
 //Sound that plays on correct selection
@@ -35,18 +41,21 @@ var leadAudio = new Howl({
 	})
 //Alternative button press sound	
 	var buttonPressAudio = new Howl({
-	urls: ['../music/gamepress.mp3'],
+	urls: ['../music/click.mp3'],
 	})
 //When you select the play game option sound will play	
 	var introAudio = new Howl({
 	urls: ['../music/intro.mp3'],
 	})
 
+
 /* TEST independent canvas */
 function init() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
-	sound();
-	menu2();	
+	/* sound(); */
+	menu2();
+	/* achievement()	 */
+	/* endGame2(); */
 }
 
 function menu2(){
@@ -85,7 +94,7 @@ function menu2(){
 	
 	
 	//button functionality
-	playB.addEventListener("click", nextGame);
+	playB.addEventListener("click", playT);
 	soundB.addEventListener("click", soundT);
 	leaderB.addEventListener("click", leaderT);
 	
@@ -107,11 +116,20 @@ function removeMain() {
 
 // when clicking play
 function playT(event){
+
+    achieveOne = false;
+    achieveTwo = false;
+    achieveThree = false;
+    gameOneFirst = true;
+    gameTwoFirst = true;
+    gamethreeFirst = true;
+    firstGame = true;
 	removeMain() ;
 	nextGame();
 	/* alert("playing game.."); */
+	audio.stop();
 	buttonPressAudio.play();
-	leadAudio.play();
+
 }
 
 // when clicking sound
@@ -139,28 +157,7 @@ function leaderT(event) {
 	buttonPressAudio.play();
 }
 
-function sound(){
-//Leaderboard transition	
-	var leadAudio = new Howl({
-	urls: ['../music/transition.mp3'],
-	})
-//Sound that plays on correct selection
-	var correctAudio = new Howl({
-	urls: ['../music/achieve.mp3'],
-	})
-//Sound that plays when wrong selection is made
-	var wrongAudio = new Howl({
-	urls: ['../music/beep.mp3'],
-	})
-//Alternative button press sound	
-	var buttonPressAudio = new Howl({
-	urls: ['../music/gamepress.mp3'],
-	})
-//When you select the play game option sound will play	
-	var introAudio = new Howl({
-	urls: ['../music/intro.mp3'],
-	})
-}
+
 
 
 
