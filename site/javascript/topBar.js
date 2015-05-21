@@ -106,7 +106,7 @@ function loseLife(){
 									
 //Score
 function getScore(){
-	currentScore =+ (count * difficulty);
+	currentScore += (count * difficulty);
 		return currentScore;
 }
 			
