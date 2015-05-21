@@ -403,21 +403,21 @@ function checkIfOneWrong(){
 		secAnswer = true;
 		thirdAnswer = true;
 		nextGame();
-		loseLife()
+		loseLife();
 	} else if (firstAnswer == false ) {
 		alert("wronggg Already");
 		firstAnswer = true;
 		secAnswer = true;
 		thirdAnswer = true;
 		nextGame();
-		loseLife()
+		loseLife();
 	} else if ( thirdAnswer == false) {
 		alert("wronggg Already");
 		firstAnswer = true;
 		secAnswer = true;
 		thirdAnswer = true;
 		nextGame();
-		loseLife()
+		loseLife();
 	}
 	
 }

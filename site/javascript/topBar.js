@@ -66,21 +66,6 @@ function handleTick(event) {
 			
 			stage.addChild(timerText);	
 			stage.update();
-			if (count == 24){
-				stage.removeChild(timerText);
-				stage.addChild(pauseB);			
-				stage.update();
-			
-			 if (count == 0){
-					createjs.Ticker.removeEventListener("tick", handleTick);
-					stage.removeChild(timerText);
-					loseLife();
-					nextGame();
-				}
-			count = count-1;
-			stage.addChild(timerText);	
-			stage.update();
-	   }
 
 			count--;
 
