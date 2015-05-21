@@ -385,7 +385,7 @@ function finished(){
 	if((firstAnswer && secAnswer && thirdAnswer)== true){
 		alert("good job!");
 		nextGame();
-		currentScore += 10;
+		getScore();
 	}
 	/* else if((firstAnswer && secAnswer && thirdAnswer)== false){
 		alert("you suck");
