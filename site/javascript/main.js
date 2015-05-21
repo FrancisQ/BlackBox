@@ -6,7 +6,7 @@ var firstGame;
 var panel = new createjs.Bitmap("../img/menuPanel.png");
 var topCont = new createjs.Container();
 //Global Values
-var lives = 4;
+var lives = 3;
 var difficulty = 1;
 var complete = 0;
 var currentScore = 0;
@@ -29,7 +29,7 @@ var soundB, playB, leaderB;
 
 	var audio = new Howl({
 	urls: ['../music/theme2.mp3'],
-	loop: true})/* .play() */;
+	loop: true}).play();
 //Leaderboard transition	
 	var leadAudio = new Howl({
 	urls: ['../music/transition.mp3'],

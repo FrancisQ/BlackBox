@@ -135,7 +135,7 @@ function unPause(){
 					arrowGame();				
 					break;
 				case 3:
-					gameBoss();
+					dodgeGame();
 					break;
 					
 				default:

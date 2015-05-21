@@ -123,7 +123,7 @@ function menuP(event) {
     stage.removeAllChildren();
 	removePause();
 	count = countReset;
-	lives = 4;
+	lives = 3;
 	difficulty = 1;
 	complete = 0;
 	currentScore = 0;
@@ -145,7 +145,7 @@ function retryP(event) {
     stage.removeAllChildren();
 	removePause();
 	count = countReset;
-	lives = 4;
+	lives = 3;
 	difficulty = 1;
 	complete = 0;
 	currentScore = 0;
