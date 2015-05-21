@@ -60,11 +60,7 @@
  
 //game 1 place holder
 function gameOne(difficulty) {
-	 
-	topBar();
-	var backdrop = new createjs.Shape();
-	backdrop.graphics.beginFill("blue").drawRect(0,0,canvasW,canvasY);
-	stage.addChild(backdrop);
+	ballGame();
 	complete++;
 	if (firstGame == true) {
 	    achievementOne();

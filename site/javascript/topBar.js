@@ -82,20 +82,13 @@ function handleTick(event) {
 			stage.update();
 	   }
 
-
-			
-			
-			
-
-				
-				
 			count--;
-
-
-	
 	stage.update();
+}
 
-}// ticker end
+
+
+// ticker end
 
 function pauseF(event) {
 	

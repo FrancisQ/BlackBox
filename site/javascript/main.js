@@ -1,4 +1,5 @@
-var stage = new createjs.Stage(document.getElementById("canvas"));
+var stage;
+
 
 var panel = new createjs.Bitmap("../img/menuPanel.png");
 var topCont = new createjs.Container();
@@ -51,9 +52,11 @@ var soundB, playB, leaderB;
 
 /* TEST independent canvas */
 function init() {
+	stage = new createjs.Stage(document.getElementById("canvas"));
 	/* sound(); */
-	menu2();
-	/* achievement()	 */
+	//menu2();
+	instructions();
+	/* achievement();	 */
 	/* endGame2(); */
 }
 
@@ -123,7 +126,7 @@ function playT(event){
     gameTwoFirst = true;
     gamethreeFirst = true;
     firstGame = true;
-	removeMain() ;
+	removeMain();
 	nextGame();
 	/* alert("playing game.."); */
 	audio.stop();
