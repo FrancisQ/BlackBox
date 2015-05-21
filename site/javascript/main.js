@@ -57,9 +57,9 @@ function init() {
 	stage = new createjs.Stage(document.getElementById("canvas"));
 	/* sound(); */
 	//menu2();
-	arrowGame();
+	//arrowGame();
 	/* achievement(); */	
-	/* endGame2(); */
+	endGame2(100, false, false, false);
 	//ballGame();
 }
 

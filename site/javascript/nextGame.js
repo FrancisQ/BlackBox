@@ -45,7 +45,7 @@
 			else{
 			    stage.removeAllEventListeners();			
 
-				endGame2(currentScore);				
+				endGame2(currentScore, achievementOne, achievementTwo, achievementThree);				
 
 			}
 	 //variables
