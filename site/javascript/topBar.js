@@ -90,7 +90,12 @@ function handleTick(event) {
 				
 				
 			count--;
+<<<<<<< HEAD
 	    }
+=======
+
+
+>>>>>>> 9282669f72a2a600c9ea0e7aae260da59bdf070b
 	
 	stage.update();
 

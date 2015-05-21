@@ -1,6 +1,7 @@
 //Pick a random game
 		
  function nextGame(event) {
+			leadAudio.play();
              //variables
              var game = new createjs.Shape();
 			 var games = [gameOne, gameTwo, gameThree, gameBoss];
@@ -9,14 +10,17 @@
 			 
 
             if (lives > 0) {
-				if(complete == 3){					
+				if(complete == bossInc){					
 					nextChallenge = 3; 
 					complete = 0;
 					difficulty++;
+					bossInc += 3;
 					if(firstTime){
+                        achievementThree();
 						removeTicker();
 						instructions();
-						firstTime = false;						
+						firstTime = false;
+                        						
 					}
 					else{
 						gameBoss();		
@@ -38,43 +42,29 @@
 				}
             }
 			else{
-			    stage.removeAllEventListeners();
-				endGame2();				
+			    stage.removeAllEventListeners();			
 
 				endGame2(currentScore);				
 
 			}
 	 //variables
-	var game = new createjs.Shape();
+	/* var game = new createjs.Shape();
 	var games = [gameOne, gameTwo, gameThree, gameBoss];
 	var randNum = Math.floor(Math.random()*3 )
-	var endButton = new createjs.Shape();		
+	var endButton = new createjs.Shape();	 */	
 	
  }
 //Place holder for end game screen
-function gameOver(){
-	gameOver = new createjs.Text("LOVE IS OVER!", "30px Verdana", "black");
-	gameOver.x = 50;
-	gameOver.y = 50;
-	stage.removeAllChildren();
-	var home = new createjs.Shape();
-	home.graphics.beginFill("red").drawRect(150,250, 100, 50);
-	home.addEventListener("click", init);
-	stage.addChild(home);
-	stage.addChild(gameOver);
-	stage.update();
-	
-	//reset values to original
-	lives = 3;
-	difficulty=1;
-	complete = 0;
- }
+
  
  
 //game 1 place holder
 function gameOne(difficulty) {
 	ballGame();
 	complete++;
+	if (firstGame == true) {
+	    achievementOne();
+    }
 	//stage.update();
  }
  
@@ -87,6 +77,9 @@ function gameTwo(difficulty) {
 	backdrop.graphics.beginFill("red").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
+    if (firstGame == true) {
+	    achievementOne();
+    }
 	//stage.update();
  }
 //game 3 place holder
@@ -96,13 +89,30 @@ function gameThree(difficulty) {
 	backdrop.graphics.beginFill("green").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(backdrop);
 	complete++;
+    if (firstGame == true) {
+	    achievementOne();
+    }
 	//stage.update();
  }
  
 
 function gameBoss(difficulty){
-			game1();
- }
+	game1();
+}
 
+function achievementOne() {
+    achieveOne = true;
+    alert("Achievement Get: First Blood");
+}
+
+function achievementTwo() {
+    achieveTwo = true;
+    alert("Achievement Get: Reality Hurts");
+}
+
+function achievementThree() {
+    achieveThree = true;
+    alert("Achievement Get: Three's");
+}
 	
  

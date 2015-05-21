@@ -109,6 +109,9 @@ function correct(){
 	removeTicker();
 	stage.removeAllChildren();
 	stage.removeAllEventListeners("click");
+    if (firstGame == true) {
+	    achievementOne();
+    }
 	stage.update();
 	nextGame();
 	
@@ -124,6 +127,9 @@ function wrong(){
 	/* alert("WRONG"); */
 
 	removeTicker();
+	if (lives == 3) {
+	    achievementTwo();
+    }
 	lives--; 
 	stage.removeAllChildren();
 	stage.update();

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>arrow game</title>
+		<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+        
+    </head>
+    <body>
+<canvas id="myCanvas" width="300" height="500" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+
+var stage = new createjs.Stage("myCanvas");
+//Top left
+var topLeft = new createjs.Shape();
+topLeft.graphics.beginStroke("gray");
+topLeft.graphics.setStrokeStyle(2); // 2 pixel
+topLeft.graphics.beginFill("black").drawRect(0,0,150,166);
+topLeft.addEventListener("click", checkFirstLeft);
+stage.addChild(topLeft);
+//top Right
+var topRight = new createjs.Shape();
+topRight.graphics.beginStroke("gray");
+topRight.graphics.setStrokeStyle(2); // 2 pixel
+topRight.graphics.beginFill("black").drawRect(150,0,150,166);
+stage.addChild(topRight);
+topRight.addEventListener("click", checkFirstRight);
+stage.update();
+//mid left
+var midLeft = new createjs.Shape();
+midLeft.graphics.beginStroke("gray");
+midLeft.graphics.setStrokeStyle(2); // 2 pixel
+midLeft.graphics.beginFill("black").drawRect(0,166,150,166);
+midLeft.addEventListener("click", checkSecLeft);
+stage.addChild(midLeft);
+//mid Right
+var midRight = new createjs.Shape();
+midRight.graphics.beginStroke("gray");
+midRight.graphics.setStrokeStyle(2); // 2 pixel
+midRight.graphics.beginFill("black").drawRect(150,166,150,166);
+midRight.addEventListener("click", checkSecRight);
+stage.addChild(midRight);
+stage.update();
+//bottom left
+var btmLeft = new createjs.Shape();
+btmLeft.graphics.beginStroke("gray");
+btmLeft.graphics.setStrokeStyle(2); // 2 pixel
+btmLeft.graphics.beginFill("black").drawRect(0,332,150,166);
+btmLeft.addEventListener("click", checkBtmLeft);
+stage.addChild(btmLeft);
+//bottom Right
+var btmRight = new createjs.Shape();
+btmRight.graphics.beginStroke("gray");
+btmRight.graphics.setStrokeStyle(2); // 2 pixel
+btmRight.graphics.beginFill("black").drawRect(150,332,150,166);
+btmRight.addEventListener("click", checkBtmRight);
+stage.addChild(btmRight);
+stage.update();
+
+/* 	arrow1 = left
+	arrow2 = right*/
+	var TopAnswer;
+	var midAnswer;
+	var btmAnswer;
+	
+	var firstAnswer;
+	var secAnswer;
+	var thirdAnswer;
+	
+	//var arrows = [arrowRight, arrowLeft];
+	var answer = ["right", "left"];
+	var num = 1;
+	var num2 = 0;
+	var num3 = 1;
+	var answered = 0;
+var pointRight = new createjs.Bitmap("bRight.png");	
+pointRight.scaleX = pointRight.scaleY = .5;
+pointRight.x = 
+pointRight.y = 0;
+stage.addChild(pointRight);
+stage.update();
+
+	
+function checkFirstRight(){
+	topAnswer = "right";
+	answered++;
+	checkFirstAnswer();
+}
+function checkFirstLeft(){
+	topAnswer = "left";
+	answered++;
+	checkFirstAnswer();
+}
+function checkFirstAnswer(){
+	if(topAnswer == answer[num]){
+		topLeft.graphics.beginFill("green").drawRect(0,0,150,166);
+		topRight.graphics.beginFill("green").drawRect(150,0,150,166);
+		firstAnswer = true;
+		stage.update();
+	}
+	else{
+		topLeft.graphics.beginFill("red").drawRect(0,0,150,166);
+		topRight.graphics.beginFill("red").drawRect(150,0,150,166);
+		firstAnswer = false;
+		stage.update();
+		}
+	
+	if(answered == 3){
+		finished();
+	}
+}
+
+
+//Middle Answer Check
+function checkSecRight(){
+	midAnswer = "right";
+	answered++;
+	checkSecAnswer();
+}
+function checkSecLeft(){
+	midAnswer = "left";
+	answered++;
+	checkSecAnswer();
+}
+function checkSecAnswer(){
+	if(midAnswer == answer[num2]){
+		midLeft.graphics.beginFill("green").drawRect(0,166,150,166);
+		midRight.graphics.beginFill("green").drawRect(150,166,150,166);
+		secAnswer = true;
+		stage.update();
+	}
+	else{
+		midLeft.graphics.beginFill("red").drawRect(0,166,150,166);
+		midRight.graphics.beginFill("red").drawRect(150,166,150,166);
+		secAnswer = false;
+		stage.update();
+		}
+	if(answered == 3){
+		finished();
+	}
+}
+
+//Middle Answer Check
+function checkBtmRight(){
+	btmAnswer = "right";
+	answered++;
+	checkBtmAnswer();
+}
+function checkBtmLeft(){
+	btmAnswer = "left";
+	answered++;
+	checkBtmAnswer();
+}
+function checkBtmAnswer(){
+	if(btmAnswer == answer[num3]){
+		btmLeft.graphics.beginFill("green").drawRect(0,332,150,166);
+		btmRight.graphics.beginFill("green").drawRect(150,332,150,166);
+		thirdAnswer = true;
+		stage.update();
+	}
+	else{
+		btmLeft.graphics.beginFill("red").drawRect(0,332,150,166);
+		btmRight.graphics.beginFill("red").drawRect(150,332,150,166);
+		thirdAnswer = false;
+		stage.update();
+		}
+	if(answered == 3){
+		finished();
+	}
+}
+function finished(){
+	if((firstAnswer && secAnswer && thirdAnswer)== true){
+		alert("good job!");
+	}
+	else if((firstAnswer && secAnswer && thirdAnswer)== false){
+		alert("you suck");
+	}
+}
+
+	
+
+
+
+
+</script>
+    </body>
+		</br>
+    
+</html>

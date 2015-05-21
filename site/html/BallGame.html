@@ -17,8 +17,12 @@ var stage = new createjs.Stage("myCanvas");
 
 //Background
 var background = new createjs.Shape();
+<<<<<<< HEAD
+background.graphics.beginFill("black").drawRect(0,0,200,300);
+=======
 background.graphics.beginFill("black").drawRect(0,0,300,500);
 //background.cache(0,40,300,460);
+>>>>>>> 686c4a67ca90769700c685b76547e23a4aad4d69
 stage.addChild(background);
 //stage.update();
 
@@ -174,6 +178,7 @@ if(Math.floor(Math.random()*2 >=1)){
 else{
 	 directionY3 = false;
 	}
+<<<<<<< HEAD
 
 moveCircle();
 
@@ -208,6 +213,10 @@ moveCircle();
         };
 }());
 
+=======
+//createjs.Ticker.addEventListener("tick", moveCircle);
+//createjs.Ticker.setFPS(20);
+>>>>>>> 9282669f72a2a600c9ea0e7aae260da59bdf070b
 
 	
 //moves each circle differently	
@@ -432,6 +441,19 @@ function handleTick(event) {
 				//moveCircle();
 				}
 				}
+<<<<<<< HEAD
+			if(frame == 20){
+				count--;
+				frame = 0;
+			}
+			frame++;
+			
+				moveCircle(event);
+				
+			
+			 
+=======
+>>>>>>> 686c4a67ca90769700c685b76547e23a4aad4d69
 			
 			stage.update();
 	   }
