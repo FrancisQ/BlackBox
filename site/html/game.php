@@ -21,6 +21,7 @@
 	<script src="../javascript/topBar.js"></script>
 	<script src="../javascript/achie.js"></script>
 	<script src="../javascript/main.js"></script>
+	<script src="../javascript/dodgeGame.js"></script>
 	
 	<link href="../css/canvas.css" rel="stylesheet" >
 	<meta name="viewport" content="width=500, initial-scale=1">

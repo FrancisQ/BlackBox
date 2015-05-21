@@ -1,4 +1,4 @@
-var stage;
+/* var stage; */
 var test = 200;
 var enemyList;
 

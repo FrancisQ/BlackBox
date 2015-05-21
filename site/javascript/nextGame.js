@@ -6,8 +6,8 @@
              //variables
              var game = new createjs.Shape();
 
-			 var games = [game1(), ballGame(), arrowGame(), gameBoss];
-             var randNum = Math.floor(Math.random()*3 );
+			 var games = [game1(), ballGame(), arrowGame(), dodgeGame()];
+             var randNum = 3/* Math.floor(Math.random()*3 ) */;
 
              var endButton = new createjs.Shape();
 			 
