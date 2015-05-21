@@ -42,6 +42,8 @@
 						count = countReset;
 						/* games[nextChallenge](); */
 						games[randNum]();
+
+						
 					}
 				}
             }

@@ -1,16 +1,16 @@
-/* var stage; */
-var test = 200;
 var enemyList;
+var scones = 0;
+var lengthOfScone;
+var test;
 
 function dodgeGame() {
-	
-	//stage = new createjs.Stage("game2");
-	
+	test = 200;
+		
 	//leftclic variable
 	leftclic = new createjs.Shape();
 	leftclic.graphics.beginFill("grey").drawRect(0,0,stage.canvas.width/2,stage.canvas.height);
 	leftclic.addEventListener("click", toggleLeft);
-	stage.addChild(leftclic)
+	stage.addChild(leftclic);
 
 	//rightclic variable
 	rightclic = new createjs.Shape();
@@ -61,7 +61,7 @@ function dodgeGame() {
 			
 			//position 2
 			//enemy.x = 0;//stage.canvas.width/2-stage.canvas.width/2;
-			otherEnemy.y = 0 - test;//-50 + test;
+			otherEnemy.y = 50 - test;//-50 + test;
 			otherEnemy.width = 75;
 			test = test + 150;
 	//enemyPosition(){
@@ -83,9 +83,10 @@ function dodgeGame() {
 	
 	
 	stage.update();
+	playGameYeah();
 	
 }
-playGameYeah();
+
 
 
 
@@ -124,9 +125,6 @@ playGameYeah();
 
 //Not sure if this function is working but the logic within it is what Is important.
 function checkCollisions(){
-	//var xDist = user.x - enemy.x;
-	//var yDist = user.y - enemy.y;
-	//var distance = Math.sqrt(xDist*xDist + yDist*yDist);
 	var length = enemyList.length;
 	for(var i = 0; i < length; i++) {
 		var currentEnemy = enemyList[i];
@@ -146,8 +144,11 @@ function checkCollisions(){
 		}
 		if(xCheck && yCheck){
 			stage.removeChild(user);
+			stage.removeAllChildren();
+			cancelAnimationFrame(playGameYeah);
+			loseLife();
 			stage.update;
-			alert("game over your ball got touched");
+			alert("game over your balls got touched, no scones for you");
 		}
 	}
 }
@@ -157,13 +158,14 @@ function playGameYeah() {
 	setTimeout(function() {
 		requestAnimationFrame(playGameYeah);
 		
-		var length = enemyList.length;
-		for(var i = 0; i < length; i++) {
+		lengthOfScone = enemyList.length;
+		for(var i = 0; i < lengthOfScone; i++) {
 			randomNumberHolder = Math.floor(Math.random() * 2);
 			var currentEnemy = enemyList[i];
 			currentEnemy.y = currentEnemy.y + 5;
 			if(currentEnemy.y > stage.canvas.height + 50) {
 				currentEnemy.y = 0;
+				scones++;
 				if(randomNumberHolder == 0){
 					currentEnemy.x = stage.canvas.width/2;		
 				}
@@ -172,12 +174,6 @@ function playGameYeah() {
 				}
 			}
 		}
-		/*
-		enemy.y = enemy.y + 10;				
-		if (enemy.y > stage.canvas.height+50) { 
-			enemy.y = 0; 
-			stage.removeChild(enemy);
-		} */
 		checkCollisions();
 		stage.addChild(enemy);
 		stage.update(event); // important!! without the object does not move
