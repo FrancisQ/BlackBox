@@ -142,7 +142,7 @@ function resumeP(event) {
 }
 
 function retryP(event) {
-    removeAllChildren();
+    stage.removeAllChildren();
 	removePause();
 	count = countReset;
 	lives = 4;

@@ -1,4 +1,4 @@
-var games = [game0Tips, game1Tips, game2Tips, game3Tips];
+var gamePromp = [game0Tips, game1Tips, game2Tips, game3Tips];
 var tempContainer = new createjs.Container();
 var okB = new createjs.Bitmap("../img/ok.png");
 var cCenter = 360 * .5;

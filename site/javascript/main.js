@@ -1,4 +1,4 @@
-var stage;
+var stage = new createjs.Stage(document.getElementById("canvas"));
 
 var panel = new createjs.Bitmap("../img/menuPanel.png");
 var topCont = new createjs.Container();
@@ -51,7 +51,6 @@ var soundB, playB, leaderB;
 
 /* TEST independent canvas */
 function init() {
-	stage = new createjs.Stage(document.getElementById("canvas"));
 	/* sound(); */
 	menu2();
 	/* achievement()	 */
