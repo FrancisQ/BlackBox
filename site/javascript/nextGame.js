@@ -59,7 +59,7 @@
  
  
 //game 1 place holder
-function gameOne(difficulty) {
+function gameOne() {
 	ballGame();
 	complete++;
 	if (firstGame == true) {
@@ -70,7 +70,7 @@ function gameOne(difficulty) {
  
  
 //game 2 place holder
-function gameTwo(difficulty) {
+function gameTwo() {
 	topBar();
 	var backdrop = new createjs.Shape();
 	backdrop.graphics.beginFill("red").drawRect(0,0,300,500);
@@ -83,7 +83,7 @@ function gameTwo(difficulty) {
 	//stage.update();
  }
 //game 3 place holder
-function gameThree(difficulty) {
+function gameThree() {
 	topBar();
 	var backdrop = new createjs.Shape();
 	backdrop.graphics.beginFill("green").drawRect(0,0,canvasW,canvasY);
@@ -96,7 +96,7 @@ function gameThree(difficulty) {
  }
  
 
-function gameBoss(difficulty){
+function gameBoss(){
 	game1();
 }
 

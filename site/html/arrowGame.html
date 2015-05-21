@@ -14,6 +14,8 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 
 
 var stage = new createjs.Stage("myCanvas");
+
+
 //Top left
 var topLeft = new createjs.Shape();
 topLeft.graphics.beginStroke("gray");
@@ -70,18 +72,74 @@ stage.update();
 	var secAnswer;
 	var thirdAnswer;
 	
-	//var arrows = [arrowRight, arrowLeft];
+	var arrows = [pointRight, pointLeft];
+	var arrows2 = [pointRight2, pointLeft2];
+	var arrows3 = [pointRight3, pointLeft3];
 	var answer = ["right", "left"];
-	var num = 1;
-	var num2 = 0;
-	var num3 = 1;
+	var answer1 = ["right", "left"];
+	var answer2 = ["right", "left"];
+	var num = Math.floor(Math.random()*2);
+	var num2 = Math.floor(Math.random()*2);
+	var num3 = Math.floor(Math.random()*2);
 	var answered = 0;
-var pointRight = new createjs.Bitmap("bRight.png");	
-pointRight.scaleX = pointRight.scaleY = .5;
-pointRight.x = 
-pointRight.y = 0;
+	
+	arrows[num]();
+	arrows2[num2]();
+	arrows3[num3]();
+function pointLeft(){
+var pointLeft= new createjs.Shape();
+pointLeft.graphics.beginFill("red");
+pointLeft.graphics.beginStroke("orange");
+pointLeft.graphics.setStrokeStyle(2); // 2 pixel
+pointLeft.graphics.moveTo(75,50).lineTo(200, 50).lineTo(200,125).lineTo(75,125).lineTo(75,150).lineTo(25,85).lineTo(75,25).lineTo(75,50);
+stage.addChild(pointLeft);
+stage.update();
+}
+function pointLeft2(){
+var pointLeft2= new createjs.Shape();
+pointLeft2.graphics.beginFill("red");
+pointLeft2.graphics.beginStroke("orange");
+pointLeft2.graphics.setStrokeStyle(2); // 2 pixel
+pointLeft2.graphics.moveTo(75,200).lineTo(200, 200).lineTo(200,275).lineTo(75,275).lineTo(75,300).lineTo(25,235).lineTo(75,175).lineTo(75,200);
+stage.addChild(pointLeft2);
+stage.update();
+}
+function pointLeft3(){
+var pointLeft3= new createjs.Shape();
+pointLeft3.graphics.beginFill("red");
+pointLeft3.graphics.beginStroke("orange");
+pointLeft3.graphics.setStrokeStyle(2); // 2 pixel
+pointLeft3.graphics.moveTo(75,375).lineTo(200, 375).lineTo(200,450).lineTo(75,450).lineTo(75,475).lineTo(25,415).lineTo(75,350).lineTo(75,375);
+stage.addChild(pointLeft3);
+stage.update();
+}
+function pointRight(){
+var pointRight = new createjs.Shape();
+pointRight.graphics.beginFill("red");
+pointRight.graphics.beginStroke("orange");
+pointRight.graphics.setStrokeStyle(2); // 2 pixel
+pointRight.graphics.moveTo(75,50).lineTo(200, 50).lineTo(200, 25).lineTo(250, 85).lineTo(200,150).lineTo(200,125).lineTo(75,125).lineTo(75,50);
 stage.addChild(pointRight);
 stage.update();
+}
+function pointRight2(){
+var pointRight2 = new createjs.Shape();
+pointRight2.graphics.beginFill("red");
+pointRight2.graphics.beginStroke("orange");
+pointRight2.graphics.setStrokeStyle(2); // 2 pixel
+pointRight2.graphics.moveTo(75,225).lineTo(200, 225).lineTo(200, 200).lineTo(250, 255).lineTo(200,325).lineTo(200,300).lineTo(75,300).lineTo(75,225);
+stage.addChild(pointRight2);
+stage.update();
+}
+function pointRight3(){
+var pointRight3 = new createjs.Shape();
+pointRight3.graphics.beginFill("red");
+pointRight3.graphics.beginStroke("orange");
+pointRight3.graphics.setStrokeStyle(2); // 2 pixel
+pointRight3.graphics.moveTo(75,375).lineTo(200, 375).lineTo(200, 350).lineTo(250, 405).lineTo(200,475).lineTo(200,450).lineTo(75,450).lineTo(75,375);
+stage.addChild(pointRight3);
+stage.update();
+}
 
 	
 function checkFirstRight(){
