@@ -411,8 +411,9 @@ function checkIfOneWrong(){
 		thirdAnswer = true;
 		stage.removeAllChildren();
 		stage.update();
-		nextGame();
 		loseLife();
+		nextGame();
+
 		answered = 0;
 	} else if (firstAnswer == false ) {
 		alert("wronggg Already");
@@ -421,8 +422,9 @@ function checkIfOneWrong(){
 		thirdAnswer = true;
 		stage.removeAllChildren();
 		stage.update();
-		nextGame();
 		loseLife();
+		nextGame();
+		
 		
 		answered = 0;
 	} else if ( thirdAnswer == false) {
@@ -432,8 +434,9 @@ function checkIfOneWrong(){
 		thirdAnswer = true;
 		stage.removeAllChildren();
 		stage.update();
-		nextGame();
 		loseLife();
+		nextGame();
+
 		
 		answered = 0;
 	}

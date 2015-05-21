@@ -78,7 +78,7 @@ function handleTick(event) {
 					nextGame();
 				}
 			count = count-1;
-			stage.addChild(timerText);	
+			/* stage.addChild(timerText);	 */
 			stage.update();
 	   }
 

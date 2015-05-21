@@ -45,7 +45,7 @@ function endGame2(num, one, two, three) {
 	stage.removeAllChildren();
 	stage.removeAllEventListeners("click");
 	count = countReset;
-	lives = 4;
+	lives = 3;
 	difficulty = 1;
 	complete = 0;
 	currentScore = num;
@@ -213,7 +213,7 @@ function menuE(event) {
 	/* alert("going menu.."); */
 	removePause();
 	count = countReset;
-	lives = 4;
+	lives = 3;
 	difficulty = 1;
 	complete = 0;
 	currentScore = 0;
@@ -226,7 +226,7 @@ function retryE(event) {
 	removeEnd();
 	stage.removeAllChildren();
 	count = countReset;
-	lives = 4;
+	lives = 3;
 	difficulty = 1;
 	complete = 0;
 	currentScore = 0;

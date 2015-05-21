@@ -6,7 +6,7 @@
              //variables
              var game = new createjs.Shape();
 			 var games = [game1(), ballGame(), arrowGame(), gameBoss];
-             var randNum = Math.floor(Math.random()*3 )
+             var randNum = Math.floor(Math.random()*3 );
              var endButton = new createjs.Shape();
 			 
 
@@ -44,7 +44,8 @@
 				}
             }
 			else{
-			    stage.removeAllEventListeners();			
+			    stage.removeAllEventListeners();	
+				createjs.Ticker.removeEventListener("tick", handleTick);				
 				stage.removeAllChildren();
 				endGame2(currentScore, achievementOne, achievementTwo, achievementThree);				
 
