@@ -8,7 +8,7 @@
     <script src="../javascript/howler.js"></script>
 	<script src="../javascript/simpleGame.js"></script>
 	<script src="../javascript/topBar.js"></script>
-	<script src="../javascript/francis.js"></script>
+	
 	<script src="../javascript/topBar.js"></script>
 	<script src="../javascript/main.js"></script>
 	<script src="../javascript/francis.js"></script>
