@@ -1,4 +1,4 @@
-var gameTip = [game0Tips, game1Tips, game2Tips, game3Tips];
+var gameTip = [colorTip, ballTip, arrowTip, dodgeTip];
 
 var tempContainer = new createjs.Container();
 var okB = new createjs.Bitmap("../img/ok.png");
@@ -10,6 +10,7 @@ var promptP = new createjs.Bitmap("../img/prompt.png");
 
 //var gameCount;
 function instructions(event){
+	stage.removeAllChildren();
 	promptP.scaleY = promptP.scaleX = imgScale;
 	promptP.regX = 409 * .5;
 	promptP.regY = 518 * .5;
@@ -29,7 +30,7 @@ function instructions(event){
 	
 	
 	var background = new createjs.Shape();
-	background.graphics.beginFill("#b2b2b2").drawRect(0,0,canvasW, canvasY);
+	background.graphics.beginFill("#3c3c3c").drawRect(0,0,canvasW, canvasY);
 	background.alpha = .7;
 	tempContainer.addChild(background);
 	/* var okayButton = new createjs.Shape();
@@ -53,7 +54,7 @@ function instructions(event){
 	
 	
 	//Instructions for the first game
-	function game0Tips(){
+	function colorTip(){
 
 		
 	/* 	promptP.scaleY = promptP.scaleX = imgScale;
@@ -75,7 +76,7 @@ function instructions(event){
 	}
 	
 	//Instructions for the second game
-	function game1Tips() {
+	function ballTip() {
 
 		tempContainer.addChild(promptP);
 		
@@ -88,7 +89,7 @@ function instructions(event){
 	}
 	
 	//Instructions for the third game
-	function game2Tips() {
+	function arrowTip() {
 
 		tempContainer.addChild(promptP);
 		
@@ -101,7 +102,7 @@ function instructions(event){
 	}
 	
 	//Instructions for the fourth game
-	function game3Tips() {
+	function dodgeTip() {
 
 		tempContainer.addChild(promptP);
 		

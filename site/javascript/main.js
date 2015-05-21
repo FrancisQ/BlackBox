@@ -59,6 +59,7 @@ function init() {
 	menu2();
 	/* achievement(); */	
 	/* endGame2(); */
+	//ballGame();
 }
 
 function menu2(){

@@ -1,7 +1,7 @@
 function ballGame(event){
 	//Background
 	var background = new createjs.Shape();
-	background.graphics.beginFill("black").drawRect(0,0,300,500);
+	background.graphics.beginFill("#3c3c3c").drawRect(0,0,canvasW,canvasY);
 	stage.addChild(background);
 	
 	topBar();
@@ -15,13 +15,13 @@ function ballGame(event){
 
 	//shape
 	circle1 = new createjs.Shape();
-	circle1.graphics.beginStroke("gray");
+	/* circle1.graphics.beginStroke("gray"); */
 	circle1.graphics.setStrokeStyle(2); // 2 pixel
-	circle1.graphics.beginFill("red").drawCircle(xStart1,yStart1,radius1);
+	circle1.graphics.beginFill("#f53737").drawCircle(xStart1,yStart1,radius1);
 	circle1.setBounds(xStart1,yStart1,radius1);
 	container1.addChild(circle1);
 	//text
-	var text1 = new createjs.Text("1", "30px Times New Roman", "white");
+	var text1 = new createjs.Text("1", "30px Arial", "white");
 	text1.x = circle1.x + xStart1 - 10;
 	text1.y = circle1.y + yStart1 - 15;
 	container1.addChild(text1);
@@ -58,15 +58,15 @@ function ballGame(event){
 
 	//shape
 	circle2 = new createjs.Shape();
-	circle2.graphics.beginStroke("gray");
+
 	circle2.graphics.setStrokeStyle(2); // 2 pixel
-	circle2.graphics.beginFill("blue").drawCircle(xStart2,yStart2,radius2);
+	circle2.graphics.beginFill("#375bf5").drawCircle(xStart2,yStart2,radius2);
 	container2.addChild(circle2);
 	stage.addChild(container2);
 	container2.addEventListener("click",removeCircle2);
 	stage.update();
 	//text
-	var text2 = new createjs.Text("2", "30px Times New Roman", "white");
+	var text2 = new createjs.Text("2", "30px Arial", "white");
 	text2.x = circle2.x + xStart2 - 10;
 	text2.y = circle2.y + yStart2 - 15;
 	container2.addChild(text2);	
@@ -88,16 +88,16 @@ function ballGame(event){
 
 	//shape
 	circle3 = new createjs.Shape();
-	circle3.graphics.beginStroke("gray");
-	circle3.graphics.setStrokeStyle(2); // 2 pixel
-	circle3.graphics.beginFill("green").drawCircle(xStart3,yStart3,radius3);
+	/* circle3.graphics.beginStroke("gray");
+	circle3.graphics.setStrokeStyle(2); // 2 pixel */
+	circle3.graphics.beginFill("#f5c237").drawCircle(xStart3,yStart3,radius3);
 	container3.addChild(circle3);
 	stage.addChild(container3);
 	container3.addEventListener("click",removeCircle3);
 	stage.update();
 
 	//text
-	var text3 = new createjs.Text("3", "30px Times New Roman", "white");
+	var text3 = new createjs.Text("3", "30px Arial", "white");
 	text3.x = circle3.x + xStart3 - 10;
 	text3.y = circle3.y + yStart3 - 15;
 	container3.addChild(text3);
@@ -280,7 +280,7 @@ moveCircle();
 				directionY3 = true;
 			}
 		}
-		}, 1000/10);
+		}, 1000/25);
 		
 	}
 
@@ -290,20 +290,22 @@ moveCircle();
 	function answer1(event){
 		if(clicked3 == true){
 			if(clicked2 == true){
-				alert("correct 1st ball last");
+				/* alert("correct 1st ball last"); */
 				stage.removeChild(container1);
 				nextGame();
 			}
 			else{
 				clicked1 = false;
-				alert("2nd ball not touched - 1st ball bad");
+				/* alert("2nd ball not touched - 1st ball bad"); */
 				lives--;
+				nextGame();
 			}
 		}
 		else{
 				clicked1 = false;
-				alert("3rd ball not touched -1st ball bad");
+				/* alert("3rd ball not touched -1st ball bad"); */
 				lives--;
+				nextGame();
 			
 		}
 		
@@ -311,17 +313,19 @@ moveCircle();
 	function answer2(event){
 		if(clicked3 == true){
 			if(clicked2==true){
-				alert("good touch on ball 3 and 2");
+				/* alert("good touch on ball 3 and 2"); */
 				stage.removeChild(container2);
 			}
 			else{
-				alert("how did you even get here?");
+				/* alert("how did you even get here?"); */
+				nextGame();
 			}
 		}
 		else{
 				clicked2 = false;
-				alert("3rd ball not touched yet - 2nd bad");
+				/* alert("3rd ball not touched yet - 2nd bad"); */
 				lives--;
+				nextGame();
 		}
 }
 
@@ -331,11 +335,12 @@ moveCircle();
 				clicked3 = false;
 				clicked2 = false;
 				clicked1 = false;			
-				alert("wrong");
+				/* alert("wrong"); */
 				lives--;
+				nextGame();
 				}
 			stage.removeChild(container3);
-			alert("3rd first good");
+			/* alert("3rd first good"); */
 		}
 	}
 }

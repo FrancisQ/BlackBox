@@ -1,6 +1,7 @@
 //Pick a random game
 		
  function nextGame(event) {
+			stage.removeAllChildren();
 			leadAudio.play();
              //variables
              var game = new createjs.Shape();
