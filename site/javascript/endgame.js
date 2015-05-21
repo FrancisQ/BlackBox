@@ -41,7 +41,7 @@ var cCenter = canvasW * .5;
 	
 } 
  */
-function endGame2(num) {
+function endGame2(num, one, two, three) {
 	stage.removeAllChildren();
 	stage.removeAllEventListeners("click");
 	count = countReset;
@@ -49,6 +49,9 @@ function endGame2(num) {
 	difficulty = 1;
 	complete = 0;
 	currentScore = num;
+	a1 = one;
+    a2 = two;
+    a3 = three;
 	
 	headerb.scaleX = imgScale;
 	headerb.scaleY = imgScale;
@@ -99,19 +102,31 @@ function endGame2(num) {
 	ach1.regX = ach1.regY = 244 * .5;
 	ach1.x = cCenter - 65;
 	ach1.y = achievY;
-	ach1.alpha = noAchi;
+    if (a1 == false){
+	    ach1.alpha = noAchi;
+    } else {
+        ach1.alpha = yeAchi;
+    }
 	
 	ach2.scaleX = ach2.scaleY = achivScale;
 	ach2.regX = ach2.regY = 244 * .5;
 	ach2.x = cCenter;
 	ach2.y = achievY;
-	ach2.alpha = noAchi;
+	if (a2 == false){
+	    ach2.alpha = noAchi;
+    } else {
+        ach2.alpha = yeAchi;
+    }
 	
 	ach3.scaleX = ach3.scaleY = achivScale;
 	ach3.regX = ach3.regY = 244 * .5;
 	ach3.x = cCenter + 65;
 	ach3.y = achievY;
-	ach3.alpha = yeAchi;
+	if (a3 == false){
+	    ach3.alpha = noAchi;
+    } else {
+        ach3.alpha = yeAchi;
+    }
 	
 	var currentScoreTxt = new createjs.Text("YOUR SCORE", "22px Arial", "#f5cb37");
 	var currentScoreTxtUser = new createjs.Text(num, "25px Arial", "#f5cb37");
@@ -151,7 +166,7 @@ function endGame2(num) {
 	while (username.length > 3 || username.length < 3) { 
         username = prompt("Please enter a three letter name.", "AAA");
     }
-    postScore(username.toUpperCase(), currentScore, achieveOne, achieveTwo, achieveThree);
+    postScore(username.toUpperCase(), currentScore, a1, a2, a3);
 }
 
 //Posts user score
