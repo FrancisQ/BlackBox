@@ -413,7 +413,6 @@ function checkIfOneWrong(){
 		stage.update();
 		loseLife();
 		nextGame();
-
 		answered = 0;
 	} else if (firstAnswer == false ) {
 		alert("wronggg Already");
@@ -423,10 +422,9 @@ function checkIfOneWrong(){
 		stage.removeAllChildren();
 		stage.update();
 		loseLife();
-		nextGame();
-		
-		
+		nextGame();		
 		answered = 0;
+
 	} else if ( thirdAnswer == false) {
 		alert("wronggg Already");
 		firstAnswer = true;
@@ -436,8 +434,6 @@ function checkIfOneWrong(){
 		stage.update();
 		loseLife();
 		nextGame();
-
-		
 		answered = 0;
 	}
 	

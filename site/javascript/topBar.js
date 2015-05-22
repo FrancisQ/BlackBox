@@ -66,6 +66,8 @@ function handleTick(event) {
 			
 			stage.addChild(timerText);	
 			stage.update();
+<<<<<<< HEAD
+=======
 			if (count == 24){
 				stage.removeChild(timerText);
 				stage.addChild(pauseB);			
@@ -81,6 +83,7 @@ function handleTick(event) {
 			/* stage.addChild(timerText);	 */
 			stage.update();
 	   }
+>>>>>>> 9ac73f93b00d4c134e08083a9670c602e1ee31cb
 
 			count--;
 
