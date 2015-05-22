@@ -153,8 +153,8 @@ function achievement() {
 	stage.addChild(aLogo);
 	
 	//adding achievement icons with user
-	stage.addChild(u1,r1,a1, a2, a3);
-	stage.addChild(u2,r2);
+	/* stage.addChild(u1,r1,a1, a2, a3);
+	stage.addChild(u2,r2); */
 	
 	
 	// Button functionality 
