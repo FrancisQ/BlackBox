@@ -101,6 +101,9 @@ function removeTicker(){
 }
 	
 function loseLife(){
+    if (lives == 3) {
+	    achievementTwo();
+    }
 	lives--;
 }
 									
