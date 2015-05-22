@@ -15,23 +15,24 @@ var achieveThree2 = false
 			 
 
             if (lives > 0) {
-				if(complete == bossInc){					
-					nextChallenge = 3; 
-					complete = 0;
-					difficulty++;
-					bossInc += 3;
+				if(complete == 3){					
+					
 					if(firstTime){
-                        achievementThree();
+                        
 						removeTicker();
 						instructions();
 						firstTime = false;
                         						
 					}
 					else{
-						gameBoss();		
+						nextChallenge = randNum; 
+						complete = 0;
+						difficulty++;
 						count = countReset;
-						gameBoss();
-					}					
+						achievementThree();
+						games[randNum]();
+						
+					}			
 				}					
 				else{
 					nextChallenge = randNum;
@@ -43,7 +44,7 @@ var achieveThree2 = false
 						
 						count = countReset;
 						/* games[nextChallenge](); */
-						games[randNum]();
+						
 
 						
 					}
