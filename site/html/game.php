@@ -5,7 +5,6 @@
 	<script src="../javascript/preloadjs-0.6.0.combined.js"></script>
 	<script src="../javascript/easeljs-0.8.0.combined.js"></script>	
     <script src="../javascript/jquery-2.1.0.js"></script>
-
 	<script src="../javascript/ColoursGame.js"></script>
 	<script src="../javascript/simpleGame.js"></script>
 	<script src="../javascript/gamePrompt.js"></script>
