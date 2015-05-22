@@ -35,7 +35,7 @@ var firstTimeG3 = true;
 						
 					}
 				}
-            }
+            
 			else{
 			    stage.removeAllEventListeners();	
 				createjs.Ticker.removeEventListener("tick", handleTick);				
