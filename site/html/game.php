@@ -12,7 +12,6 @@
 	<script src="../javascript/leadergame.js"></script>
 	<script src="../javascript/arrowGame.js"></script>
 	<script src="../javascript/pausegame.js"></script>
-	<script src="../javascript/dodgeGame.js"></script>
 	<script src="../javascript/ballGame.js"></script>
 	<script src="../javascript/nextGame.js"></script>
 	<script src="../javascript/francis.js"></script>

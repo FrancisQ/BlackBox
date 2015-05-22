@@ -293,6 +293,7 @@ moveCircle();
 				/* alert("correct 1st ball last"); */
 				stage.removeChild(container1);
 				stage.removeAllChildren();
+				correctAudio.play();
 				stage.update();
 				nextGame();
 				getScore();
@@ -302,6 +303,7 @@ moveCircle();
 				/* alert("2nd ball not touched - 1st ball bad"); */
 				stage.removeAllChildren();
 				stage.update();
+				wrongAudio.play();
 				loseLife();
 				nextGame();
 			}
@@ -310,6 +312,7 @@ moveCircle();
 				clicked1 = false;
 				/* alert("3rd ball not touched -1st ball bad"); */
 				stage.removeAllChildren();
+				wrongAudio.play();
 				stage.update();
 				loseLife();
 				nextGame();
@@ -332,6 +335,7 @@ moveCircle();
 		else{
 				clicked2 = false;
 				/* alert("3rd ball not touched yet - 2nd bad"); */
+				wrongAudio.play();
 				stage.removeAllChildren();
 				stage.update();
 				loseLife();
@@ -346,6 +350,7 @@ moveCircle();
 				clicked2 = false;
 				clicked1 = false;			
 				/* alert("wrong"); */
+				wrongAudio.play();
 				stage.removeAllChildren();
 				stage.update();
 				loseLife();
