@@ -1,15 +1,33 @@
 * {
 	
 }
-.inst {
-	margin: 30px 0 0 0;
+.inst:nth-child(odd){
+	/* margin: 30px 0 0 0; */
 	padding: 30px;
 	width: 100%;
 	background: rgb(51, 51, 51);
-	border-radius: 0 50px 0px 50px;
+	/* border-radius: 50px 50px 0 0; */
+	border-top: dashed 1px gray;
 	
 }
 
+
+
+.inst:nth-child(even){
+	/* margin: 30px 0 0 0; */
+	padding: 30px;
+	width: 100%;
+	background: rgb(51, 51, 51);
+	/* border-radius: 0 0 50px 50px; */
+	border-top: dashed 1px gray;
+	
+}
+ p {
+	color: #DCDCDC;
+	text-shadow: 1px 1px 3px #3C3B3B;
+	font-size: 15px;
+	font-family: 'Roboto Condensed', sans-serif;
+}
 #how2Head {
 
 	text-align: center;
@@ -18,7 +36,12 @@
 
 }
 
-
+h3 {
+	color: white;
+	font-family: 'Fjalla One', sans-serif;
+	text-align: center;
+	font-size: 50px;
+}
 .fLeft {
 	float:left;
 	width: 50%;
@@ -41,4 +64,22 @@
 	text-shadow: 1px 1px 3px #3C3B3B;
 	font-size: 15px;
 	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.inst2 {
+	margin: 30px 0 0 0;
+	padding: 30px;
+	width: 100%;
+	background: rgb(51, 51, 51);
+	border-radius: 50px 50px 0px 0px;
+	
+}
+
+.inst2 p {
+	margin-top: 30px;
+	
+}
+.inst img {
+	height: 256px;
+	width: 144px;
 }
