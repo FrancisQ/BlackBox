@@ -90,8 +90,8 @@ function achievement() {
 
                 // achievement imgs 
                 var a1 =  new createjs.Bitmap("../img/achive1.png");
-                var a2 =  new createjs.Bitmap("../img/achive2.png");
-                var a3 =  new createjs.Bitmap("../img/achive3.png");
+                var a3 =  new createjs.Bitmap("../img/achive2.png");
+                var a2 =  new createjs.Bitmap("../img/achive3.png");
 
 	            a1.scaleX = a1.scaleY = .08;
 	            a1.regX = a1.regY = 244 * .5;
