@@ -1,5 +1,7 @@
 //Pick a random game
-		
+var achieveOne2 = false;
+var achieveTwo2 = false;
+var achieveThree2 = false
  function nextGame(event) {
 			stage.removeAllChildren();
 			leadAudio.play();
@@ -51,7 +53,7 @@
 			    stage.removeAllEventListeners();	
 				createjs.Ticker.removeEventListener("tick", handleTick);				
 				stage.removeAllChildren();
-				endGame2(currentScore, achievementOne, achievementTwo, achievementThree);				
+				endGame2(currentScore, achieveOne2, achieveTwo2, achieveThree2);				
 
 			}
 	 //variables
@@ -111,17 +113,17 @@ function gameBoss(){
 }
 
 function achievementOne() {
-    achieveOne = true;
+    achieveOne2 = true;
     alert("Achievement Get: First Blood");
 }
 
 function achievementTwo() {
-    achieveTwo = true;
+    achieveTwo2 = true;
     alert("Achievement Get: Reality Hurts");
 }
 
 function achievementThree() {
-    achieveThree = true;
+    achieveThree2 = true;
     alert("Achievement Get: Three's");
 }
 	
