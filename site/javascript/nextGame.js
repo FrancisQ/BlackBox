@@ -1,5 +1,7 @@
 //Pick a random game
-		
+var firstTimeG1 = true;
+var firstTimeG2 = true;
+var firstTimeG3 = true;
  function nextGame(event) {
 			stage.removeAllChildren();
 			leadAudio.play();
@@ -13,36 +15,22 @@
 			 
 
             if (lives > 0) {
-				if(complete == 3){					
-					
-					if(firstTime){
-                        
-						removeTicker();
-						instructions();
-						firstTime = false;
-                        						
-					}
-					else{
+				if(complete == 3){										
 						nextChallenge = randNum; 
 						complete = 0;
 						difficulty++;
 						count = countReset;
 						achievementThree();
-						games[randNum]();
-						
-					}			
+						removeTicker();
+						instructions();
+						//games[randNum]();
+								
 				}					
 				else{
+					
 					nextChallenge = randNum;
-					if(firstTime){
-						removeTicker();
-						instructions();						
-					}
-					else{
-						
-						count = countReset;
-						/* games[nextChallenge](); */
-						
+					removeTicker();
+					instructions();										
 
 						
 					}
