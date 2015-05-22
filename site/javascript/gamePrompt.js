@@ -76,6 +76,7 @@ function instructions(event){
 		}
 		else {
 			game1();
+		}
 	}
 	
 	//Instructions for the second game
@@ -157,3 +158,4 @@ function unPause(){
 				
 			}
 }
+	

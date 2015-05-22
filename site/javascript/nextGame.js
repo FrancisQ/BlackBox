@@ -15,7 +15,10 @@ var firstTimeG3 = true;
 			 
 
             if (lives > 0) {
-				if(complete == 3){										
+				if(complete == 3){		
+						if(difficulty == 1){
+							achievmentThree();
+						}
 						nextChallenge = randNum; 
 						complete = 0;
 						difficulty++;
