@@ -386,7 +386,7 @@ function checkBtmAnswer(){
 }
 function finished(){
 	if((firstAnswer && secAnswer && thirdAnswer)== true){
-		alert("good job!");
+		/* alert("good job!"); */
 		firstAnswer = true;
 		secAnswer = true;
 		thirdAnswer = true;
@@ -395,6 +395,7 @@ function finished(){
 		nextGame();
 		getScore();
 		answered = 0;
+		correctAudio.play();
 		
 	}
 	/* else if((firstAnswer && secAnswer && thirdAnswer)== false){
@@ -405,7 +406,8 @@ function finished(){
 function checkIfOneWrong(){
 	
 	if(secAnswer == false){
-		alert("wronggg Already");
+		/* alert("wronggg Already"); */
+		wrongAudio.play();
 		firstAnswer = true;
 		secAnswer = true;
 		thirdAnswer = true;
@@ -415,7 +417,8 @@ function checkIfOneWrong(){
 		nextGame();
 		answered = 0;
 	} else if (firstAnswer == false ) {
-		alert("wronggg Already");
+		/* alert("wronggg Already"); */
+		wrongAudio.play();
 		firstAnswer = true;
 		secAnswer = true;
 		thirdAnswer = true;
@@ -426,7 +429,8 @@ function checkIfOneWrong(){
 		answered = 0;
 
 	} else if ( thirdAnswer == false) {
-		alert("wronggg Already");
+		/* alert("wronggg Already"); */
+		wrongAudio.play();
 		firstAnswer = true;
 		secAnswer = true;
 		thirdAnswer = true;
