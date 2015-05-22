@@ -55,63 +55,50 @@ function instructions(event){
 	
 	//Instructions for the first game
 	function colorTip(){
-		if(firstTimeG1) {		
-			firstTimeG1 = false;
-		/* 	promptP.scaleY = promptP.scaleX = imgScale;
-			promptP.regX = 409 * .5;
-			promptP.regY = 518 * .5;
-			
-			promptP.x = cCenter;
-			promptP.y = cCenterY - 100; */
-			
-			
-			tempContainer.addChild(promptP);
-			
-			var instructionText = new createjs.Text("Touch the correct\ncolour of the word \nand not what the \nword says before\nthe timer runs out", "20px Verdana", "white");
-			instructionText.x = cCenter;
-			instructionText.y = cCenterY - 150;
-			instructionText.textAlign = "center";
-			tempContainer.addChild(instructionText);
-			//tempContainer.update();
-		}
-		else {
-			game1();
+
+		
+	/* 	promptP.scaleY = promptP.scaleX = imgScale;
+		promptP.regX = 409 * .5;
+		promptP.regY = 518 * .5;
+		
+		promptP.x = cCenter;
+		promptP.y = cCenterY - 100; */
+		
+		
+		tempContainer.addChild(promptP);
+		
+		var instructionText = new createjs.Text("Touch the correct\ncolour of the word \nand not what the \nword says before\nthe timer runs out", "20px Verdana", "white");
+		instructionText.x = cCenter;
+		instructionText.y = cCenterY - 150;
+		instructionText.textAlign = "center";
+		tempContainer.addChild(instructionText);
+		//tempContainer.update();	
 	}
 	
 	//Instructions for the second game
 	function ballTip() {
-		if(firstTimeG2){
-			firstTimeG2 = false;
-			tempContainer.addChild(promptP);
-			
-			var instructionText = new createjs.Text("Tap on the balls \nin descending \norder", "20px Verdana", "white");
-			instructionText.x = cCenter;
-			instructionText.y = cCenterY - 150;
-			instructionText.textAlign = "center";
-			tempContainer.addChild(instructionText);
-			//tempContainer.update();	
-		}
-		else{
-			ballGame();
-		}
+
+		tempContainer.addChild(promptP);
+		
+		var instructionText = new createjs.Text("Tap on the balls \nin descending \norder", "20px Verdana", "white");
+		instructionText.x = cCenter;
+		instructionText.y = cCenterY - 150;
+		instructionText.textAlign = "center";
+		tempContainer.addChild(instructionText);
+		//tempContainer.update();	
 	}
 	
 	//Instructions for the third game
 	function arrowTip() {
-		if(firstTimeG3){
-			firstTimeG3 = false;
-			tempContainer.addChild(promptP);
-			
-			var instructionText = new createjs.Text("Tap on the proper \nside of the arrow", "20px Verdana", "white");
-			instructionText.x = cCenter;
-			instructionText.y = cCenterY - 150;
-			instructionText.textAlign = "center";
-			tempContainer.addChild(instructionText);
-			//tempContainer.update();	
-		}
-		else{
-			arrowGame();
-		}
+
+		tempContainer.addChild(promptP);
+		
+		var instructionText = new createjs.Text("Tap on the proper \nside of the arrow", "20px Verdana", "white");
+		instructionText.x = cCenter;
+		instructionText.y = cCenterY - 150;
+		instructionText.textAlign = "center";
+		tempContainer.addChild(instructionText);
+		//tempContainer.update();	
 	}
 	
 	//Instructions for the fourth game
@@ -148,7 +135,7 @@ function unPause(){
 					arrowGame();				
 					break;
 				case 3:
-					dodgeGame();
+					gameBoss();
 					break;
 					
 				default:

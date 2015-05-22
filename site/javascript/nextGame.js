@@ -1,13 +1,7 @@
 //Pick a random game
-
 var achieveOne2 = false;
 var achieveTwo2 = false;
 var achieveThree2 = false
-
-var firstTimeG1 = true;
-var firstTimeG2 = true;
-var firstTimeG3 = true;
-
  function nextGame(event) {
 			stage.removeAllChildren();
 			leadAudio.play();
@@ -21,27 +15,40 @@ var firstTimeG3 = true;
 			 
 
             if (lives > 0) {
-				if(complete == 3){										
-						nextChallenge = randNum; 
-						complete = 0;
-						difficulty++;
-						count = countReset;
-						achievementThree();
+				if(complete == bossInc){					
+					nextChallenge = 3; 
+					complete = 0;
+					difficulty++;
+					bossInc += 3;
+					if(firstTime){
+                        achievementThree();
 						removeTicker();
 						instructions();
-						//games[randNum]();
-								
+						firstTime = false;
+                        						
+					}
+					else{
+						gameBoss();		
+						count = countReset;
+						gameBoss();
+					}					
 				}					
 				else{
-					
 					nextChallenge = randNum;
-					removeTicker();
-					instructions();										
+					if(firstTime){
+						removeTicker();
+						instructions();						
+					}
+					else{
+						
+						count = countReset;
+						/* games[nextChallenge](); */
+						games[randNum]();
 
 						
 					}
 				}
-            
+            }
 			else{
 			    stage.removeAllEventListeners();	
 				createjs.Ticker.removeEventListener("tick", handleTick);				
