@@ -170,7 +170,7 @@ function removeAchievement() {
 }
 
 // button functionality
-function backleader(event) {
+function backleader() {
 	removeAchievement();
 	leader();
 	buttonPressAudio.play();
