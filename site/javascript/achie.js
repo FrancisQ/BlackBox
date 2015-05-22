@@ -67,7 +67,7 @@ function achievement() {
 	
 	
 	// Users
-	$.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?s={score:-1}&l=10&apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
+	$.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?s={score:-1}&l=8&apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
 	    type: "GET",
 	    dataType: "json",
 	    contentType: "application/json",
@@ -153,8 +153,8 @@ function achievement() {
 	stage.addChild(aLogo);
 	
 	//adding achievement icons with user
-	/* stage.addChild(u1,r1,a1, a2, a3);
-	stage.addChild(u2,r2); */
+	stage.addChild(u1,r1,a1, a2, a3);
+	stage.addChild(u2,r2);
 	
 	
 	// Button functionality 
@@ -170,7 +170,7 @@ function removeAchievement() {
 }
 
 // button functionality
-function backleader() {
+function backleader(event) {
 	removeAchievement();
 	leader();
 	buttonPressAudio.play();
