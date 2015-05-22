@@ -67,7 +67,7 @@ function achievement() {
 	
 	
 	// Users
-	$.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?s={score:-1}&l=10&apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
+	$.ajax({ url: "https://api.mongolab.com/api/1/databases/scores/collections/users?s={score:-1}&l=8&apiKey=lNSMtfgEiRFg6AMmRoF-buHNYoRynthh",
 	    type: "GET",
 	    dataType: "json",
 	    contentType: "application/json",

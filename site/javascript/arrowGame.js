@@ -392,6 +392,10 @@ function finished(){
 		thirdAnswer = true;
 		stage.removeAllChildren();
 		stage.update();
+        if (firstGame == true) {
+	    achievementOne();
+        firstGame = false;
+        }
 		nextGame();
 		getScore();
 		answered = 0;
