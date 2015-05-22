@@ -295,6 +295,10 @@ moveCircle();
 				stage.removeAllChildren();
 				correctAudio.play();
 				stage.update();
+                if (firstGame == true) {
+	                achievementOne();
+                    firstGame = false;
+                }
 				nextGame();
 				getScore();
 			}

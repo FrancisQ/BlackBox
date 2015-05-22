@@ -1,7 +1,7 @@
 //Pick a random game
-var firstTimeG1 = true;
-var firstTimeG2 = true;
-var firstTimeG3 = true;
+var achieveOne2 = false;
+var achieveTwo2 = false;
+var achieveThree2 = false
  function nextGame(event) {
 			stage.removeAllChildren();
 			leadAudio.play();
@@ -15,6 +15,7 @@ var firstTimeG3 = true;
 			 
 
             if (lives > 0) {
+<<<<<<< HEAD
 				if(complete == 3){		
 						if(difficulty == 1){
 							achievmentThree();
@@ -24,26 +25,47 @@ var firstTimeG3 = true;
 						difficulty++;
 						count = countReset;
 						achievementThree();
+=======
+				if(complete == bossInc){					
+					nextChallenge = 3; 
+					complete = 0;
+					difficulty++;
+					bossInc += 3;
+					if(firstTime){
+                        achievementThree();
+>>>>>>> 8b3660a5cd259c643ca8f6c62f3ae19927bdec7c
 						removeTicker();
 						instructions();
-						//games[randNum]();
-								
+						firstTime = false;
+                        						
+					}
+					else{
+						gameBoss();		
+						count = countReset;
+						gameBoss();
+					}					
 				}					
 				else{
-					
 					nextChallenge = randNum;
-					removeTicker();
-					instructions();										
+					if(firstTime){
+						removeTicker();
+						instructions();						
+					}
+					else{
+						
+						count = countReset;
+						/* games[nextChallenge](); */
+						games[randNum]();
 
 						
 					}
 				}
-            
+            }
 			else{
 			    stage.removeAllEventListeners();	
 				createjs.Ticker.removeEventListener("tick", handleTick);				
 				stage.removeAllChildren();
-				endGame2(currentScore, achievementOne, achievementTwo, achievementThree);				
+				endGame2(currentScore, achieveOne2, achieveTwo2, achieveThree2);				
 
 			}
 	 //variables
@@ -103,17 +125,17 @@ function gameBoss(){
 }
 
 function achievementOne() {
-    achieveOne = true;
+    achieveOne2 = true;
     alert("Achievement Get: First Blood");
 }
 
 function achievementTwo() {
-    achieveTwo = true;
+    achieveTwo2 = true;
     alert("Achievement Get: Reality Hurts");
 }
 
 function achievementThree() {
-    achieveThree = true;
+    achieveThree2 = true;
     alert("Achievement Get: Three's");
 }
 	

@@ -16,8 +16,8 @@ var currentScoreTxtUser = new createjs.Text("0000", "25px Arial", "#f5cb37");
 
 var achtxt2 = new createjs.Bitmap("../img/achtxt2.png");
 var ach1 = new createjs.Bitmap("../img/achive1.png");
-var ach2 = new createjs.Bitmap("../img/achive2.png");
-var ach3 = new createjs.Bitmap("../img/achive3.png");
+var ach3 = new createjs.Bitmap("../img/achive2.png");
+var ach2 = new createjs.Bitmap("../img/achive3.png");
 
 
 var retryY = 568 -(305 * .5);
