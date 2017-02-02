@@ -2,26 +2,21 @@ var pauseB = new createjs.Bitmap("../img/pause.png");
 
 function topBar(event){
 	pauseB.scaleY = pauseB.scaleX = imgScale;
-	
-	 
 	pauseB.regX = 104;
-	
 	pauseB.x = canvasW;
 	pauseB.y = 0;
-	
 	stage.addChild(pauseB);
-	
 	pauseB.addEventListener("click", pauseF);
 	/* count = 30; */
 	/* pauseButton(); */
 	//timer
-	
+
 	var ticker = createjs.Ticker.addEventListener("tick", handleTick);
 	createjs.Ticker.setInterval(1000);
-	 
-}//topBar end 
-	 
-	 
+
+}//topBar end
+
+
 function handleTick(event) {
 
 	   // Actions carried out each tick (aka frame)
@@ -45,13 +40,13 @@ function handleTick(event) {
 				score2();
 				stage.update();
 		}
-		
+
 		//Things that change go in here!!
 	  if (!event.paused) {
 
 
 			stage.addChild(timerText);
-			stage.addChild(pauseB);	
+			stage.addChild(pauseB);
 			stage.update();
 
 			if (count <= 0){
@@ -62,50 +57,50 @@ function handleTick(event) {
 
 				}
 			count = count-1;
-			stage.addChild(timerText);	
+			stage.addChild(timerText);
 			stage.update();
 	   }
 
 
-			
-			
-			
+
+
+
 
 				}
-				
+
 			count--;
-	   
+
 		}
 
 
-	
+
 
 	stage.update();
 
 }// ticker end
 
 function pauseF(event) {
-	
+
 	removeTicker();
 	pause2();
-	
+
 }
 
 
 function removeTicker(){
 	createjs.Ticker.removeEventListener("tick", handleTick);
 }
-	
+
 function loseLife(){
 	lives--;
 }
-									
+
 //Score
 function getScore(){
 	currentScore =+ (count * difficulty);
 		return currentScore;
 }
-			
+
 function score2() {
 	var scoreText = new createjs.Text(currentScore, "20px Verdana", "orange");
 	scoreText.x = 100;

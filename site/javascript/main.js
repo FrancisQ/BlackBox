@@ -30,7 +30,7 @@ var soundB, playB, leaderB;
 	var audio = new Howl({
 	urls: ['../music/theme2.mp3'],
 	loop: true}).play();
-//Leaderboard transition	
+//Leaderboard transition
 	var leadAudio = new Howl({
 	urls: ['../music/transition.mp3'],
 	})
@@ -42,11 +42,11 @@ var soundB, playB, leaderB;
 	var wrongAudio = new Howl({
 	urls: ['../music/beep.mp3'],
 	})
-//Alternative button press sound	
+//Alternative button press sound
 	var buttonPressAudio = new Howl({
 	urls: ['../music/click.mp3'],
 	})
-//When you select the play game option sound will play	
+//When you select the play game option sound will play
 	var introAudio = new Howl({
 	urls: ['../music/intro.mp3'],
 	})
@@ -58,55 +58,55 @@ function init() {
 	/* sound(); */
 	menu2();
 	//arrowGame();
-	/* achievement(); */	
+	/* achievement(); */
 	/* endGame2(100, false, false, false); */
 	//ballGame();
 }
 
 function menu2(){
-	
+
 	// main pannel
 	panel.scaleX = panel.scaleY = imgScale;
-	
-	
+
+
 	// play button
-	
+
 	playB = new createjs.Shape();
 	playB.graphics.beginFill("yellow");
 	playB.graphics.moveTo(cCenter, cCenterY).lineTo(canvasW, 190).lineTo(canvasW, canvasY).lineTo(cCenter, canvasY).lineTo(cCenter, cCenterY);
 	playB.alpha = alphaV;
-	
+
 	// sound button
 	soundB = new createjs.Shape();
 	soundB.graphics.beginFill("green");
 	soundB.graphics.moveTo(cCenter, cCenterY).lineTo(0, 190).lineTo(0, canvasY).lineTo(cCenter, canvasY).lineTo(cCenter, cCenterY);
 	soundB.alpha = alphaV;
-	
-	
+
+
 	//leader button
 	leaderB = new createjs.Shape();
 	leaderB.graphics.beginFill("cyan");
 	leaderB.graphics.moveTo(cCenter, cCenterY).lineTo(canvasW, 190).lineTo(canvasW, 35).lineTo(0, 35).lineTo(0,190);
 	leaderB.alpha = alphaV;
-	
-	
+
+
 	// adding to screen
 	stage.addChild(panel);
 	stage.addChild(playB);
 	stage.addChild(soundB);
 	stage.addChild(leaderB);
-	
-	
-	
+
+
+
 	//button functionality
 	playB.addEventListener("click", playT);
 	soundB.addEventListener("click", soundT);
 	leaderB.addEventListener("click", leaderT);
-	
-	
-	
+
+
+
 	stage.update();
-	
+
 }
 
 // removing the panel
@@ -115,7 +115,7 @@ function removeMain() {
 	stage.removeChild(playB);
 	stage.removeChild(soundB);
 	stage.removeChild(leaderB);
-	
+
 	stage.update();
 }
 
@@ -151,21 +151,13 @@ function soundT(event) {
 		Howler.unmute();
 		audio.play();
     }
-	
+
 }
 
-// when clicking leader 
+// when clicking leader
 function leaderT(event) {
 	removeMain();
 	leader();
 	/* alert("leaderboards.."); */
 	buttonPressAudio.play();
 }
-
-
-
-
-
-
-
-

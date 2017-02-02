@@ -5,28 +5,21 @@
 		<title> Black Box | Game </title>
 		<link href="../img/BBlogo.png" type="image/x-icon" rel="icon">
 		<link href="../img/BBlogo.png" type="image/x-icon" rel="shortcut icon">
-		
 		<!--Boostrap style sheet-->
 		<link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
-		
 		<!--Global style sheet-->
 		<link href="../css/base.css" type="text/css" rel="stylesheet">
-		
-
 		<!--Specific site style sheet-->
 		<link href="../css/game.css" type="text/css" rel="stylesheet">
 		<link href="../css/canvas.css" rel="stylesheet" >
-		
 		<!-- Game Scripts -->
 		<script src="../javascript/preloadjs-0.6.0.combined.js"></script>
 		<script src="../javascript/easeljs-0.8.0.combined.js"></script>
 		<script src="../javascript/jquery-2.1.0.js"></script>
 		<script src="../javascript/howler.js"></script>
-		
 		<script src="../javascript/simpleGame.js"></script>
 		<script src="../javascript/francis.js"></script>
 		<script src="../javascript/topBar.js"></script>
-
 		<script src="../javascript/main.js"></script>
 		<script src="../javascript/francis.js"></script>
 		<script src="../javascript/ColoursGame.js"></script>
@@ -35,14 +28,19 @@
 		<script src="../javascript/pausegame.js"></script>
 		<script src="../javascript/endgame.js"></script>
 		<script src="../javascript/leadergame.js"></script>
-		
+
+		<!--  -->
+		<script src="../javascript/arrowGame.js"></script>
+		<script src="../javascript/ballGame.js"></script>
+		<script src="../javascript/achie.js"></script>
+
 	</head>
 
 	<body onload="init();">
 		<div id="wrapper">
-		
+
 			<!--Nav -->
-			
+
 			<div id="main-Nav">
 				<div id="nav-cont">
 					<ul>
@@ -52,7 +50,7 @@
 					</ul>
 				</div>
 			</div>
-			
+
 			<!--Contents Body-->
 			<div id="main-body" class="body-style">
 				<div id="MainLogo">
@@ -61,11 +59,10 @@
 				</div>
 				<div id="content">
 					<div id="inner">
-						
 						<canvas id="canvas" width="320" height="568" > </canvas>
 					</div>
 					<!--Footer -->
-			
+
 					<div id="main-footer">
 						<div id="nav-footer" class="imgCent">
 							<!-- <embed src="../music/theme.mp3" autostart="false" loop="true"> -->
@@ -74,7 +71,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 	</body>
 </html>
